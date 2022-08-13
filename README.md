@@ -1,6 +1,6 @@
-JOBBOK: 
+JOBBOOK: 
 
-Jobbok es un marketplace dedicado a la comercializacion de servicios y productos profesionales. 
+Jobbook es un marketplace dedicado a la comercializacion de servicios y productos profesionales. 
 
 
 En este marketplace exiten 2 tipos de usuarios: 
