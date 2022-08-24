@@ -12,6 +12,6 @@ Visitante: Usuario que visita el sitio en busca de ayuda profesional, el cual po
 ### Referentes:
 1. https://co.triko.co/
 2. https://www.workana.com/es/
-3. https://www.guru.com/
+3. https://www.guru.com/git
 4. https://www.freelancer.com.co/
-5. 
+5. https://www.fiver.com
