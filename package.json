@@ -1,0 +1,24 @@
+{
+  "name": "jobbook",
+  "version": "1.0.0",
+  "description": "Market place para publicacion y adquisicion de servicios",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DABELOP/grupo_1_jobbook.git"
+  },
+  "author": "Juan Guillermo Morales, Paola Betancur, Danilo Bedoya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DABELOP/grupo_1_jobbook/issues"
+  },
+  "homepage": "https://github.com/DABELOP/grupo_1_jobbook#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
