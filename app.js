@@ -10,3 +10,7 @@ app.get('/busqueda-servicios',(req,res)=>{
     res.sendFile(path.join(path.join(__dirname,'views/busqueda_servicios.html')));
 });
 
+app.get('/servicio',(req,res)=>{
+    res.sendFile(path.join(path.join(__dirname,'views/detalle_servicio.html')));
+});
+
