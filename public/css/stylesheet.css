@@ -1,7 +1,19 @@
-.estrellaFiltros{
-    width: 20px;
+:root{                  /*los colores con 2 son mas claros*/
+--azul-oscuro:#253649;
+--azul-oscuro2:#364f6b;
+--azul-claro:#47688d;
+--azul-claro2:#5b81ac;
+--gris-claro:#e6e6e6;
+--gris-oscuro:#6c6c6c;
 }
 
-.botonBusquedaPrecio{
-    width: 20px;
+
+
+/*FORMATOS GENERALES PARA LA PAGINA*/
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: var(--gris-claro);
 }
