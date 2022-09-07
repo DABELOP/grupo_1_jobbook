@@ -1,7 +1,121 @@
+:root{                  /*los colores con 2 son mas claros*/
+--azul-oscuro:#253649;
+--azul-oscuro2:#364f6b;
+--azul-claro:#47688d;
+--azul-claro2:#5b81ac;
+--gris-claro:#e6e6e6;
+--gris-oscuro:#6c6c6c;
+}
+
+
+
+/*FORMATOS GENERALES PARA LA PAGINA*/
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: var(--gris-claro);
+}
+
+
+/*FORMATOS DE PAGINA BUSQUEDA_SERVICIOS.html*/
+
+.contenido{
+    display:flex;
+}
+
+
+.listaCategorias, .listaUbicaciones{
+list-style: none;
+margin:0;
+padding:0;
+}
+
+.listaCategorias li, .listaUbicaciones li{
+margin-bottom: 6px;    
+}
+
+.listaCategorias li a, .listaUbicaciones li a{
+text-decoration: none;
+color:var(--gris-oscuro);
+}
+
+.contenedorFiltros{
+    margin-top:50px;
+    width: 15%;
+    margin-left:20px;
+}
+
+.filtroPrecio input{
+    width: 70px;
+    margin:0;
+}
+
+.contenedorFiltros h3{
+    margin:35px 0px 20px 0px;
+}
+
+.contenedorBusquedas{
+    width: 80%;
+    background-color: white;
+}
+
+.contenedorCalificacion img{
+    width: 100px;
+}
+
 .estrellaFiltros{
-    width: 20px;
+    width: 120px;
 }
 
 .botonBusquedaPrecio{
     width: 20px;
+    display:block;
+    margin-top: 10px;
+    margin-left: 70px;
+}
+
+.contenedorDetalleServicio{
+    display:flex;
+    border:solid var(--gris-oscuro) 1px;
+    border-radius:8px;
+    padding:20px;
+}
+
+
+.contenedorTituloCalificacion{
+    display:flex;
+}
+
+.contenedorFotoPerfil img{
+    width: 110px;
+    margin-top: 20px;
+}
+
+.contenedorFotoPerfil{
+    width: 25%;
+}
+
+.contenedorTitulo{
+    width: 70%;
+}
+
+.contenedorCalificacion{
+    width: 30%;
+}
+
+.contenedorDescripcion{
+    width: 70%;
+}
+
+.contenedorDerechoBusqueda p{
+margin-bottom:0px;
+margin-top:10px;
+}
+
+
+.contenedorTitulo h2{
+    margin-top:0px;
+    margin-bottom:10px ;
 }

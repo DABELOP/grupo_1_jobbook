@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>jobbook-Busqueda servicios</title>
 </head>
 <body>
+    <div class="filtroDesplegable">
+    <select name="filtroDesplegable" id="filtroDesplegable" aria-placeholder="Ordenar por">
+        <option value="menor-precio">Precio menor a mayor</option>
+        <option value="mayor-precio">Precio mayor a menor</option>
+        <option value="mayor-trabajos">Mayor trabajos realizados</option>
+        <option value="menor-trabajos">Menor trabajos realizados</option>
+      </select>
+    </div>
 
-<p>Ordenar por</p>
 
+<div class="contenido">
 <div class="contenedorFiltros">
     <h3>Categorias</h3>
     <ul class="listaCategorias">
@@ -20,15 +32,14 @@
     </ul>
 
     <h3>Calificación</h3>
-    <img class="estrellaFiltros" src="images/star.jpg" alt="1star">
+    <img class="estrellaFiltros" src="images/estrellas/5-estrella.png" alt="5star">
 
     <h3>Precio</h3>
         <div class="filtroPrecio">
-            <input type="number">
-            <p>-</p>
-            <input type="number">
+            <input type="number" name="precioMinimoFiltro" id="precioMinimoFiltro" placeholder="Mínimo">
+            <input type="number" name="precioMaximoFiltro" id="precioMaximoFiltro" placeholder="Máximo">
         </div>
-    <img class="botonBusquedaPrecio" src="images/busquedaPrecio.jpg" alt="botonBusquedaPrecio">
+    <a href=""><img class="botonBusquedaPrecio" src="images/busquedaPrecio.jpg" alt="botonBusquedaPrecio"></a>
 
     <h3>Ubicación</h3>
     <ul class="listaUbicaciones">
@@ -42,7 +53,7 @@
 
 
 <div class="contenedorBusquedas">
-    <div id="contenedorDetalleServicio">
+    <div class="contenedorDetalleServicio">
         <div class="contenedorFotoPerfil">
             <img src="images/fotoPerfil.jpg" alt="">
         </div>
@@ -55,7 +66,7 @@
                     <p class="ciudadUbicacion">ciudad Ubicacion</p>
                 </div>
                 <div class="contenedorCalificacion">  
-                    <img src="images/star.jpg" alt="">
+                    <img src="images/estrellas/5-estrella.png" alt="estrella">
                     <p class="trabajosRealizados">333 trabajos realizados</p>
                     <div clas="contenedorPrecioTarifa">
                         <p class="precio">$0.000</p>
@@ -63,11 +74,12 @@
                     </div>
                 </div>
             </div>
-            <div class="contenedorDescripcion">  
-                <p>descripcion Lorem ipsum dolor sit amet consectetur adipisicing elit. Non libero officiis quod id minima autem nobis voluptas rerum cum fuga velit nam similique, porro dolorum animi laboriosam natus facilis corrupti!</p> 
-            </div>
+                <div class="contenedorDescripcion">  
+                    <p>descripcion Lorem ipsum dolor sit amet consectetur adipisicing elit. Non libero officiis quod id minima autem nobis voluptas rerum cum fuga velit nam similique, porro dolorum animi laboriosam natus facilis corrupti!</p> 
+                </div>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>
