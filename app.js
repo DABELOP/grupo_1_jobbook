@@ -9,6 +9,9 @@ app.listen(3050,()=>console.log('Servidor corriendo en puerto 3050'));
 app.get('/busqueda-servicios',(req,res)=>{
     res.sendFile(path.join(path.join(__dirname,'views/busqueda_servicios.html')));
 });
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(path.join(__dirname,'views/home.html')));
+});
 
 app.get('/servicio',(req,res)=>{
     res.sendFile(path.join(path.join(__dirname,'views/detalle_servicio.html')));
