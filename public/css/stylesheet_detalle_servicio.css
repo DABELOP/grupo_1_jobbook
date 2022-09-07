@@ -1,0 +1,61 @@
+
+.imagenMiniatura{
+    width: 100px;
+}
+
+.imagenPrincipal{
+    width: 500px;
+}
+
+.estrellasCalificacion{
+    width: 100px;
+}
+
+.estrellasSugerido{
+    width: 100px;
+}
+
+.imagenSugerido{
+    width: 100px;
+}
+
+.categorias{
+    display:flex;
+    list-style: none;
+}
+
+.categorias li{
+    margin-left: 10px;
+}
+
+.categorias a {
+    text-decoration: none;   
+}
+
+.contenedorDetalle{
+    display:flex;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.contenedorImagenesMiniatura{
+    display:flex;
+    flex-direction: column;
+    width: 15%;
+}
+
+.contenedorImagenPrincipal{
+    width: 45%;
+}
+
+.descripcionServicio{
+    width:40% ;
+    border:solid var(--gris-oscuro) 1px;
+    border-radius: 8px;
+    padding:20px;
+}
+
+.imagenMiniatura{
+    margin:20px
+}

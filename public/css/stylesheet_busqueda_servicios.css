@@ -1,11 +1,6 @@
 /*FORMATOS DE PAGINA BUSQUEDA_SERVICIOS.html*/
 
 
-.contenido{
-    display:flex;
-}
-
-
 .listaCategorias, .listaUbicaciones{
 list-style: none;
 margin:0;
@@ -21,11 +16,6 @@ text-decoration: none;
 color:var(--gris-oscuro);
 }
 
-.contenedorFiltros{
-    margin-top:50px;
-    width: 15%;
-    margin-left:20px;
-}
 
 .filtroPrecio input{
     width: 70px;
@@ -34,15 +24,15 @@ color:var(--gris-oscuro);
 
 .contenedorFiltros h3{
     margin:35px 0px 20px 0px;
+    color:var(--azul-oscuro);
 }
 
 .contenedorBusquedas{
-    width: 80%;
     background-color: white;
 }
 
 .contenedorCalificacion img{
-    width: 100px;
+    width: 80px;
     padding:10px;
 }
 
@@ -58,7 +48,7 @@ color:var(--gris-oscuro);
 }
 
 .contenedorDetalleServicio{
-    display:flex;
+    
     border:solid var(--gris-oscuro) 1px;
     border-radius:8px;
     padding:20px;
@@ -75,9 +65,6 @@ color:var(--gris-oscuro);
     margin-top: 20px;
 }
 
-.contenedorFotoPerfil{
-    width: 25%;
-}
 
 .contenedorTitulo{
     width: 70%;
@@ -88,8 +75,7 @@ color:var(--gris-oscuro);
 }
 
 .contenedorDescripcion{
-    width: 65%;
-    text-align: justify;
+    display: none;
 }
 
 .contenedorDerechoBusqueda p{
@@ -101,6 +87,7 @@ margin-top:10px;
 .contenedorTitulo h2{
     margin-top:0px;
     margin-bottom:10px ;
+    color: var(--azul-oscuro);
 }
 
 .ciudadUbicacion{
@@ -109,4 +96,59 @@ margin-top:10px;
 
 .precio{
     font-size: 18px;
+}
+
+.contenedorFiltros{
+    display:none;
+}
+
+
+
+@media(min-width: 460px){ /* DISEÑO PARA TABLETS*/
+
+    .contenedorCalificacion img{
+        width: 100px;
+    }
+
+    .contenedorDescripcion{
+        display: block;
+    }
+
+}
+
+
+@media(min-width: 790px){ /*DISEÑO PARA PC*/
+
+    .contenedorCalificacion img{
+        width: 100px;
+    }
+
+    .contenedorDetalleServicio{
+        display:flex;
+    }
+
+    .contenido{
+        display:flex;
+    }
+
+    .contenedorFiltros{
+        display:block;
+        margin-top:50px;
+        width: 15%;
+        margin-left:20px;
+    }
+
+    .contenedorBusquedas{
+        width: 80%;
+    }
+
+    .contenedorFotoPerfil{
+        width: 25%;
+    }
+
+    .contenedorDescripcion{
+        display:block;
+        width: 65%;
+        text-align: justify;
+    }
 }
