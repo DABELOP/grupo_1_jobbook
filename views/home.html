@@ -14,6 +14,9 @@
 </head>
 <body>
     <header>
+        <a class="burger-menu">
+            <i class="fas fa-bars"></i>
+        </a>
         <nav class="top-nav-bar-left">
             <a href="#" >
                 <svg width="200" height="40" viewBox="0 0 478 108" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo">
@@ -32,7 +35,7 @@
             <button class="button">Registrar</button>
         </nav>
     </header>
-    <nav class="categorias">
+    <nav class="categories">
         <ul>
             <li>Ingeniería</li>
             <li>Abogacia</li>
@@ -49,49 +52,56 @@
     </nav>
     <main>
         <section>
-            <h2>Encuentra el profesional perfecto para tu negocio</h2>
-            <form action="">
-                <input type="text" placeholder="servicios abogados">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                <div>
+            <div class="top-container-image">
+                <img src="/images/home-main.jpg" alt="professional">
+                <h2>Encuentra el profesional perfecto para tu negocio</h2>
+                <form action="" class="main-search">
+                    <input type="search" placeholder="servicios abogados">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <nav class="categories-popular">
                     <p>popular:</p>
-                    <button>contador</button>
-                    <button>ingeniero</button>
-                    <button>psicologo</button>
-                    <button>mecanico</button>
-                </div>
-            </form>
+                    <ul>
+                        <li>contador</li>
+                        <li>ingeniero</li>
+                        <li>psicologo</li>
+                        <li>mecanico</li>
+                    </ul>
+                </nav>
+            </div>
         </section>
         <section>
             <h2>Servicios profesionales populares</h2>
-            <article>
-                <img src="/images/img-cafetera-moulinex.jpg" alt="img-cafetera-moulinex.jpg">                
-                <div class="price-discount">
-                    <p class="price">Asesoria financiera</p>
-                    <h3 class="discount">Declaración de renta</h3>
-                </div>
-            </article>
-            <article>
-                <img src="/images/img-cafetera-moulinex.jpg" alt="img-cafetera-moulinex.jpg">                
-                <div class="price-discount">
-                    <p class="price">Terapia emocional</p>
-                    <h3 class="discount">Consulta un psicologo</h3>
-                </div>
-            </article>
-            <article>
-                <img src="/images/img-cafetera-moulinex.jpg" alt="img-cafetera-moulinex.jpg">                
-                <div class="price-discount">
-                    <p class="price">Diseña tu casa</p>
-                    <h3 class="discount">Arquitectura tradicional</h3>
-                </div>
-            </article>
-            <article>
-                <img src="/images/img-cafetera-moulinex.jpg" alt="img-cafetera-moulinex.jpg">                
-                <div class="price-discount">
-                    <p class="price">Diseño de procesos</p>
-                    <h3 class="discount">Ingeniería conceptual</h3>
-                </div>
-            </article>
+            <div class="container-popular-services">
+                <article class="popular-service">
+                    <img src="/images/popular-services-financial.jpg" alt="img-cafetera-moulinex.jpg">                
+                    <div class="price-discount">
+                        <p class="price">Asesoria financiera</p>
+                        <h3 class="discount">Declaración de renta</h3>
+                    </div>
+                </article>
+                <article>
+                    <img src="/images/img-cafetera-moulinex.jpg" alt="img-cafetera-moulinex.jpg">                
+                    <div class="price-discount">
+                        <p class="price">Terapia emocional</p>
+                        <h3 class="discount">Consulta un psicologo</h3>
+                    </div>
+                </article>
+                <article>
+                    <img src="/images/img-cafetera-moulinex.jpg" alt="img-cafetera-moulinex.jpg">                
+                    <div class="price-discount">
+                        <p class="price">Diseña tu casa</p>
+                        <h3 class="discount">Arquitectura tradicional</h3>
+                    </div>
+                </article>
+                <article>
+                    <img src="/images/img-cafetera-moulinex.jpg" alt="img-cafetera-moulinex.jpg">                
+                    <div class="price-discount">
+                        <p class="price">Diseño de procesos</p>
+                        <h3 class="discount">Ingeniería conceptual</h3>
+                    </div>
+                </article>
+            </div>
         </section>
         <section>
             <h2>Necesitas encargar un trabajo</h2>
