@@ -13,7 +13,7 @@
     font-family: 'Montserrat','sans-serif';
 }
 body {
-        max-width: 1200px;
+        max-width: 1300px;
         margin: auto;
         background-color: var(--gris-claro);
         color: var(--azul-oscuro);
@@ -22,44 +22,40 @@ header{
     display: flex;
     align-items: center;
     margin: 10px;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .top-nav-bar-left {
     display: flex;
     align-items: center;
-    width: 50%;
+    
 }
 .fa-bars {
     font-size: 1.5rem;
     padding: 10px;
 }
 .logo{
-    margin-right: 10px;
-    min-width: 220px;
+    
+    min-width: 200px;
 }
 .main-search{
-    width: 23%;
+    flex-grow: 1;
     background-color: white;
     border-radius: 5px;
     height: 36px;
-    display: flex;
     align-items: center;
     justify-content: space-between;
     display: none;
+    margin: 0 5px;
 }
 .main-search input, .main-search button{
     border: none;
     font-size: 1rem;
     background-color: white;
-    max-width: 180px;
 }
 .main-search input{
-    flex-grow: 4;
     padding-left: 10px;
 }
 .main-search button{
-    flex-grow: 1;
-    text-align: right;
     margin-right: 10px;
 }
 .top-nav-bar-right button:nth-child(1) {
@@ -68,7 +64,7 @@ header{
 .explorar {
     border: none;
     background-color: var(--gris-claro);
-    padding: 10px;
+    padding: auto;
     font-size: 1.2rem;
     max-width: 185px;
     height: 44px;
@@ -84,37 +80,37 @@ header{
     height: 36px;
     color: white;
 }
-.categories{
+.categorias{
     border-top:1px var(--gris-oscuro) solid ;
     border-bottom:1px var(--gris-oscuro) solid ;
     display: none;
+    overflow: hidden;
+    justify-content: space-around;
 }
-.categories ul{
+.categorias ul{
     display: flex;
     list-style: none;
 }
-.categories ul li{
+.categorias ul li{
     padding: 10px;
 }
 main{
-    width: 100vw;
+    width: 100%;
 }
 .top-container-image{
     background-color: var(--azul-oscuro);
     text-align: center;
-    color: white;
     padding: 10px;
 }
 .top-container-image img {
     display: none;
-    width: 100%;
 }
-.top-container-image h2 {
+.contenedorBuscar h2 {
     font-size: 1.5rem;
     color: var(--gris-claro);
     padding: 8px;
 }
-.top-container-image .main-search{
+.contenedorBuscar .main-search{
     top: 33%;
     left: 25px;
     width: 95%;
@@ -131,15 +127,17 @@ main{
 .categories-popular ul li,.categories-popular p {
     color: var(--gris-claro);
     padding: 0 8px;
+    margin: 8px;
 }
 .categories-popular ul li {
     border: solid 2px var(--gris-claro);
     border-radius: 5px;
-    margin: 0 4px;
+    
 }
 .container-popular-services,.contenedorEncargarTrabajo{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 .popular-service {
     margin: 10px;
@@ -159,6 +157,7 @@ main{
     font-size: 1.5rem;
     color: var(--gris-claro);
     background-color: #6c6c6c70;
+    right: 5px;
 }
 .encargarTrabajo{
     display: flex;
@@ -177,41 +176,141 @@ main{
 .descripcionTrabajo h3{
     width: 70%;
 }
+.contenedorCategoriasIconos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+.categoriaIcono{
+    width: 30%;
+    margin: 10px 0;
+}
+.categoriaIcono h3{
+    font-size: 1rem;
+}
+.categoriaIcono i {
+    font-size: 2.5rem;
+    padding: 8px;
+}
+footer{
+    display: flex;
+    flex-direction: column;
+    background-color: #6c6c6c60;
+    margin: 8px;
+    padding-top: 8px;
+}
+footer a, footer section{
+    margin: auto;
+    width: 90vw;
+    text-align: center;
+}
+.listaFooter{
+    display: none;
+    list-style: none;
+    
+}
+.tituloFooter{
+    width: 100%;
+    border-top: 1px var(--gris-oscuro) solid ;
+    padding: 8px;
+}
+.listaRedes{
+    margin: 8px auto;
+    width: 80%;
+    display: flex;
+    list-style: none;
+    font-size: 1.5rem;
+    justify-content: space-around;
+
+}
+@media (max-width: 352px) {
+    .top-nav-bar-right button:nth-child(2) {
+        display: none;   
+    }
+}
 @media (min-width: 460px) {
     .top-nav-bar-right {
         width: 48%;
         display: flex;
         align-items: center;
+        justify-content: space-around;
     }
     .top-nav-bar-right button:nth-child(1) {
         display: inline;   
     }
+    .popular-service, .encargarTrabajo {
+        width: 45%;
+    }
+    .categoriaIcono{
+        width: 22%;
+    }
 }
 @media (min-width: 790px){
     .top-nav-bar-left {
-        width: 63%;
+        
     }
     .top-nav-bar-right {
-        width: 25%;
+        width: 23%;
     }
-    .categories-popular {
-        position: absolute;
-        top: 38%;
-        left: 25px;
+    .burger-menu{
+        display: none;
+    }
+    .explorar {
+        display: inline;
+    }
+    .main-search{
+        display: flex;
+        
+    }
+    .categorias{
         display: flex;
     }
-    .top-container-image h2 {
-        bottom: 70%;
-        left: 16px;
+    .categories-popular {
+        display: flex;
+         overflow: hidden;
+    }
+    .top-container-image{
+        position: relative;
+        padding: 0;
+    }
+    .top-container-image img {
+        display: block;
+        width: 100%;
+    }
+    .contenedorBuscar {
+        position: absolute;
+        top: 30%;
+        left: 8px;
+        width: 58%;
+        background-color: #6c6c6c60;
+    }
+    .contenedorBuscar h2 {
         font-size: 2.5rem;
         font-weight: bold;
         color: var(--gris-claro);
+        text-align: left;
     }
-    .top-container-image .main-search{
-        top: 33%;
-        left: 25px;
+    .contenedorBuscar .main-search{
         width: 95%;
-        display: flex;
-        margin: auto;
+    }
+    .popular-service, .encargarTrabajo {
+        width: 22%;
+    }
+    .categoriaIcono{
+        width: 18%;
+    }
+    footer{
+        flex-direction: row;
+        align-items:flex-start ;
+    }
+    .listaFooter{
+        display: block;
+    }
+    .tituloFooter{
+        border: none;
+    }
+    footer a, footer section{
+        text-align: left;
     }
 }
