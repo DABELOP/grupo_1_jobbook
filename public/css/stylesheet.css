@@ -13,8 +13,12 @@
 /*FORMATOS GENERALES PARA LA PAGINA*/
 *{
     font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 body{
     background-color: var(--gris-claro);
+    color: var(--azul-oscuro);
 }

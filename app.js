@@ -17,3 +17,9 @@ app.get('/servicio',(req,res)=>{
     res.sendFile(path.join(path.join(__dirname,'views/detalle_servicio.html')));
 });
 
+app.get('/login',(req,res)=>{
+    res.sendFile(path.join(path.join(__dirname,'views/login.html')));
+});
+app.get('/register',(req,res)=>{
+    res.sendFile(path.join(path.join(__dirname,'views/register.html')));
+});

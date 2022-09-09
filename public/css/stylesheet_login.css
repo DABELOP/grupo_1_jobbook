@@ -1,0 +1,48 @@
+@import 'stylesheet.css';
+
+.formularioLogin, .contenedorInput{
+    display: flex;
+    flex-direction: column;
+}
+.formularioLogin{
+    background-color: #6c6c6c60;
+    margin: 24px;
+    padding: 16px;
+}
+.formularioLogin h2{
+    text-align: center;
+    padding: 4px;
+}
+.tituloInput, .input{
+    margin: 4px 0px;
+}
+.input{
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    height: 36px;
+}
+
+.boton{
+    border: none;
+    background-color: var(--azul-claro2);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 8px 0;
+    font-size: 1rem;
+    height: 36px;
+    color: white;
+}
+.formularioLogin p{
+    padding: 4px;
+}
+.advertencia{
+    color: red;
+    display: none;
+}
+@media (min-width:460px) {
+    .formularioLogin{
+        width: 460px;
+        margin: 24px auto;
+    };
+}
