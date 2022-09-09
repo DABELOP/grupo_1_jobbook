@@ -83,6 +83,9 @@ margin-bottom:0px;
 margin-top:10px;
 }
 
+.contenedorDetalleServicio{
+    text-decoration: none;
+}
 
 .contenedorTitulo h2{
     margin-top:0px;

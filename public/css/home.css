@@ -247,9 +247,7 @@ footer a, footer section{
     }
 }
 @media (min-width: 790px){
-    .top-nav-bar-left {
-        
-    }
+    
     .top-nav-bar-right {
         width: 23%;
     }

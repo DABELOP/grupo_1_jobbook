@@ -8,7 +8,14 @@
 }
 
 .estrellasCalificacion{
-    width: 100px;
+    width: 90px;
+}
+
+.estrellaCalificacion{
+    width: 140px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
 }
 
 .estrellasSugerido{
@@ -17,19 +24,26 @@
 
 .imagenSugerido{
     width: 100px;
+    display:block;
+    margin-left:auto;
+    margin-right: auto;
 }
 
-.categorias{
+.categoriaServicio{
     display:flex;
     list-style: none;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
-.categorias li{
+
+.categoriaServicio li{
     margin-left: 10px;
 }
 
-.categorias a {
-    text-decoration: none;   
+.categoriaServicio a {
+    text-decoration: none;  
+    color:black; 
 }
 
 .contenedorDetalle{
@@ -37,6 +51,8 @@
     background-color: white;
     border-radius: 8px;
     padding: 20px;
+    margin: 20px;
+    margin-bottom: 0;
 }
 
 .contenedorImagenesMiniatura{
@@ -51,11 +67,183 @@
 
 .descripcionServicio{
     width:40% ;
-    border:solid var(--gris-oscuro) 1px;
+    border:solid var(--azul-claro) 1px;
     border-radius: 8px;
     padding:20px;
 }
 
+.descripcionServicio .precio{
+    margin-top:15px;
+}
+
 .imagenMiniatura{
     margin:20px
+}
+
+.nombreDeProfesional{
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.ciudadUbicacion{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.precio{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+
+.verCalificaciones{
+    margin-top: 30px;
+}
+
+.verCalificaciones a{
+    text-decoration: none;
+    color:var(--azul-oscuro);
+}
+
+.botonContactar{
+    margin-top: 40px;
+    display:flex;
+    justify-content: center;
+}
+
+.botonContactar button{
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    background-color: var(--azul-claro);
+    border:0;
+    border-radius: 5px;
+    color:white
+}
+
+.botonContactar:hover button{
+    background-color: var(--azul-oscuro);
+}
+
+.fotoPerfil{
+    margin-top: 20px;
+    width: 150px;
+}
+
+.contenedorDescripcion{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    padding:20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.contenedorDescripcion p{
+    margin-top: 10px;
+}
+
+.contenedorPreguntas{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 7px;
+    padding:20px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+}
+
+.preguntas{
+    width: 60%;
+    padding-right: 40px;
+}
+
+.preguntas h2{
+    margin-bottom: 20px;;
+}
+
+
+.preguntas .respuestaExperto{
+    margin-left: 20px;
+    color:var(--gris-medio);
+    margin-bottom: 30px;
+    margin-top: 10px;
+
+}
+
+.consejos{
+    width: 40%;
+}
+
+.preguntas input{
+    width: 90%;
+    height: 60px;
+}
+
+.preguntas .preguntarBtn{
+    background-color: var(--azul-claro);
+    color:white;
+    display:block;
+    margin-top: 20px;   
+    width: 110px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.preguntas:hover button{
+    background-color: var(--azul-oscuro);
+}
+
+.consejos h3{
+margin-bottom: 20px;    
+}
+
+.consejos li{
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.calificaciones{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 7px;
+    padding:20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.contenedorCalificaciones{
+    margin-bottom: 20px;
+}
+
+.visitanteEstrellas{
+    display:Flex;
+}
+
+.visitanteEstrellas p{
+    margin-right: 10px;
+}
+
+.serviciosRecomendados{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 7px;
+    padding:20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.contenedorSugeridos{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.Sugerido{
+    width: 200px;
+    border-radius: 5px;
+    border:1px var(--gris-medio) solid; 
+    margin:20px;
+    padding: 10px;  
 }
