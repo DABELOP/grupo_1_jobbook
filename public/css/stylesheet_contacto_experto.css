@@ -1,0 +1,56 @@
+.descripcionServicio{
+    background-color: var(--gris-claro);
+    margin:20px;
+    margin-bottom:40px ;
+    background-color: white;
+    width:100%;
+    max-width: 700px;
+}
+
+
+h2{
+    text-align: center;
+}
+
+.consejos{
+    width: 100%;
+    margin-top: 20px;
+    padding:20px
+}
+
+nav{
+    margin-bottom: 40px;
+}
+
+.contenedorInformacion{
+    display:flex;
+}
+
+.datosPerfil{
+    width: 40%;
+}
+
+.datosContacto{
+    width: 60%;
+    padding:20px;
+    padding-right: 0;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.datosContacto a{
+    text-decoration: none;
+    color:var(--azul-oscuro);
+    font-size: 18px;
+}
+
+.datosContacto p{
+    margin-bottom: 20px;
+}
+
+@media(min-width: 790px){ /*DISEÑO PARA PC*/
+    .descripcionServicio{
+    margin-left:auto;
+    margin-right:auto;
+    }
+}

@@ -7,6 +7,23 @@ margin:0;
 padding:0;
 }
 
+.fa-magnifying-glass-dollar{
+    color:var(--azul-oscuro);
+    font-size: 24px;
+    margin-bottom: 10px;
+    display:block;
+    text-align: center;
+}
+
+.contenedorFiltros a{
+    text-decoration: none;
+}
+
+.contenedorBusquedas a{
+    text-decoration: none;
+    color:var(--azul-oscuro);
+}
+
 .listaCategorias li, .listaUbicaciones li{
 margin-bottom: 6px;    
 }
@@ -20,6 +37,7 @@ color:var(--gris-oscuro);
 .filtroPrecio input{
     width: 70px;
     margin:0;
+    margin-bottom: 10px;
 }
 
 .contenedorFiltros h3{
@@ -105,7 +123,9 @@ margin-top:10px;
     display:none;
 }
 
-
+main{
+    margin-top: 20px;
+}
 
 @media(min-width: 460px){ /* DISEÑO PARA TABLETS*/
 
@@ -146,7 +166,7 @@ margin-top:10px;
     }
 
     .contenedorFotoPerfil{
-        width: 25%;
+        width: 30%;
     }
 
     .contenedorDescripcion{

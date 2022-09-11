@@ -4,7 +4,7 @@
 }
 
 .imagenPrincipal{
-    width: 500px;
+    width: 100%;
 }
 
 .estrellasCalificacion{
@@ -25,8 +25,7 @@
 .imagenSugerido{
     width: 100px;
     display:block;
-    margin-left:auto;
-    margin-right: auto;
+   
 }
 
 .categoriaServicio{
@@ -48,6 +47,7 @@
 
 .contenedorDetalle{
     display:flex;
+    flex-direction: column-reverse;
     background-color: white;
     border-radius: 8px;
     padding: 20px;
@@ -57,16 +57,18 @@
 
 .contenedorImagenesMiniatura{
     display:flex;
-    flex-direction: column;
-    width: 15%;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .contenedorImagenPrincipal{
-    width: 45%;
+    width: 100%;
+    max-width: 450px;
+    margin:auto;
 }
 
 .descripcionServicio{
-    width:40% ;
+    width:100% ;
     border:solid var(--azul-claro) 1px;
     border-radius: 8px;
     padding:20px;
@@ -76,28 +78,32 @@
     margin-top:15px;
 }
 
+.contenedorDescripcion p{
+    text-align: justify;
+}
+
 .imagenMiniatura{
     margin:20px
 }
 
 .nombreDeProfesional{
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 18px;
 }
 
 .ciudadUbicacion{
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
 .precio{
     font-size: 20px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 
 .verCalificaciones{
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .verCalificaciones a{
@@ -106,7 +112,7 @@
 }
 
 .botonContactar{
-    margin-top: 40px;
+    margin-top: 20px;
     display:flex;
     justify-content: center;
 }
@@ -126,7 +132,7 @@
 }
 
 .fotoPerfil{
-    margin-top: 20px;
+    margin-top: 15px;
     width: 150px;
 }
 
@@ -151,10 +157,12 @@
     background-color: white;
     border-radius: 5px;
     display: flex;
+    flex-direction: column;
+    
 }
 
 .preguntas{
-    width: 60%;
+    width: 100%;
     padding-right: 40px;
 }
 
@@ -172,7 +180,7 @@
 }
 
 .consejos{
-    width: 40%;
+    width: 100%;
 }
 
 .preguntas input{
@@ -184,11 +192,13 @@
     background-color: var(--azul-claro);
     color:white;
     display:block;
-    margin-top: 20px;   
+    margin-top: 20px;  
+    margin-bottom: 30px; 
     width: 110px;
     height: 30px;
     margin-left: auto;
     margin-right: auto;
+    border:0;
 }
 
 .preguntas:hover button{
@@ -243,7 +253,90 @@ margin-bottom: 20px;
 .Sugerido{
     width: 200px;
     border-radius: 5px;
-    border:1px var(--gris-medio) solid; 
+    border:0px var(--gris-medio) solid; 
     margin:20px;
     padding: 10px;  
+}
+
+
+.universidad{
+    color:var(--gris-medio);
+}
+
+.contenedorExperiencia{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 7px;
+    padding:20px;
+    background-color: white;
+    border-radius: 5px;
+    display:flex;
+}
+
+.experiencia{
+    width: 50%;
+}
+
+.listaEstudios, .listaHabilidades{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.contenedorExperiencia li{
+    margin-top: 10px;
+}
+
+.habilidades{
+    width: 50%;
+}
+
+.calificaciones a{
+    text-decoration: none;
+}
+
+.Sugerido a{
+    text-decoration: none;
+    color:var(--azul-oscuro);
+}
+
+@media(min-width: 460px){ /* DISEÑO PARA TABLETS*/
+
+}
+
+
+@media(min-width: 790px){ /*DISEÑO PARA PC*/
+    .contenedorDetalle{
+        display:flex;
+        flex-direction: row;
+    }
+
+    .contenedorImagenesMiniatura{
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 15%;
+    }
+
+    .contenedorImagenPrincipal{
+        width: 45%;
+    }
+
+    .descripcionServicio{
+        width:40% ;
+    }
+
+    .contenedorPreguntas{
+        flex-direction: row;
+    }
+
+    .preguntas{
+        width: 60%;
+        padding-right: 40px;
+    }
+    .consejos{
+        width: 40%;
+    }
+
+    .preguntas .preguntarBtn{
+    margin-bottom: 0;
+    }
 }
