@@ -122,6 +122,9 @@ main{
 section {
     padding: 16px 0px;
 }
+.tituloSeccion{
+    padding: 8px 16px;
+}
 .container-popular-services,.contenedorEncargarTrabajo{
     display: flex;
     flex-wrap: wrap;
