@@ -49,8 +49,8 @@ header{
 .explorar {
     border: none;
     background-color: var(--gris-claro);
-    padding: auto;
-    font-size: 1.2rem;
+    padding: 0 4px;
+    font-size: 1.1rem;
     max-width: 185px;
     height: 44px;
     display: none;
@@ -119,6 +119,9 @@ main{
     border-radius: 5px;
     
 }
+section {
+    padding: 16px 0px;
+}
 .container-popular-services,.contenedorEncargarTrabajo{
     display: flex;
     flex-wrap: wrap;
@@ -135,7 +138,7 @@ main{
     margin: auto;
     height: 250px;
 }
-.description{
+.descripcion{
     position: absolute;
     top: 5px;
     left: 5px;
@@ -154,6 +157,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding: 8px 4px;
 }
 .descripcionTrabajo img{
     width: 20%;
