@@ -15,3 +15,7 @@ Visitante: Usuario que visita el sitio en busca de ayuda profesional, el cual po
 3. https://www.guru.com/git
 4. https://www.freelancer.com.co/
 5. https://www.fiver.com
+
+
+### Tablero de trabajo:
+https://github.com/users/DABELOP/projects/1/views/1

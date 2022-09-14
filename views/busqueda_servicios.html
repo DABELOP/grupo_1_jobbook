@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">º
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/stylesheet.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2f477f726e.js" crossorigin="anonymous"></script>
@@ -14,9 +14,7 @@
     <title>jobbook-Busqueda servicios</title>
 </head>
 <body>
-
-
-    <header>
+ <header>
         <a class="burger-menu">
             <i class="fas fa-bars"></i>
         </a>
@@ -56,21 +54,26 @@
         </ul>
     </nav>
 
+<main>
+
+  
+        <div class="filtroDesplegable">
+            <p class="filtrarDesplegable">Ordernar por <i class="fa-solid fa-caret-down"></i></p>   
+            <form>   
+                <select name="desplegable" id="filtroDesplegable" aria-placeholder="Ordenar por">
+                    <option value="menor-precio">Precio menor a mayor</option>
+                    <option value="mayor-precio">Precio mayor a menor</option>
+                    <option value="mayor-trabajos">Mayor trabajos realizados</option>
+                    <option value="menor-trabajos">Menor trabajos realizados</option>
+                </select>
+            </form>
+        </div>
    
 
-<main>
+
 <div class="contenido">
 <div class="contenedorFiltros">
-
-    <div class="filtroDesplegable">
-        <select name="filtroDesplegable" id="filtroDesplegable" aria-placeholder="Ordenar por">
-            <option value="menor-precio">Precio menor a mayor</option>
-            <option value="mayor-precio">Precio mayor a menor</option>
-            <option value="mayor-trabajos">Mayor trabajos realizados</option>
-            <option value="menor-trabajos">Menor trabajos realizados</option>
-          </select>
-        </div>
-
+    
     <h3>Categorias populares <i class="fa-solid fa-list"></i></h3>
     <ul class="listaCategorias">
         <li><a href="">Ingenieria</a></li>

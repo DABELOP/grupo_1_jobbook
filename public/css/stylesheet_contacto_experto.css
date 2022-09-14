@@ -41,7 +41,10 @@ nav{
 .datosContacto a{
     text-decoration: none;
     color:var(--azul-oscuro);
-    font-size: 18px;
+}
+
+.datosContacto button{
+    font-size: 14px;
 }
 
 .datosContacto p{
