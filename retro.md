@@ -4,16 +4,16 @@ desarrollar tablero de trabajo
 Actualizar el repositorio en cada avance, git pull (git push)
 Reuniones más tempranos
 Reuniones día por medio
-## Hacer más
+### Hacer más
 Reuniones con mayor frecuencia
 Dar más apoyo a los compañeros
-## continuar haciendo
+### continuar haciendo
 cumplir con el objetivo de la entrega 
 Cumplir con la tarea individuales
-## Hacer menos
+### Hacer menos
 Reuniones menos largas y más cortas
 Hacer el trabajo con más tiempo
-## Dejar de hacer 
+### Dejar de hacer 
 No comunicar cuando se tiene una dificultad
 Desmotivar
 
