@@ -44,17 +44,26 @@ header{
     margin-right: 10px;
 }
 .top-nav-bar-right button:nth-child(1) {
-    display: none;   
+    display:none;  
 }
+
+.loginBtn:hover, .registroBtn:hover {
+    background-color: var(--azul-oscuro);
+}
+
+
 .explorar {
     border: none;
-    background-color: var(--gris-claro);
     padding: 0 4px;
     font-size: 1.1rem;
     max-width: 185px;
     height: 44px;
     display: none;
+    text-decoration: none;
+    color:var(--azul-oscuro);
+    font-weight: 200;
 }
+
 .button{
     border: none;
     background-color: var(--azul-claro2);
@@ -65,6 +74,12 @@ header{
     height: 36px;
     color: white;
 }
+
+.button a{
+    text-decoration: none;
+    color:white;
+}
+
 .categorias{
     border-top:1px var(--gris-oscuro) solid ;
     border-bottom:1px var(--gris-oscuro) solid ;
@@ -216,6 +231,10 @@ footer a, footer section{
     justify-content: space-around;
 
 }
+
+
+
+
 @media (max-width: 352px) {
     .top-nav-bar-right button:nth-child(2) {
         display: none;   
