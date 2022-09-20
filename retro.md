@@ -29,6 +29,7 @@ Actualizar tablero de trabajo
 ### Continuar haciendo
 Tablero de trabajo con tareas asignadas
 Cumplir con los tiempos de entrega
+Continuar trabajando cumpliendo las metas y con buena comunicación
 
 ### Hacer menos
 
