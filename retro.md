@@ -1,18 +1,40 @@
-## Retrospectiva reto 1
+## Retrospectiva sprint 1
 ### comenzar a hacer 
 desarrollar tablero de trabajo
 Actualizar el repositorio en cada avance, git pull (git push)
 Reuniones más tempranos
 Reuniones día por medio
-## Hacer más
+### Hacer más
 Reuniones con mayor frecuencia
 Dar más apoyo a los compañeros
-## continuar haciendo
+### continuar haciendo
 cumplir con el objetivo de la entrega 
 Cumplir con la tarea individuales
-## Hacer menos
+### Hacer menos
 Reuniones menos largas y más cortas
 Hacer el trabajo con más tiempo
-## Dejar de hacer 
+### Dejar de hacer 
 No comunicar cuando se tiene una dificultad
 Desmotivar
+
+
+## Retrospectiva sprint 2 
+### Comenzar a hacer 
+Hacer revisiones mas frecuentes 
+
+### Hacer más 
+Reuniones daily o cada 2 dias
+Actualizar tablero de trabajo 
+
+### Continuar haciendo
+Tablero de trabajo con tareas asignadas
+Cumplir con los tiempos de entrega
+Continuar trabajando cumpliendo las metas y con buena comunicación
+
+### Hacer menos
+
+
+### Dejar de hacer 
+
+
+

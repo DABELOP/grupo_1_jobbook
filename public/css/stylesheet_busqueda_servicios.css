@@ -1,5 +1,5 @@
 /*FORMATOS DE PAGINA BUSQUEDA_SERVICIOS.html*/
-
+@import url(css/stylesheet.css);
 
 .listaCategorias, .listaUbicaciones{
 list-style: none;
@@ -15,8 +15,8 @@ padding:0;
     text-align: center;
 }
 
-.contenedorFiltros a{
-    text-decoration: none;
+.contenedorFiltros:hover li{
+    color:black;
 }
 
 .contenedorBusquedas a{
@@ -127,6 +127,46 @@ main{
     margin-top: 20px;
 }
 
+.filtroDesplegable{
+    height: 20px;
+    width: 100%;
+    margin-right: 30px;
+}
+
+.filtrarDesplegable{
+    text-align: right;
+    padding-right:30px;
+    font-size: 14px;
+    margin-right: 30px;
+}
+
+.filtroDesplegable form{
+    display: flex;
+    justify-content: flex-end;
+   margin-right: 30px;
+}
+
+.filtroDesplegable select{
+    width: 160px;
+    font-size: 12px;
+    display: none;
+    color:var(--azul-oscuro);
+    position:relative;
+    right:20px;
+}
+
+.filtroDesplegable:hover  select{
+    display:block;
+}
+
+.filtroDesplegable:hover  .filtrarDesplegable{
+    display:none;
+}
+
+.contenedorDetalleServicio:hover{
+    box-shadow: 10px 10px 10px lightgray;
+}
+
 @media(min-width: 460px){ /* DISEÑO PARA TABLETS*/
 
     .contenedorCalificacion img{
@@ -163,6 +203,7 @@ main{
 
     .contenedorBusquedas{
         width: 80%;
+        border-radius: 8px;
     }
 
     .contenedorFotoPerfil{
@@ -173,5 +214,9 @@ main{
         display:block;
         width: 65%;
         text-align: justify;
+    }
+
+    .botonDeFiltros{
+        display:none;
     }
 }
