@@ -117,7 +117,6 @@ main{
 .categories-popular ul li {
     border: solid 2px var(--gris-claro);
     border-radius: 5px;
-    
 }
 section {
     padding: 16px 0px;
