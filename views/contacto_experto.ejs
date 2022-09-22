@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/2f477f726e.js" crossorigin="anonymous"></script>
+        <link href="/css/stylesheet.css" rel="stylesheet">
+        <link href="/css/stylesheet_detalle_servicio.css" rel="stylesheet">
+        <link href="/css/stylesheet_contacto_experto.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/stylesheet_home.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+        
+    <title>contacto-experto</title>
+</head>
+<body>
+    
+
+    <!-- Header -->
+    <%- include('./partials/header.ejs') %> 
+
+    <!-- Navbar categorias -->
+    <%- include('./partials/navbarCategorias.ejs') %> 
+
+    <h2>Contacta a este experto. </h2>
+
+    <div class="descripcionServicio">
+        <h2>Remodelacion y adecuacion de espacios interiores y exterioress</h2>
+        <div class="contenedorInformacion">
+            <div class="datosPerfil">
+                <img class="fotoPerfil" src="/images/fotoPerfil.jpg" alt="fotoPerfil">
+                <strong><p class="nombreDeProfesional">Melisa Lopez</p></strong>
+                <p class="ciudadUbicacion">Medellin-Antioquia</p>
+                <strong><p class="precio">$49.900</p></strong>
+                <p class="tarifaPorHora">Tarifa por hora</p>
+                <p class="verCalificaciones"><a href="">Ver calificaciones</a></p>
+                <img class="estrellasCalificacion" src="/images/estrellas/5-estrella.png" alt="5 estrellas"/>
+            </div>
+
+            <div class="datosContacto">
+                <form method="get" action="https://api.whatsapp.com/send?phone=3197963255&text=Hola,%20estoy%20interesado%20en%20contratar%20un%20servicio" target="_blank">
+                    <div class="botonContactar"><button><i class="fa-brands fa-whatsapp"></i><br>3197963255</button></a></div>
+                </form>
+                <form method="get" action="mailto:melisa.lopez@gmail.com" target="_blank">
+                    <div class="botonContactar"><button><i class="fa-solid fa-envelope"></i><br>melisa.lopez@gmail.com</button></a></div>
+                </form>
+                <form method="get" action="https://www.facebook.com/melisa-lopez" target="_blank">
+                    <div class="botonContactar"><button><i class="fa-brands fa-facebook"></i><br>facebook.com/melisa-lopez</button></a></div>
+                </form>
+            </div>
+        </div>
+
+        <div class="consejos">
+            <h3>Consejos de seguridad <i class="fa-solid fa-bullhorn"></i></h3>
+            <ul>
+                <li>No uses servicios de pago anónimos (por ej. Western Union), ni envíes dinero al exterior.</li>
+                <li>Desconfía de ofertas debajo del precio de mercado.</li>
+                <li>Jobbook solo facilita la comunicacion entre terceros y no ofrece servicios profesionales</li>
+                <li>Haz una descripcion detallada del servicio que requieres</li>
+            </ul>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %> 
+
+
+</body>
+</html>

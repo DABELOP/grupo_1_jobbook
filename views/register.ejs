@@ -10,9 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
-    <title>Jobbok-stylesheet_home</title>
+    <title>Jobbok-registrar</title>
 </head>
 <body>
+
+
     <!-- Header -->
     <%- include('./partials/header.ejs') %> 
 
@@ -22,38 +24,42 @@
     <form class="formularioLogin" action="">
         <h2>Únete a Jobbook</h2>
         <label class="contenedorInput">
-            <p class="tituloInput">Titulo del servicio</p>
-            <input type="text" name="tituloServicio" placeholder="Remodelacion y adecuacion de espacios interiores" class="input">
-            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i>Este campo es obligatorio</p>
-        </label>
-        <label class="contenedorInput">
-            <p class="tituloInput">Descripción del servicio ofrecido</p>
-            <textarea name="descripcionServicio" placeholder="Describa su servicio al detalle" class="input" rows="6"></textarea>
+            <p class="tituloInput">Nombre completo</p>
+            <input type="text" name="nombre" placeholder="Pepito Perez Gonzales" class="input">
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
         </label>
         <label class="contenedorInput">
-            <p class="tituloInput">Tarifa</p>
-            <input type="text" name="text" placeholder="$xx.xxx por hora, m2" class="input">
+            <p class="tituloInput">E-mail</p>
+            <input type="email" name="email" placeholder="user@example.com" class="input">
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+        </label>
+        <label class="contenedorInput">
+            <p class="tituloInput">Usuario</p>
+            <input type="text" name="email" placeholder="pepigon" class="input">
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Nombre de usuario ya existe</p>
         </label>
         <label class="contenedorInput">
-            <p class="tituloInput">Agrega fotos o evidencias de tus servicios</p>
-            <input type="file" name="foto1"  class="input">
-            <input type="file" name="foto2"  class="input">
-            <input type="file" name="foto3"  class="input">
-            <input type="file" name="foto4"  class="input">
+            <p class="tituloInput">Contraseña</p>
+            <input type="password" name="contraseña" placeholder="*********" class="input">
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
         </label>
         <label class="contenedorInput">
-            <p class="tituloInput">Experiencia</p>
-            <textarea type="text" name="experiencia" placeholder="Describa su experiencia " class="input"></textarea>
+            <p class="tituloInput">Confirmar contraseña</p>
+            <input type="password" name="confirmarContraseña" placeholder="*********" class="input">
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
         </label>
-                
-        <button class="boton">Crear servicio</button>
+        <label class="contenedorTerminos">
+            <input type="checkbox" name="terminos" class="">
+            <p>Acepto terminos de servicios y politica de privacidad</p>
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Debes aceptar los terminos</p>
+        </label>
         
+        <button class="boton">Registrarme</button>
+        
+        <p>¿Ya eres miembro? <a href="">Iniciar sesión</a></p>
     </form>
+
     <!-- Footer -->
     <%- include('./partials/footer.ejs') %> 
 </body>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/stylesheet.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2f477f726e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/stylesheet_home.css">
+    <link href="/css/stylesheet_busqueda_servicios.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    <title>jobbook-Busqueda servicios</title>
+</head>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header.ejs') %>
+    
+    <!-- Navbar categorias -->
+    <%- include('./partials/navbarCategorias.ejs') %> 
+    
+
+    <main>
+
+    
+            <div class="filtroDesplegable">
+                <p class="filtrarDesplegable">Ordernar por <i class="fa-solid fa-caret-down"></i></p>   
+                <form>   
+                    <select name="desplegable" id="filtroDesplegable" aria-placeholder="Ordenar por">
+                        <option value="menor-precio">Precio menor a mayor</option>
+                        <option value="mayor-precio">Precio mayor a menor</option>
+                        <option value="mayor-trabajos">Mayor trabajos realizados</option>
+                        <option value="menor-trabajos">Menor trabajos realizados</option>
+                    </select>
+                </form>
+            </div>
+    
+
+
+    <div class="contenido">
+    <div class="contenedorFiltros">
+        
+        <h3>Categorias populares <i class="fa-solid fa-list"></i></h3>
+        <ul class="listaCategorias">
+            <li><a href="">Ingenieria</a></li>
+            <li><a href="">Abogacia</a></li>
+            <li><a href="">Contaduria</a></li>
+            <li><a href="">Psicologia</a></li>
+            <li><a href="">Comunicación</a></li>
+        </ul>
+
+        <h3>Calificación <i class="fa-sharp fa-solid fa-check"></i></h3>
+        <img class="estrellaFiltros" src="/images/estrellas/5-estrella.png" alt="5star">
+
+        <h3>Precio <i class="fa-solid fa-dollar-sign"></i></h3>
+            <div class="filtroPrecio">
+                <input type="number" name="precioMinimoFiltro" id="precioMinimoFiltro" placeholder="Mínimo">
+                <input type="number" name="precioMaximoFiltro" id="precioMaximoFiltro" placeholder="Máximo">
+            </div>
+        <a href=""><i class="fa-solid fa-magnifying-glass-dollar"></i></a>
+
+        <h3>Ubicación <i class="fa-solid fa-location-dot"></i></h3>
+        <ul class="listaUbicaciones">
+            <li><a href="">Medellín</a></li>
+            <li><a href="">Bogotá</a></li>
+            <li><a href="">Cali</a></li>
+            <li><a href="">Barranquilla</a></li>
+        </ul>
+        
+    </div>
+
+    <div class="contenedorBusquedas">
+
+
+
+    <!--TARJETA DE SERVICIO-->
+        <a href="/servicio"><div class="contenedorDetalleServicio">
+            <div class="contenedorFotoPerfil">
+                <img src="/images/fotoPerfil.jpg" alt="">
+            </div>
+
+            <div class="contenedorDerechoBusqueda">
+                <div class="contenedorTituloCalificacion">
+                    <div class="contenedorTitulo"> 
+                        <h2>Remodelación y adecuación de espacios interiores y exteriores</h2>
+                        <p class="nombreProfesional">Melisa Lopez</p>
+                        <p class="ciudadUbicacion">Medellin</p>
+                    </div>
+                    <div class="contenedorCalificacion">  
+                        <img src="/images/estrellas/5-estrella.png" alt="estrella">
+                        <p class="trabajosRealizados">54 trabajos realizados</p>
+                        <div clas="contenedorPrecioTarifa">
+                            <strong><p class="precio">$49.900</p></strong>
+                            <p class="ciudadUbicacion">Tarifa por hora</p>
+                        </div>
+                    </div>
+                </div>
+                    <div class="contenedorDescripcion">  
+                        <p> Diseño de Interiores con áreas clave como diseño de espacios, iluminación, paisajismo y decoración, hacemos de tu espacio un mejor lugar para vivir</p> 
+                    </div>
+            </div>
+        </div></a>
+    <!--TARJETA DE SERVICIO HASTA ACA-->
+
+
+
+    <a href="/servicio"><div class="contenedorDetalleServicio">
+        <div class="contenedorFotoPerfil">
+            <img src="/images/fotoPerfil4.jpg" alt="">
+        </div>
+
+        <div class="contenedorDerechoBusqueda">
+            <div class="contenedorTituloCalificacion">
+                <div class="contenedorTitulo"> 
+                    <h2>Remodelación de espacios diseño interior</h2>
+                    <p class="nombreProfesional">Andres Lopez</p>
+                    <p class="ciudadUbicacion">Envigado</p>
+                </div>
+                <div class="contenedorCalificacion">  
+                    <img src="/images/estrellas/3-estrella.png" alt="estrella">
+                    <p class="trabajosRealizados">25 trabajos realizados</p>
+                    <div clas="contenedorPrecioTarifa">
+                        <strong><p class="precio">$42.900</p></strong>
+                        <p class="ciudadUbicacion">Tarifa por hora</p>
+                    </div>
+                </div>
+            </div>
+                <div class="contenedorDescripcion">  
+                    <p> Diseño de Interiores con áreas clave como diseño de espacio Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil repellat enim culpa veritatis expedita quos aut iure odit dolores ullam </p> 
+                </div>
+        </div>
+    </div></a>
+
+
+
+    <a href="/servicio"><div class="contenedorDetalleServicio">
+        <div class="contenedorFotoPerfil">
+            <img src="/images/fotoPerfil2.jpg" alt="">
+        </div>
+
+        <div class="contenedorDerechoBusqueda">
+            <div class="contenedorTituloCalificacion">
+                <div class="contenedorTitulo"> 
+                    <h2>Remodelación y adecuación de oficinas y centros de trabajo</h2>
+                    <p class="nombreProfesional">Andrea Patiño</p>
+                    <p class="ciudadUbicacion">Sabaneta</p>
+                </div>
+                <div class="contenedorCalificacion">  
+                    <img src="/images/estrellas/4-estrella.png" alt="estrella">
+                    <p class="trabajosRealizados">14 trabajos realizados</p>
+                    <div clas="contenedorPrecioTarifa">
+                        <strong><p class="precio">$35.500</p></strong>
+                        <p class="ciudadUbicacion">Tarifa por hora</p>
+                    </div>
+                </div>
+            </div>
+                <div class="contenedorDescripcion">  
+                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta perferendis obcaecati totam? Quo ea atque illo, beatae molestias tenetur quam alias facere vero porro quasi repellendus sapiente delectus dolorum at.</p> 
+                </div>
+        </div>
+    </div></a>
+
+
+
+
+    <a href="/servicio"><div class="contenedorDetalleServicio">
+        <div class="contenedorFotoPerfil">
+            <img src="/images/fotoPerfil3.jpg" alt="">
+        </div>
+
+        <div class="contenedorDerechoBusqueda">
+            <div class="contenedorTituloCalificacion">
+                <div class="contenedorTitulo"> 
+                    <h2>Remodelación de locales comerciales y decoración</h2>
+                    <p class="nombreProfesional">Oscar Herrera</p>
+                    <p class="ciudadUbicacion">Medellin</p>
+                </div>
+                <div class="contenedorCalificacion">  
+                    <img src="/images/estrellas/5-estrella.png" alt="estrella">
+                    <p class="trabajosRealizados">62 trabajos realizados</p>
+                    <div clas="contenedorPrecioTarifa">
+                        <strong><p class="precio">$69.900</p></strong>
+                        <p class="ciudadUbicacion">Tarifa por hora</p>
+                    </div>
+                </div>
+            </div>
+                <div class="contenedorDescripcion">  
+                    <p> Diseño de Interiores con áreas clave como diseño de espacios, iluminación, paisajismo y decoración, hacemos de tu espacio un mejor lugar para vivir</p> 
+                </div>
+        </div>
+    </div></a>
+
+
+
+
+
+    <a href="/servicio"><div class="contenedorDetalleServicio">
+        <div class="contenedorFotoPerfil">
+            <img src="/images/fotoPerfil5.jpg" alt="">
+        </div>
+
+        <div class="contenedorDerechoBusqueda">
+            <div class="contenedorTituloCalificacion">
+                <div class="contenedorTitulo"> 
+                    <h2>Remodelación y diseño exterior de viviendas campestres</h2>
+                    <p class="nombreProfesional">Antonio Lopez</p>
+                    <p class="ciudadUbicacion">Bello</p>
+                </div>
+                <div class="contenedorCalificacion">  
+                    <img src="/images/estrellas/5-estrella.png" alt="estrella">
+                    <p class="trabajosRealizados">12 trabajos realizados</p>
+                    <div clas="contenedorPrecioTarifa">
+                        <strong><p class="precio">$52.900</p></strong>
+                        <p class="ciudadUbicacion">Tarifa por hora</p>
+                    </div>
+                </div>
+            </div>
+                <div class="contenedorDescripcion">  
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta repellat fuga laborum tempora, ratione eaque beatae provident debitis? Quo delectus deserunt aut dolor quae nemo facere repellat eaque velit quam.</p> 
+                </div>
+        </div>
+    </div></a>
+
+
+
+    <!--REPLICACION DE TARJETAS DE SERVICIO-->
+    
+    <!--REPLICACION DE TARJETAS DE SERVICIO HASTA ACA-->
+
+
+        
+    </div>
+    </div>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %> 
+
+
+
+</body>
+</html>

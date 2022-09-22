@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/stylesheet_login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
+    <title>Jobbok-login</title>
+</head>
+<body>
+
+
+    <!-- Header -->
+    <%- include('./partials/header.ejs') %> 
+
+    <!-- Navbar categorias -->
+    <%- include('./partials/navbarCategorias.ejs') %> 
+
+    <form class="formularioLogin" action="">
+        <h2>Inicia sesión en Jobbook</h2>
+        <label class="contenedorInput">
+            <p class="tituloInput">E-mail</p>
+            <input type="email" name="email" placeholder="user@example.com" class="input">
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+        </label>
+        <label class="contenedorInput">
+            <p class="tituloInput">Contraseña</p>
+            <input type="password" name="contraseña" placeholder="*********" class="input">
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+        </label>
+        <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> E-mail y/o contraseña no valido</p>
+        <button class="boton">Iniciar sesión</button>
+        <p><a href="">¿Has olvidado tu contraseña?</a></p>
+        <p>¿Aún no eres miembro? <a href="">Únete ahora</a></p>
+    </form>
+
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %> 
+</body>
+</html>
