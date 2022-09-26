@@ -18,10 +18,10 @@
 <body>
     
     <!-- Header -->
-    <%- include('./partials/header.ejs') %> 
+    <%- include('../partials/header.ejs') %> 
 
     <!-- Navbar categorias -->
-    <%- include('./partials/navbarCategorias.ejs') %> 
+    <%- include('../partials/navbarCategorias.ejs') %> 
 
     
 
@@ -53,7 +53,7 @@
             <p class="tarifaPorHora">Tarifa por hora</p>
             <p class="verCalificaciones"><a href="#calificaciones">Ver calificaciones</a></p>
             <img class="estrellasCalificacion" src="images/estrellas/5-estrella.png" alt="5 estrellas"/>
-            <form method="get" action="/contacto-experto">
+            <form method="get" action="/servicio/contacto">
             <div class="botonContactar"><button>Contactar al experto</button></a></div>
             </form>
         </div>
@@ -184,7 +184,7 @@
 </main>
 
     <!-- Footer -->
-    <%- include('./partials/footer.ejs') %> 
+    <%- include('../partials/footer.ejs') %> 
 
 </body>
 </html>

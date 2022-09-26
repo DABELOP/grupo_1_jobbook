@@ -1,12 +1,12 @@
 const usuariosController = {
     login: (req,res)=>{
-        res.render('login');
+        res.render('users/login');
     },
     register: (req,res)=>{
-        res.render('register');
+        res.render('users/register');
     },
     contacto: (req,res)=>{
-        res.render('contacto_experto');
+        res.render('users/contacto_experto');
     },
 };
 

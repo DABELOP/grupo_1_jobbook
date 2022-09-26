@@ -13,5 +13,6 @@ app.use(express.static(path.resolve(__dirname,'./public')));
 app.use('/', indexRouter);
 app.use('/servicio', serviciosRouter);
 app.use('/usuario',usuariosRouter );
+
 app.listen(3050,()=>console.log('Servidor corriendo en puerto 3050'));
 
