@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/stylesheet_profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
+    <title>Jobbok-profile</title>
+</head>
+<body>
+
+
+    <!-- Header -->
+    <%- include('./partials/header.ejs') %> 
+
+    <!-- Navbar categorias -->
+    <%- include('./partials/navbarCategorias.ejs') %> 
+
+    <main>
+        <div class="infoPerfil">
+            <div class="listaDeContenidoPerfil">
+              <h3>Mi Perfil</h3>  
+              <ul class="listaCategorias">
+                <li><a href="">Mi información</a></li>
+                <li><a href="">Mis ventas</a></li>
+                <li><a href="">Mis compras</a></li>
+                <li><a href="">Configuración</a></li>
+            </ul>
+            </div>
+            <div class="informacionPerfil">
+                <div class="contenedorFotoPerfil">
+                    <img src="/images/fotoPerfil.jpg" alt="">
+                </div>
+                <div class="datosDeCuenta">
+                    <div class="contenedorUsuario"> 
+                        <h3>Correo</h3>
+                        <p>MelisaLopez54</p>
+                    </div>
+                    <div class="contenedorCorreo"> 
+                        <h3>Correo</h3>
+                        <p>melisalopez@emil.com</p>
+                    </div>
+                </div> 
+                <div class="datosPersonales">
+                    <h2>Datos Personales</h2>   
+                    <div class="contenedorNombre"> 
+                        <h3>Nombre</h3>
+                        <p>Melisa Lopez</p>
+                    </div>
+                    <div class="numeroDocumento"> 
+                        <h3>Documento</h3>
+                        <p>1037645399</p>
+                    </div>
+                    <div class="numeroCelular"> 
+                        <h3>Celular</h3>
+                        <p>3003844455</p>
+                    </div>
+                    <div class="ciudadDeResidencia"> 
+                        <h3>Ciudad de residencia</h3>
+                        <p>Envigado, Antioquia, Colombia</p>
+                    </div>
+                    
+                </div>
+                <div class="datosFinancieros">
+                    <h2>Datos Financieros</h2>
+                    <div class="totalServiciosComprados"> 
+                        <h3>Servicios comprados</h3>
+                        <p>5</p>
+                    </div>
+                    <div class="totalValorComprados"> 
+                        <h3>Valor de servicios comprados</h3>
+                        <p>$250.000</p>
+                    </div>
+                    <div class="totalServiciosVendidos"> 
+                        <h3>Servicios vendidos</h3>
+                        <p>15</p>
+                    </div>
+                    <div class="totalValorVendidos"> 
+                        <h3>Ganancias de servicios vendidos</h3>
+                        <p>$630.000</p>
+                    </div>
+                </div>
+        </div>
+
+
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %> 
+</body>
+</html>
