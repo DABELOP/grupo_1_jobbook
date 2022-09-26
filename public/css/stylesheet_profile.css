@@ -1,0 +1,19 @@
+@import 'stylesheet.css';
+@import 'stylesheet_home.css';
+
+.infoPerfil{
+    display: flex;
+}
+
+.listaDeContenidoPerfil{
+    width: 30%;
+}
+
+.informacionPerfil{
+    background-color: white;
+    border-radius:8px;
+}
+
+.contenedorFotoPerfil{
+    
+}

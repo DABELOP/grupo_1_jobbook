@@ -8,6 +8,9 @@ const usuariosController = {
     contacto: (req,res)=>{
         res.render('users/contacto_experto');
     },
+    profile: (req,res)=>{
+        res.render('profile');
+    },
 };
 
 module.exports = usuariosController;
