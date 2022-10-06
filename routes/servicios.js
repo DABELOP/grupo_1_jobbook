@@ -7,4 +7,5 @@ router.get('/', serviciosController.detalleServicio);
 router.get('/busqueda', serviciosController.busqueda);
 router.get('/contacto', serviciosController.contacto);
 router.get('/crear', serviciosController.crear);
+router.post('/productos', serviciosController.guardar);
 module.exports = router;

@@ -76,6 +76,9 @@ const serviciosController = {
 
     crear: (req,res)=>{
         res.render('services/crear_servicio');
+    },
+    guardar: (req, res) => {
+        
     }
 };
 
