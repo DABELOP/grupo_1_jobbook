@@ -10,27 +10,29 @@ const serviciosController = {
     busqueda: (req,res)=>{
         let servicios = [
             {
+                id: 1,
+                idUsusario:1,
                 titulo:"Remodelación y adecuación de espacios interiores y exteriores",
-                foto:"/images/fotoPerfil.jpg",
-                nombre:"Melisa Lopez",
-                ciudad:"Medellin",
-                precio:"$49.900",
-                trabajosRealizados:"54",
-                calificacion:"/images/estrellas/5-estrella.png",
+                imagenes:["/images/fotoPerfil.jpg","/images/fotoPerfil.jpg","/images/fotoPerfil.jpg"],
+                precio:49900,
                 tarifa:"Tarifa por hora",
-                descripcion:" Diseño de Interiores con áreas clave como diseño de espacios, iluminación, paisajismo y decoración, hacemos de tu espacio un mejor lugar para vivir"
+                descripcion:" Diseño de Interiores con áreas clave como diseño de espacios, iluminación, paisajismo y decoración, hacemos de tu espacio un mejor lugar para vivir",
+                categoria: "construccion",
             },
 
             {
-                titulo:"Remodelación de espacios diseño interior",
-                foto:"/images/fotoPerfil4.jpg",
+                id:1,
+                fotoPerfil:"/images/fotoPerfil4.jpg",
                 nombre:"Andres Lopez",
+                nombrePersonalizado:"Andresito",
                 ciudad:"Envigado",
-                precio:"$42.900",
-                trabajosRealizados:"25",
-                calificacion:"/images/estrellas/3-estrella.png",
-                tarifa:"Tarifa por hora",
-                descripcion:"Diseño de Interiores con áreas clave como diseño de espacio Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil repellat enim culpa veritatis expedita quos aut iure odit dolores ullam "
+                correo:"danilobedoya94@gmail.com",
+                celular:"3197963219",
+                tipoDocumento:"CC",
+                numeroDocumento:"15324856",
+                calificacion:"5",
+                experiencia:[],
+                habilidades:[],
             },
 
             {
