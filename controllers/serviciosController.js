@@ -1,3 +1,9 @@
+const fs = require('fs');
+const path = require('path');
+
+const rutaServicios = path.join(__dirname, '../data/servicios.json');
+const servicios = JSON.parse(fs.readFileSync(rutaServicios, 'utf-8'));
+
 const serviciosController = {
     detalleServicio: (req,res)=>{
         res.render('services/detalle_servicio');
