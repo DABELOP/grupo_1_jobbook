@@ -1,3 +1,10 @@
+const fs = require('fs');
+const path = require('path');
+
+const rutaUsuarios = path.join(__dirname, '../data/usuarios.json');
+const usuarios = JSON.parse(fs.readFileSync(rutaUsuarios, 'utf-8'));
+
+
 const usuariosController = {
     login: (req,res)=>{
         res.render('users/login');

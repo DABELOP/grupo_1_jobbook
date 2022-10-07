@@ -3,12 +3,7 @@
         "id": 1,
         "idUsuario": 3,
         "titulo": "Remodelación y adecuación de espacios interiores y exteriores",
-        "imagenes": [
-            {},
-            {},
-            {},
-            {}
-        ],
+        "imagenes": ["imagen-principal.jpg","miniatura-1.jpg","miniatura-2.jpg","miniatura-3.jpg"],
         "precio": 9861231,
         "tarifa": "Por hora",
         "descripcion": "mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique",
@@ -16,7 +11,7 @@
     },
     {
         "id": 2,
-        "idUsuario": 0,
+        "idUsuario": 2,
         "titulo": "Diseño de Interiores con áreas clave como diseño de espacios",
         "imagenes": [],
         "precio": 4105981,
@@ -26,7 +21,7 @@
     },
     {
         "id": 3,
-        "idUsuario": 0,
+        "idUsuario": 8,
         "titulo": "Remodelación de locales comerciales y decoración",
         "imagenes": [],
         "precio": 3850742,
@@ -63,8 +58,8 @@
     },
     {
         "id": 6,
-        "idUsuario": 0,
-        "titulo": "",
+        "idUsuario": 6,
+        "titulo": "Se hacen planos",
         "imagenes": [
             {},
             {}
@@ -141,7 +136,7 @@
     {
         "id": 12,
         "idUsuario": 11,
-        "titulo": "",
+        "titulo": "Se hacen planos",
         "imagenes": [
             {},
             {},
@@ -156,7 +151,7 @@
     {
         "id": 13,
         "idUsuario": 14,
-        "titulo": "",
+        "titulo": "Se hacen planos",
         "imagenes": [
             {}
         ],

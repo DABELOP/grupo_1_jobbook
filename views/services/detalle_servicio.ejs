@@ -33,20 +33,32 @@
     </ul>
 
 
-   
+    
     <section>
     <div class="contenedorDetalle">
+        <%if (servicio.imagenes.length > 0) {%>
+            <% servicio.imagenes.forEach(imagen=>{ %>
         <div class="contenedorImagenesMiniatura">
-            <img class="imagenMiniatura" src="images/imagenes-servicios/miniatura-1.jpg" alt="miniatura1"> 
-            <img class="imagenMiniatura" src="images/imagenes-servicios/miniatura-2.jpg" alt="miniatura2"> 
-            <img class="imagenMiniatura" src="images/imagenes-servicios/miniatura-3.jpg" alt="miniatura3">            
+            <img class="imagenMiniatura" src="/images/imagenes-servicios/<%=imagen%>" alt="miniatura"> 
+            <%})%>
+                       
         </div>
         <div class="contenedorImagenPrincipal">
-            <img class="imagenPrincipal" src="images/imagenes-servicios/imagen-principal.jpg" alt="imagenPrincipal"> 
+            <img class="imagenPrincipal" src="images/imagenes-servicios/<%=servicio.imagenes[0]%>" alt="imagenPrincipal"> 
         </div>
+            <%}else{%>
+                <div class="contenedorImagenesMiniatura">
+                    <img class="imagenMiniatura" src="/images/imagenes-servicios/imagen-default.jpg>" alt="miniatura"> 
+                               
+                </div>
+                <div class="contenedorImagenPrincipal">
+                    <img class="imagenPrincipal" src="images/imagenes-servicios/imagen-default.jpg" alt="imagenPrincipal"> 
+                </div>
+                <%}%>
+
         <div class="descripcionServicio">
-            <h2>Remodelacion y adecuacion de espacios interiores y exterioress</h2>
-            <img class="fotoPerfil" src="images/fotoPerfil.jpg" alt="fotoPerfil">
+            <h2><%=servicio.titulo%></h2>
+            <img class="fotoPerfil" src="images/fotos-perfil/<%=%>" alt="fotoPerfil">
             <strong><p class="nombreDeProfesional">Melisa Lopez</p></strong>
             <p class="ciudadUbicacion">Medellin-Antioquia</p>
             <strong><p class="precio">$49.900</p></strong>

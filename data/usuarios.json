@@ -11,19 +11,29 @@
     "numeroDocumento": 515753955,
     "calificacion": 3,
     "experiencia": [
-        {},
-        {}
+        {
+            "entidad":"Universidad Nacional",
+            "titulo":"Arquitectura"
+        },
+        {
+            "entidad":"OA+ Arquitectos",
+            "titulo":"Paisajista y diseñador de espacios"
+        }
+        
     ],
     "habilidades": [
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {}
+        {
+            "habilidad":"Excel",
+            "nivel":"Avanzado"
+        },
+        {
+            "habilidad":"Ingles",
+            "nivel":"Avanzado"
+        },
+        {
+            "habilidad":"Autocad",
+            "nivel":"Intermedio"
+        }
     ]
 },
 {
