@@ -38,3 +38,23 @@ Continuar trabajando cumpliendo las metas y con buena comunicación
 
 
 
+## Retrospectiva sprint 3
+### Comenzar a hacer 
+Completar retrospectiva al final de un sprint 
+Priorizar tareas
+
+### Hacer más 
+Actualizar tablero de trabajo con mas frecuencia 
+
+### Continuar haciendo
+Asignacion de tareas en tablero de trabajo
+Cumplir con los tiempos de entrega
+Continuar trabajando cumpliendo las metas y con buena comunicación
+
+### Hacer menos
+
+
+### Dejar de hacer 
+
+
+
