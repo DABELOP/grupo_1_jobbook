@@ -37,34 +37,36 @@
     <section>
     <div class="contenedorDetalle">
         <%if (servicio.imagenes.length > 0) {%>
+            <div class="contenedorImagenesMiniatura">
+
             <% servicio.imagenes.forEach(imagen=>{ %>
-        <div class="contenedorImagenesMiniatura">
             <img class="imagenMiniatura" src="/images/imagenes-servicios/<%=imagen%>" alt="miniatura"> 
             <%})%>
-                       
-        </div>
+
+            </div>
+        
         <div class="contenedorImagenPrincipal">
-            <img class="imagenPrincipal" src="images/imagenes-servicios/<%=servicio.imagenes[0]%>" alt="imagenPrincipal"> 
+            <img class="imagenPrincipal" src="/images/imagenes-servicios/<%=servicio.imagenes[0]%>" alt="imagenPrincipal"> 
         </div>
             <%}else{%>
                 <div class="contenedorImagenesMiniatura">
-                    <img class="imagenMiniatura" src="/images/imagenes-servicios/imagen-default.jpg>" alt="miniatura"> 
+                    <img class="imagenMiniatura" src="/images/imagenes-servicios/imagen-default.jpg>" alt="miniatura-default"> 
                                
                 </div>
                 <div class="contenedorImagenPrincipal">
-                    <img class="imagenPrincipal" src="images/imagenes-servicios/imagen-default.jpg" alt="imagenPrincipal"> 
+                    <img class="imagenPrincipal" src="/images/imagenes-servicios/imagen-default.jpg" alt="imagenPrincipal-default"> 
                 </div>
                 <%}%>
 
         <div class="descripcionServicio">
             <h2><%=servicio.titulo%></h2>
-            <img class="fotoPerfil" src="images/fotos-perfil/<%=%>" alt="fotoPerfil">
-            <strong><p class="nombreDeProfesional">Melisa Lopez</p></strong>
-            <p class="ciudadUbicacion">Medellin-Antioquia</p>
-            <strong><p class="precio">$49.900</p></strong>
-            <p class="tarifaPorHora">Tarifa por hora</p>
+            <img class="fotoPerfil" src="/images/fotos-perfil/<%=usuario.fotoPerfil%>" alt="fotoPerfil">
+            <strong><p class="nombreDeProfesional"><%=usuario.nombre%></p></strong>
+            <p class="ciudadUbicacion"><%=usuario.ciudad%></p>
+            <strong><p class="precio">$<%=servicio.precio%></p></strong>
+            <p class="tarifaPorHora"><%=servicio.tarifa%></p>
             <p class="verCalificaciones"><a href="#calificaciones">Ver calificaciones</a></p>
-            <img class="estrellasCalificacion" src="images/estrellas/5-estrella.png" alt="5 estrellas"/>
+            <img class="estrellasCalificacion" src="/images/estrellas/<%=usuario.calificacion%>-estrella.png" alt="estrellas"/>
             <form method="get" action="/servicio/contacto">
             <div class="botonContactar"><button>Contactar al experto</button></a></div>
             </form>
@@ -74,16 +76,16 @@
 
     <div class="contenedorDescripcion">
     <h2 class="descripcio">Descripción de servicios ofrecidos  <i class="fa-solid fa-file-contract"></i></h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, doloremque. Laborum dicta fugit suscipit id eveniet, praesentium iste ipsa doloribus aliquid nulla qui excepturi cumque? Temporibus dicta odio nesciunt dolor.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, repellendus adipisci non magni quo accusantium nihil dolor animi alias ducimus distinctio amet? Iusto, cupiditate itaque! Nulla aut corporis aspernatur fugiat sa doloribus aliquid nulla qui excepturi cumque? Temporibus dicta odio nesciunt dolor.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, repellendus adipisci non magni quo accusantium nihil dolor animi alias ducimus distinctio amet? Iusto, cupiditate itaque! Nulla aut corporis aspernatur fugiat.</p>
+    <p><%=servicio.descripcion%></p>
     </div>
 
     <div class="contenedorExperiencia">
         <div class="experiencia">
             <h2>Estudios / experiencia <i class="fa-sharp fa-solid fa-graduation-cap"></i></h2>
             <ul class="listaEstudios">
-                <li>Gestion y diseño de espacios <br> <span class="universidad">Universidad de Medellin 2016</span></li>
-                <li>Diplomado iluminacion y creacion de espacios <br> <span class="universidad">Universidad de EAFIT 2018</span></li>
-                <li>Paisajismo y decoracion exterior<br> <span class="universidad">Colegio mayor de Antioquia</span></li>
+                <li>Gestion y diseño de espacios <br> <span class="entidad">entidad de Medellin 2016</span></li>
+                <li>Diplomado iluminacion y creacion de espacios <br> <span class="entidad">entidad de EAFIT 2018</span></li>
+                <li>Paisajismo y decoracion exterior<br> <span class="entidad">Colegio mayor de Antioquia</span></li>
             </ul>
         </div>
         <div class="habilidades">
