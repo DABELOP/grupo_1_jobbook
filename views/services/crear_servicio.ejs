@@ -19,17 +19,17 @@
     <!-- Navbar categorias -->
     <%- include('../partials/navbarCategorias.ejs') %> 
 
-    <form class="formularioLogin" action="">
+    <form class="formularioLogin" action="/servicio" method="POST" enctype="multipart/form-data">
         <h2>Únete a Jobbook</h2>
         <label class="contenedorInput">
             <p class="tituloInput">Titulo del servicio</p>
-            <input type="text" name="tituloServicio" placeholder="Remodelacion y adecuacion de espacios interiores" class="input">
+            <input type="text" name="titulo" placeholder="Remodelacion y adecuacion de espacios interiores" class="input">
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i>Este campo es obligatorio</p>
         </label>
         <label class="contenedorInput">
             <p class="tituloInput"><label for="categorias">Categorias:</label></p>
             
-            <select name="categorias" id="categorias">
+            <select name="categoria" id="categorias">
                 <option value="carpinteria">Carpinteria</option>
                 <option value="contaduria">Contaduría</option>
                 <option value="psicologia">Psicologia</option>
@@ -43,12 +43,18 @@
         </label>
         <label class="contenedorInput">
             <p class="tituloInput">Descripción del servicio ofrecido</p>
-            <textarea name="descripcionServicio" placeholder="Describa su servicio al detalle" class="input" rows="6"></textarea>
+            <textarea name="descripcion" placeholder="Describa su servicio al detalle" class="input" rows="6"></textarea>
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
         </label>
         <label class="contenedorInput">
+            <p class="tituloInput">Precio</p>
+            <input type="number" name="precio" placeholder="$xx.xxx" class="input">
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Nombre de usuario ya existe</p>
+        </label>
+        <label class="contenedorInput">
             <p class="tituloInput">Tarifa</p>
-            <input type="text" name="text" placeholder="$xx.xxx por hora, m2" class="input">
+            <input type="text" name="tarifa" placeholder="por hora, m2, por proyecto" class="input">
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Nombre de usuario ya existe</p>
         </label>
@@ -58,11 +64,6 @@
             <input type="file" name="foto2"  class="input">
             <input type="file" name="foto3"  class="input">
             <input type="file" name="foto4"  class="input">
-            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
-        </label>
-        <label class="contenedorInput">
-            <p class="tituloInput">Experiencia</p>
-            <textarea type="text" name="experiencia" placeholder="Describa su experiencia " class="input"></textarea>
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
         </label>
                 

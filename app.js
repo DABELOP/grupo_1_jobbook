@@ -3,10 +3,13 @@ const app = express();
 const path = require('path');
 const indexRouter = require('./routes/index');
 const serviciosRouter = require('./routes/servicios'); 
-const usuariosRouter = require('./routes/usuarios')
-const methodOverride = require('method-override')
+const usuariosRouter = require('./routes/usuarios');
+const methodOverride = require('method-override');
 
 app.use(methodOverride('_method'))
+//configuración para capturar información de los formularios
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 //configuración del motor de plantillas
 app.set('views', path.join(__dirname, 'views'));
