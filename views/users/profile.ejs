@@ -16,10 +16,11 @@
 
 
     <!-- Header -->
-    <%- include('./partials/header.ejs') %> 
+    <%- include('../partials/header.ejs') %> 
 
     <!-- Navbar categorias -->
-    <%- include('./partials/navbarCategorias.ejs') %> 
+    <%- include('../partials/navbarCategorias.ejs') %> 
+
 
     <main>
         <div class="infoPerfil">
@@ -85,6 +86,9 @@
                         <p>$630.000</p>
                     </div>
                 </div>
+                <button class="button editBtn"><a href="/">Editar</a></button>
+        <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
+    
         </div>
 
 
@@ -94,6 +98,6 @@
     </main>
 
     <!-- Footer -->
-    <%- include('./partials/footer.ejs') %> 
+    <%- include('../partials/footer.ejs') %> 
 </body>
 </html>
