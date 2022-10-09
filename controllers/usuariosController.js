@@ -16,7 +16,8 @@ const usuariosController = {
         res.render('users/contacto_experto');
     },
     profile: (req,res)=>{
-        res.render('users/profile');
+        let usuario=usuarios.find(usuario => usuario.id == req.params.id)
+        res.render('users/profile',{usuario});
     },
 };
 
