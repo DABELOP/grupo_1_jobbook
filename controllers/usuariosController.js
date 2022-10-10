@@ -25,6 +25,7 @@ const usuariosController = {
         let serviciosUsuario=servicios.filter(servicio => servicio.idUsuario == req.params.id)
         res.render('users/mis_servicios',{usuarios,serviciosUsuario});
     },
+   
 };
 
 module.exports = usuariosController;

@@ -70,7 +70,8 @@ color:var(--gris-oscuro);
     border:solid var(--gris-oscuro) 1px;
     border-radius:8px;
     padding:20px;
-    margin:15px
+    margin:15px;
+    background-color: white;
 }
 
 
@@ -113,6 +114,7 @@ margin-top:10px;
 
 .ciudadUbicacion{
     color:var(--gris-oscuro);
+    text-decoration: none;
 }
 
 .precio{
