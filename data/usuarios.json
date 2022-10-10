@@ -38,7 +38,7 @@
 },
 {
     "id": 2,
-    "fotoPerfil": "fotoPerfil1.jpg",
+    "fotoPerfil": "fotoPerfil.jpg",
     "nombre": "Marcelia Snowling",
     "nombrePersonalizado": "msnowling1",
     "ciudad": "Charlestown",
@@ -61,7 +61,7 @@
 },
 {
     "id": 3,
-    "fotoPerfil": "",
+    "fotoPerfil":"imagen-default.jpg",
     "nombre": "Falkner Presslee",
     "nombrePersonalizado": "fpresslee2",
     "ciudad": "Lukavec",
@@ -161,7 +161,7 @@
 },
 {
     "id": 7,
-    "fotoPerfil": "",
+    "fotoPerfil":"imagen-default.jpg",
     "nombre": "Chane Malsher",
     "nombrePersonalizado": "cmalsher6",
     "ciudad": "Courelas Bravas",
@@ -317,7 +317,7 @@
 },
 {
     "id": 13,
-    "fotoPerfil": "",
+    "fotoPerfil":"imagen-default.jpg",
     "nombre": "Bryce Cork",
     "nombrePersonalizado": "bcorkc",
     "ciudad": "Zhongtong",
@@ -339,7 +339,7 @@
 },
 {
     "id": 14,
-    "fotoPerfil": "",
+    "fotoPerfil":"imagen-default.jpg",
     "nombre": "Jeanine Klousner",
     "nombrePersonalizado": "jklousnerd",
     "ciudad": "Noyakert",
@@ -470,7 +470,7 @@
 },
 {
     "id": 19,
-    "fotoPerfil": "",
+    "fotoPerfil":"imagen-default.jpg",
     "nombre": "Laurene Bignal",
     "nombrePersonalizado": "lbignali",
     "ciudad": "Yanqi",
