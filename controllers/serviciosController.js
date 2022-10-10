@@ -14,7 +14,7 @@ const serviciosController = {
     detalleServicio: (req,res)=>{
         let servicio = servicios.find(servicio => servicio.id == req.params.id);
         let usuario = usuarios.find(usuario => usuario.id == servicio.idUsuario);
-        res.render('services/detalle_servicio',{servicio,usuario});
+        res.render('services/detalle_servicio',{servicio,usuario,toThousand});
     },
 
     contacto: (req,res)=>{
@@ -22,7 +22,9 @@ const serviciosController = {
     },
 
     busqueda: (req,res)=>{  
-        res.render('services/busqueda_servicios',{servicios, usuarios});
+        let serviciosBuscados=servicios.filter(servicio => servicio.titulo.includes(req.query.keywords));
+        if (req.query.keywords == "") serviciosBuscados=[];
+        res.render('services/busqueda_servicios',{serviciosBuscados, usuarios, toThousand});
     },
 
     crear: (req,res)=>{

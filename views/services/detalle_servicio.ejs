@@ -63,7 +63,7 @@
             <img class="fotoPerfil" src="/images/fotos-perfil/<%=usuario.fotoPerfil%>" alt="fotoPerfil">
             <strong><p class="nombreDeProfesional"><%=usuario.nombre%></p></strong>
             <p class="ciudadUbicacion"><%=usuario.ciudad%></p>
-            <strong><p class="precio">$<%=servicio.precio%></p></strong>
+            <strong><p class="precio">$<%=toThousand(servicio.precio)%></p></strong>
             <p class="tarifaPorHora"><%=servicio.tarifa%></p>
             <p class="verCalificaciones"><a href="#calificaciones">Ver calificaciones</a></p>
             <img class="estrellasCalificacion" src="/images/estrellas/<%=usuario.calificacion%>-estrella.png" alt="estrellas"/>
