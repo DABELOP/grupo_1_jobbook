@@ -47,6 +47,7 @@ const serviciosController = {
 		fs.writeFileSync(rutaServicios, JSON.stringify(servicios, null))
 		res.redirect('/')
     }
+   
 };
 
 module.exports = serviciosController;

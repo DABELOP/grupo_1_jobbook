@@ -5,6 +5,7 @@
     display: flex;
 }
 
+ /* Lista de contenido perfil */ 
 .listaDeContenidoPerfil{
     width: 15%;
     background-color: white;
@@ -12,16 +13,32 @@
     border:solid var(--gris-oscuro) 1px;
     border-radius:8px;
     padding:20px;
-    margin:15px
+    margin:15px;
+    
 }
 
+.listaCategorias a{
+    text-decoration: none
+
+}
+.listaCategorias li{
+    text-decoration: none
+
+}
+
+
+ /* Lista de contenido perfil */ 
+
+
 .informacionPerfil{
+    width: 85%;
     background-color: white;
     border-radius:8px;
     border:solid var(--gris-oscuro) 1px;
     border-radius:8px;
     padding:20px;
-    margin:15px
+    margin:15px;
+    
 }
 
 .contenedorFotoPerfil{
