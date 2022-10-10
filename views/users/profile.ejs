@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/stylesheet_profile.css">
+    <link rel="stylesheet" href="/css/stylesheet_home.css">
+    <link href="/css/stylesheet_busqueda_servicios.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,15 +26,20 @@
 
     <main>
         <div class="infoPerfil">
+            <!--Lista de contenido perfil-->
             <div class="listaDeContenidoPerfil">
               <h3>Mi Perfil</h3>  
               <ul class="listaCategorias">
                 <li><a href="">Mi información</a></li>
+                <li><a href="/usuario/profile/<%=usuario.id %>/servicios">Mis servicios</a></li>
                 <li><a href="">Mis ventas</a></li>
                 <li><a href="">Mis compras</a></li>
                 <li><a href="">Configuración</a></li>
             </ul>
             </div>
+            <!--Lista de contenido perfil-->
+
+
             <div class="informacionPerfil">
                 <div class="contenedorFotoPerfil">
                     <img src="/images/fotoPerfil.jpg" alt="">
