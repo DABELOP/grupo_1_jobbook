@@ -76,7 +76,7 @@
             <% let usuario = usuarios.find(usuario => usuario.id==servicio.idUsuario) %>
         
             <!--TARJETA DE SERVICIO-->
-            
+            <%console.log(usuario)%>
             <a href="/servicio/<%= servicio.id %>"><div class="contenedorDetalleServicio">
                 <div class="contenedorFotoPerfil">
                     <img src="/images/fotos-perfil/<%=usuario.fotoPerfil%>" alt="">
