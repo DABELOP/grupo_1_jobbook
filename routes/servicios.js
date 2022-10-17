@@ -24,7 +24,7 @@ router.get('/crear', serviciosController.crear);
 router.post('/', upload.any(), serviciosController.guardar);
 //Detalle de un servicio
 router.get('/:id', serviciosController.detalleServicio);
-router.get('/contacto', serviciosController.contacto);
+router.get('/:id/contacto', serviciosController.contacto);
 
 
 

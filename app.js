@@ -7,6 +7,7 @@ const usuariosRouter = require('./routes/usuarios');
 const methodOverride = require('method-override');
 
 app.use(methodOverride('_method'))
+
 //configuración para capturar información de los formularios
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());

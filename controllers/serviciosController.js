@@ -18,7 +18,8 @@ const serviciosController = {
     },
 
     contacto: (req,res)=>{
-        res.render('services/contacto_experto');
+        let usuario = usuarios.find(usuario => usuario.id = req.params.id);
+        res.render('services/contacto_experto', {usuario});
     },
 
     busqueda: (req,res)=>{  
