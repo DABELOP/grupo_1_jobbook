@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/stylesheet_register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
+    <title>Jobbok-stylesheet_home</title>
+</head>
+<body>
+    <!-- Header -->
+    <%- include('../partials/header.ejs') %> 
+
+    <!-- Navbar categorias -->
+    <%- include('../partials/navbarCategorias.ejs') %> 
+
+    <form class="formularioLogin" action="/servicio" method="POST" enctype="multipart/form-data">
+        <h2>Únete a Jobbook</h2>
+        <label class="contenedorInput">
+            <p class="tituloInput">Titulo del servicio</p>
+            <input type="text" name="titulo" placeholder="Remodelacion y adecuacion de espacios interiores" class="input">
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i>Este campo es obligatorio</p>
+        </label>
+        <label class="contenedorInput">
+            <p class="tituloInput"><label for="categorias">Categorias:</label></p>
+            
+            <select name="categoria" id="categorias">
+                <option value="carpinteria">Carpinteria</option>
+                <option value="contaduria">Contaduría</option>
+                <option value="psicologia">Psicologia</option>
+                <option value="fotografia">Fotografia</option>
+                <option value="comunicacion">Comunicación</option>
+                <option value="farmaceutica">Farmaceutica</option>
+                <option value="abogacia">Abogacía</option>
+                <option value="construccion">Construcción</option>
+              </select>
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i>Este campo es obligatorio</p>
+        </label>
+        <label class="contenedorInput">
+            <p class="tituloInput">Descripción del servicio ofrecido</p>
+            <textarea name="descripcion" placeholder="Describa su servicio al detalle" class="input" rows="6"></textarea>
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+        </label>
+        <label class="contenedorInput">
+            <p class="tituloInput">Precio</p>
+            <input type="number" name="precio" placeholder="$xx.xxx" class="input">
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Nombre de usuario ya existe</p>
+        </label>
+        <label class="contenedorInput">
+            <p class="tituloInput">Tarifa</p>
+            <input type="text" name="tarifa" placeholder="por hora, m2, por proyecto" class="input">
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Nombre de usuario ya existe</p>
+        </label>
+        <label class="contenedorInput">
+            <p class="tituloInput">Agrega fotos o evidencias de tus servicios</p>
+            <input type="file" name="foto1"  class="input">
+            <input type="file" name="foto2"  class="input">
+            <input type="file" name="foto3"  class="input">
+            <input type="file" name="foto4"  class="input">
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+        </label>
+                
+        <button class="boton">Crear servicio</button>
+        
+    </form>
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %> 
+</body>
+</html>
