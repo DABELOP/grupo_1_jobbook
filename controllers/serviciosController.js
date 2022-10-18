@@ -48,6 +48,7 @@ const serviciosController = {
 		res.redirect('/')
     },
     
+    
 };
 
 module.exports = serviciosController;
