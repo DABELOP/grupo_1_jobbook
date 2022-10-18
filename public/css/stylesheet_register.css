@@ -14,6 +14,31 @@
     text-align: center;
     padding: 4px;
 }
+
+
+.imagenesServicio img{
+    width: 80px;
+    margin-left: 0;
+}
+
+.imagenesServicio div{
+    margin-left: 15px;
+}
+
+.imagenesServicio a{
+    font-size: 12px;
+    text-decoration:underline;
+    background-color:white ;
+    color:rgb(41, 41, 114);
+    cursor: pointer;
+}
+
+.imagenesServicio{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
 .tituloInput, .input{
     margin: 4px 0px;
 }
@@ -40,6 +65,7 @@
     font-size: 1rem;
     height: 36px;
     color: white;
+    cursor:pointer;
 }
 .formularioLogin p{
     padding: 4px;

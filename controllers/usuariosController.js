@@ -6,6 +6,7 @@ const usuarios = JSON.parse(fs.readFileSync(rutaUsuarios, 'utf-8'));
 
 const rutaServicios = path.join(__dirname, '../data/servicios.json');
 const servicios = JSON.parse(fs.readFileSync(rutaServicios, 'utf-8'));
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const usuariosController = {
     login: (req,res)=>{
@@ -19,11 +20,12 @@ const usuariosController = {
     },
     profile: (req,res)=>{
         let usuario=usuarios.find(usuario => usuario.id == req.params.id)
-        res.render('users/profile',{usuario});
+        res.render('users/profile',{usuario, toThousand});
     },
     misServicios: (req,res)=>{
-        let serviciosUsuario=servicios.filter(servicio => servicio.idUsuario == req.params.id)
-        res.render('users/mis_servicios',{usuarios,serviciosUsuario});
+        let serviciosUsuario=servicios.filter(servicio => servicio.idUsuario == req.params.id);
+        let usuario=usuarios.find(usuario => usuario.id == req.params.id)
+        res.render('users/mis_servicios',{usuario,serviciosUsuario, toThousand});
     },
    
    

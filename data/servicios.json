@@ -29,10 +29,10 @@
         "idUsuario": 8,
         "titulo": "Remodelación de locales comerciales y decoración",
         "imagenes": [],
-        "precio": 3850742,
-        "tarifa": "Por proyecto",
+        "precio": "1250000",
+        "tarifa": "Por dia",
         "descripcion": "vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat",
-        "categoria": "psicologia"
+        "categoria": "carpinteria"
     },
     {
         "id": 4,
@@ -51,9 +51,6 @@
         "idUsuario": 4,
         "titulo": "Diseño de Interiores con áreas clave como diseño de espacios",
         "imagenes": [
-            {},
-            {},
-            {},
             {}
         ],
         "precio": 9287317,
@@ -66,7 +63,6 @@
         "idUsuario": 6,
         "titulo": "Se hacen planos",
         "imagenes": [
-            {},
             {}
         ],
         "precio": 8109826,
@@ -101,21 +97,6 @@
         "categoria": "comunicacion"
     },
     {
-        "id": 9,
-        "idUsuario": 2,
-        "titulo": "Remodelación y adecuación de oficinas y centros de trabajo",
-        "imagenes": [
-            {},
-            {},
-            {},
-            {}
-        ],
-        "precio": 433053,
-        "tarifa": "Personalizado",
-        "descripcion": "molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed",
-        "categoria": "psicologia"
-    },
-    {
         "id": 10,
         "idUsuario": 13,
         "titulo": "Remodelación de locales comerciales y decoración",
@@ -132,7 +113,9 @@
         "id": 11,
         "idUsuario": 13,
         "titulo": "Remodelación y adecuación de oficinas y centros de trabajo",
-        "imagenes": [],
+        "imagenes": [
+            {}
+        ],
         "precio": 522494,
         "tarifa": "Personalizado",
         "descripcion": "metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac",
@@ -173,8 +156,8 @@
             {},
             {}
         ],
-        "precio": 7004985,
-        "tarifa": "Por proyecto",
+        "precio": "255000",
+        "tarifa": "Por hora",
         "descripcion": "quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum",
         "categoria": "construccion"
     },
@@ -223,20 +206,21 @@
         "imagenes": [
             "img-foto1.jpg",
             "img-foto2.jpg",
-            "img-foto3.jpg",
-            "img-foto4.jpg"
+            "img-foto3.jpg"
         ]
     },
     {
         "id": 19,
-        "idUsuario": 2,
-        "titulo": "Declaración de renta para personas naturales",
-        "categoria": "contaduria",
-        "descripcion": "Ha llegado ese temido momento para muchos colombianos en el que reciben un correo por parte de la Dirección de Impuestos y Aduanas Nacionales que les anuncia que deben declarar renta. En palabras sencillas, la declaración de renta es un informe que debes presentarle a la DIAN resumiéndole tu actividad económica del año anterior pero para entender mucho mejor de lo que se trata o lo que debes hacer, en Platzi creamos el Curso de Declaración de Renta y Planeación Tributaria para Colombia, así aprenderás a dominar este proceso.",
-        "precio": "250000",
-        "tarifa": "Declaracion",
+        "idUsuario": 5,
+        "titulo": "Desarrollo de nuevos modelos",
+        "categoria": "fotografia",
+        "descripcion": "Desarrollo de nuevos diseños en software cad",
+        "precio": "559898",
+        "tarifa": "por hora",
+        "experiencia": "Diseño de productos en empresa colombiana",
         "imagenes": [
             "img-foto1.jpg",
+            "img-foto2.jpg",
             "img-foto3.jpg"
         ]
     }

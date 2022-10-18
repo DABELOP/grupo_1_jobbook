@@ -1,5 +1,7 @@
 @import 'stylesheet.css';
 @import 'stylesheet_home.css';
+@import 'stylesheet_busqueda_servicios.css';
+
 
 .infoPerfil{
     display: flex;
@@ -13,36 +15,77 @@
     border:solid var(--gris-oscuro) 1px;
     border-radius:8px;
     padding:20px;
-    margin:15px;
+    margin:7px;
+    margin-top: 15px;
     
 }
 
-.listaCategorias a{
-    text-decoration: none
 
+.contenedorDerechoPerfil{
+    width: 85%;
+    border:solid var(--gris-oscuro) 1px;
+    border-radius:8px;
+    padding:20px;
+    margin:15px;
+    background-color: white;
 }
-.listaCategorias li{
-    text-decoration: none
-
-}
-
-
- /* Lista de contenido perfil */ 
-
 
 .informacionPerfil{
-    width: 85%;
+    width: 40%;
     background-color: white;
     border-radius:8px;
     border:solid var(--gris-oscuro) 1px;
     border-radius:8px;
     padding:20px;
-    margin:15px;
-    
+    margin:7px;   
 }
 
-.contenedorFotoPerfil{
-    
+
+
+.contenedorDescripcion{
+    display:flex;
+    justify-content: space-between;
+}
+
+.botonesEdicion{
+    margin-top: 15px;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color:var(--azul-oscuro);
+}
+
+.listaCategorias li{
+margin-bottom: 15px;
+color: black;
+}
+
+.listaCategorias a{
+   font-size: 18px;
+    }
+
+.listaDeContenidoPerfil h3{
+text-align: center;
+font-size: 24px;
+}
+
+.listaCategorias a{
+    text-decoration: none;  
+}
+
+.listaCategorias li{
+    text-decoration: none
+}
+
+.listaCategorias{
+    margin-top: 30px;
+}
+ /* Lista de contenido perfil */ 
+
+.misServicios{
+    display:flex;
 }
 
 .button{
@@ -54,4 +97,15 @@
     font-size: 1rem;
     height: 36px;
     color: white;
+    cursor:pointer;
 }
+
+.listaServicios{
+    width: 85%;
+}
+
+.button:hover {
+    background-color: var(--azul-oscuro);
+}
+
+
