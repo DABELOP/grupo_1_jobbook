@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { stringify } = require('querystring');
 
 
 const rutaServicios = path.join(__dirname, '../data/servicios.json');
@@ -18,11 +19,13 @@ const serviciosController = {
     },
 
     contacto: (req,res)=>{
-        res.render('services/contacto_experto');
+        let usuario = usuarios.find(usuario => usuario.id = req.params.id);
+        res.render('services/contacto_experto', {usuario});
     },
 
     busqueda: (req,res)=>{  
-        let serviciosBuscados=servicios.filter(servicio => servicio.titulo.includes(req.query.keywords));
+        let serviciosBuscados=servicios//servicios.filter(servicio => servicio.titulo.includes(req.query.keywords));
+        console.log(serviciosBuscados);
         if (req.query.keywords == "") serviciosBuscados=[];
         res.render('services/busqueda_servicios',{serviciosBuscados, usuarios, toThousand});
     },
@@ -30,6 +33,13 @@ const serviciosController = {
     crear: (req,res)=>{
         res.render('services/crear_servicio');
     },
+
+    editar: (req,res)=>{
+        let servicio = servicios.find(servicio => servicio.id == req.params.idServicio);
+        res.render('services/editar_mi_servicio',{servicio});
+        
+    },
+
     guardar: (req, res) => {
         let imagenes;
 		if(req.files[0] != undefined){
@@ -37,7 +47,6 @@ const serviciosController = {
 		} else {
 			imagenes = ["imagen-principal.jpg","miniatura-1.jpg","miniatura-2.jpg","miniatura-3.jpg"]
 		}
-        console.log(imagenes);
 		let nuevoServicio = {
 			id: servicios[servicios.length - 1].id + 1,
 			...req.body,
@@ -47,6 +56,36 @@ const serviciosController = {
 		fs.writeFileSync(rutaServicios, JSON.stringify(servicios, null))
 		res.redirect('/')
     },
+
+    guardarEdicion: (req,res)=>{
+        let servicioEditado=servicios.find(servicio=>servicio.id == req.params.idServicio);
+        let idUsuario = servicioEditado.idUsuario
+        let nuevosServicios=[]
+
+
+        servicios.forEach(servicio =>{
+
+        if(servicio.id == servicioEditado.id){
+            servicio ={
+                ...servicioEditado,
+                ...req.body,
+            }
+        }
+        nuevosServicios.push(servicio)
+        })
+
+        fs.writeFileSync(rutaServicios, JSON.stringify(nuevosServicios, null))
+
+        res.redirect('/usuario/profile/'+ idUsuario+'/servicios');
+    },
+
+    eliminar: (req,res)=>{
+        console.log('entro')
+        let servicioEliminar=servicios.find(servicio=>servicio.id == req.params.idServicio);
+        let nuevosServicios=servicios.filter(servicio=> servicio.id != servicioEliminar.id);
+        fs.writeFileSync(rutaServicios, JSON.stringify(nuevosServicios, null))
+        res.redirect('/usuario/profile/'+ servicioEliminar.idUsuario+'/servicios');
+    }
     
     
 };

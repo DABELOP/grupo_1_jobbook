@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/stylesheet_profile.css">
     <link rel="stylesheet" href="/css/stylesheet_home.css">
-    <link href="/css/stylesheet_busqueda_servicios.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/stylesheet_profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
-    <title>Jobbok-profile</title>
+    <title>Jobbok-Perfil</title>
 </head>
 <body>
 
@@ -25,29 +24,30 @@
 
 
     <main>
-        <div class="infoPerfil">
+        <div class="misServicios">
+        
             <!--Lista de contenido perfil-->
             <div class="listaDeContenidoPerfil">
-              <h3>Mi Perfil</h3>  
-              <ul class="listaCategorias">
-                <li><a href="">Mi información</a></li>
-                <li><a href="/usuario/profile/<%=usuario.id %>/servicios">Mis servicios</a></li>
-                <li><a href="">Mis ventas</a></li>
-                <li><a href="">Mis compras</a></li>
-                <li><a href="">Configuración</a></li>
-            </ul>
+                <h3>Mi Perfil</h3>  
+                <ul class="listaCategorias">
+                    <li><a href="/usuario/profile/<%=usuario.id%>">Mi información</a></li>
+                    <li><a href="/usuario/profile/<%=usuario.id%>/servicios">Servicios publicados</a></li>
+                    <li><a href="">Ventas</a></li>
+                    <li><a href="">Compras</a></li>
+                    <li><a href="">Configuración</a></li>
+                </ul>
             </div>
+            
             <!--Lista de contenido perfil-->
 
-
-            <div class="informacionPerfil">
+            <div class="contenedorDerechoPerfil">
                 <div class="contenedorFotoPerfil">
                     <img src="/images/fotoPerfil.jpg" alt="">
                 </div>
                 <div class="datosDeCuenta">
                     <div class="nombrePersonalizado"> 
-                        <h3>Correo</h3>
-                        <p><%=usuario.nombre%></p>
+                        <h3>Usuario</h3>
+                        <p><%=usuario.nombrePersonalizado%></p>
                     </div>
                     <div class="contenedorCorreo"> 
                         <h3>Correo</h3>
@@ -94,14 +94,10 @@
                     </div>
                 </div>
                 <button class="button editBtn"><a href="/">Editar</a></button>
-        <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
+                 <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
     
+            </div>
         </div>
-
-
-
-
-
     </main>
 
     <!-- Footer -->

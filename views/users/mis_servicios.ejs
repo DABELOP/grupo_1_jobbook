@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/stylesheet_profile.css">
-    <link href="/css/stylesheet_busqueda_servicios.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/stylesheet_home.css">
+    <link rel="stylesheet" href="/css/stylesheet_profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
-    <title>Jobbok-Mis productos</title>
+    <title>Jobbok-Mis servicios</title>
 </head>
 <body>
 
@@ -23,61 +22,76 @@
     <!-- Navbar categorias -->
     <%- include('../partials/navbarCategorias.ejs') %> 
 
-    <main>
-        <div class="misServicios">
-            <!--Lista de contenido perfil-->
-            <div class="listaDeContenidoPerfil">
-              <h3>Mi Perfil</h3>  
-              <ul class="listaCategorias">
-                <li><a href="">Mi información</a></li>
-                <li><a href="">Mis ventas</a></li>
-                <li><a href="">Mis compras</a></li>
+<main>
+    <div class="misServicios">
+        <!--Lista de contenido perfil-->
+        
+        <div class="listaDeContenidoPerfil">
+            <h3>Mi Perfil</h3>  
+            <ul class="listaCategorias">
+                <li><a href="/usuario/profile/<%=usuario.id%>">Mi información</a></li>
+                <li><a href="/usuario/profile/<%=usuario.id%>/servicios">Servicios publicados</a></li>
+                <li><a href="">Ventas</a></li>
+                <li><a href="">Compras</a></li>
                 <li><a href="">Configuración</a></li>
             </ul>
-            </div>
+        </div>
+
             <!--Lista de contenido perfil-->
 
-            
+        <div class="listaServicios">       
             <% serviciosUsuario.forEach(servicio => {  %>
-           
-                <% let usuario = usuarios.find(usuario => usuario.id==servicio.idUsuario) %>
+            
 
-     <!--TARJETA DE SERVICIO-->
-     <a href="/servicio/<%= servicio.id %>"><div class="contenedorDetalleServicio">
-        <div class="contenedorFotoPerfil">
-            <img src="<%=usuario.fotoPerfil%>" alt="">
-        </div>
-
-        <div class="contenedorDerechoBusqueda">
-            <div class="contenedorTituloCalificacion">
-                <div class="contenedorTitulo"> 
-                    <h2><%= servicio.titulo %></h2>
-                    <p class="nombreProfesional"><%= usuario.nombre %></p>
-                    <p class="ciudadUbicacion"><%= usuario.ciudad %></p>
-                </div>
-                <div class="contenedorCalificacion">  
-                    <img src="/images/estrellas/<%= usuario.calificacion %>-estrella.png" alt="estrella">
-                    <p class="trabajosRealizados"> trabajos realizados</p>
-                    <div clas="contenedorPrecioTarifa">
-                        <strong><p class="precio"><%= servicio.precio %></p></strong>
-                        <p class="ciudadUbicacion"><%= servicio.tarifa %></p>
+            <!--TARJETA DE SERVICIO-->
+            <a href="/servicio/<%= servicio.id %>"><div class="contenedorDetalleServicio">
+            
+            <div class="contenedorDerechoBusqueda">
+                <div class="contenedorTituloCalificacion">
+                    <div class="contenedorTitulo"> 
+                        <h2><%= servicio.titulo %></h2>
+                        <p class="nombreProfesional"><%= usuario.nombre %></p>
+                        <p class="ciudadUbicacion"><%= usuario.ciudad %></p>
                     </div>
-                    <button class="button editBtn"><a href="/usuario/profile/<%= usuario.id %>/servicios/<%= servicio.id %>/editar">Editar</a></button>
-                    <button class="button deletBtn"><a href="">Eliminar</a></button>
+                    <div class="contenedorCalificacion">  
+                        <img src="/images/estrellas/<%= usuario.calificacion %>-estrella.png" alt="estrella">
+                        <p class="trabajosRealizados"> trabajos realizados</p>
+                        
+                        <div clas="contenedorPrecioTarifa">
+                            <strong><p class="precio">$<%= toThousand(servicio.precio) %></p></strong>
+                            <p class="ciudadUbicacion"><%= servicio.tarifa %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedorDescripcion">  
+                    <p><%= servicio.titulo %><%= servicio.descripcion %></p>
+                    
+                </div>
+                <div class="botonesEdicion">
+                    <form action="/servicio/editar/<%= servicio.id %>" method="GET">
+                        <button class="button editBtn">Editar</button>
+                    </form>
+                    <form action="/servicio/eliminar/<%= servicio.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+                        <button class="button deletBtn" id="<%= servicio.id %>" >Eliminar</button>
+                    </form> 
                 </div>
             </div>
-                <div class="contenedorDescripcion">  
-                    <p><%= servicio.titulo %><%= servicio.descripcion %></p> 
-                </div>
+            </a>
         </div>
-    </div></a>
-    <% }) %>
+        <% }) %>
      <!--TARJETA DE SERVICIO HASTA ACA-->
     </div>
     
 </main>
 
+<script>
+function pregunta(id){      
+let resultado = window.confirm('Estas seguro de eliminar este servicio ?' + id);
+if (resultado == true) {
 
+}
+}
+</script>
 
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %> 

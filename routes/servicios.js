@@ -25,11 +25,14 @@ router.post('/', upload.any(), serviciosController.guardar);
 
 //Detalle de un servicio
 router.get('/:id', serviciosController.detalleServicio);
-router.get('/contacto', serviciosController.contacto);
+router.get('/:id/contacto', serviciosController.contacto);
 
 //Modificar un servicio
-router.get('/profile/:idUsuario/servicios/:id/editar', serviciosController.crear);
-router.put('/', upload.any(), serviciosController.guardar);
+router.get('/editar/:idServicio', serviciosController.editar);
+router.put('/editar/:idServicio', upload.any(), serviciosController.guardarEdicion);
+
+//Eliminar un servicio
+router.delete('/eliminar/:idServicio', serviciosController.eliminar);
 
 
 
