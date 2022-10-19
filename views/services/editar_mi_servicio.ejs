@@ -49,7 +49,7 @@
         </label>
         <label class="contenedorInput">
             <p class="tituloInput">Precio</p>
-            <input type="number" value="<%=servicio.precio%>" name="precio" placeholder="$xx.xxx" class="input">
+            <input type="number" value="<%=toThousand(servicio.precio)%>" name="precio" placeholder="$xx.xxx" class="input">
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Nombre de usuario ya existe</p>
         </label>

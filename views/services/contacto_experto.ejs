@@ -28,27 +28,28 @@
     <h2>Contacta a este experto. </h2>
 
     <div class="descripcionServicio">
-        <h2>Remodelacion y adecuacion de espacios interiores y exterioress</h2>
+        <h2><%=servicio.titulo%></h2>
         <div class="contenedorInformacion">
             <div class="datosPerfil">
-                <img class="fotoPerfil" src="/images/fotoPerfil.jpg" alt="fotoPerfil">
-                <strong><p class="nombreDeProfesional">Melisa Lopez</p></strong>
-                <p class="ciudadUbicacion">Medellin-Antioquia</p>
-                <strong><p class="precio">$49.900</p></strong>
-                <p class="tarifaPorHora">Tarifa por hora</p>
+                <img class="fotoPerfil" src="/images/fotos-perfil/<%=usuario.fotoPerfil%>" alt="fotoPerfil">
+                <strong><p class="nombreDeProfesional"><%=usuario.nombre%></p></strong>
+                <p class="ciudadUbicacion"><%=usuario.nombrePersonalizado%></p>
+                <p class="ciudadUbicacion"><%=usuario.ciudad%></p>
+                <strong><p class="precio">$<%=toThousand(servicio.precio)%></p></strong>
+                <p class="tarifaPorHora"><%=servicio.tarifa%></p>
                 <p class="verCalificaciones"><a href="">Ver calificaciones</a></p>
-                <img class="estrellasCalificacion" src="/images/estrellas/5-estrella.png" alt="5 estrellas"/>
+                <img class="estrellasCalificacion" src="/images/estrellas/<%=usuario.calificacion%>-estrella.png" alt="<%=usuario.calificacion%> estrellas"/>
             </div>
 
             <div class="datosContacto">
                 <form method="get" action="https://api.whatsapp.com/send?phone=3197963255&text=Hola,%20estoy%20interesado%20en%20contratar%20un%20servicio" target="_blank">
-                    <div class="botonContactar"><button><i class="fa-brands fa-whatsapp"></i><br>3197963255</button></a></div>
+                    <div class="botonContactar"><button><i class="fa-brands fa-whatsapp"></i><br><%=usuario.celular%></button></a></div>
                 </form>
                 <form method="get" action="mailto:melisa.lopez@gmail.com" target="_blank">
-                    <div class="botonContactar"><button><i class="fa-solid fa-envelope"></i><br>melisa.lopez@gmail.com</button></a></div>
+                    <div class="botonContactar"><button><i class="fa-solid fa-envelope"></i><br><%=usuario.correo%></button></a></div>
                 </form>
                 <form method="get" action="https://www.facebook.com/melisa-lopez" target="_blank">
-                    <div class="botonContactar"><button><i class="fa-brands fa-facebook"></i><br>facebook.com/melisa-lopez</button></a></div>
+                    <div class="botonContactar"><button><i class="fa-brands fa-facebook"></i><br>facebook.com/</button></a></div>
                 </form>
             </div>
         </div>

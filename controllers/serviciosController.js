@@ -19,12 +19,13 @@ const serviciosController = {
     },
 
     contacto: (req,res)=>{
-        let usuario = usuarios.find(usuario => usuario.id = req.params.id);
-        res.render('services/contacto_experto', {usuario});
+        let servicio = servicios.find(servicio => servicio.id == req.params.id);
+        let usuario = usuarios.find(usuario => usuario.id == servicio.idUsuario);
+        res.render('services/contacto_experto', {usuario,servicio,toThousand});
     },
 
     busqueda: (req,res)=>{  
-        let serviciosBuscados=servicios//servicios.filter(servicio => servicio.titulo.includes(req.query.keywords));
+        let serviciosBuscados=servicios.filter(servicio => servicio.titulo.includes(req.query.keywords));
         console.log(serviciosBuscados);
         if (req.query.keywords == "") serviciosBuscados=[];
         res.render('services/busqueda_servicios',{serviciosBuscados, usuarios, toThousand});
@@ -36,7 +37,7 @@ const serviciosController = {
 
     editar: (req,res)=>{
         let servicio = servicios.find(servicio => servicio.id == req.params.idServicio);
-        res.render('services/editar_mi_servicio',{servicio});
+        res.render('services/editar_mi_servicio',{servicio, toThousand});
         
     },
 

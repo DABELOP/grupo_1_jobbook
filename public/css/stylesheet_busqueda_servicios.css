@@ -94,6 +94,7 @@ color:var(--gris-oscuro);
 .contenedorFotoPerfil img{
     width: 110px;
     margin-top: 20px;
+    margin-right: 20px;
 }
 
 

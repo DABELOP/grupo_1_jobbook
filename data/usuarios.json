@@ -1,6 +1,6 @@
 [{
     "id": 1,
-    "fotoPerfil": "fotoPerfil1.jpg",
+    "fotoPerfil": "fotoPerfil.jpg",
     "nombre": "Mason Croom",
     "nombrePersonalizado": "mcroom0",
     "ciudad": "Sanchang",
@@ -38,7 +38,7 @@
 },
 {
     "id": 2,
-    "fotoPerfil": "fotoPerfil.jpg",
+    "fotoPerfil": "fotoPerfil4.jpg",
     "nombre": "Marcelia Snowling",
     "nombrePersonalizado": "msnowling1",
     "ciudad": "Charlestown",

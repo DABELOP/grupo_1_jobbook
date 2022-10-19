@@ -152,10 +152,7 @@
         "id": 14,
         "idUsuario": 4,
         "titulo": "Remodelación y diseño exterior de viviendas campestres",
-        "imagenes": [
-            {},
-            {}
-        ],
+        "imagenes": [],
         "precio": "255000",
         "tarifa": "Por hora",
         "descripcion": "quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum",
@@ -182,7 +179,12 @@
         "descripcion": "Desarrollo de nuevos diseños en software cad",
         "precio": "559898",
         "tarifa": "por hora",
-        "experiencia": "Diseño de productos en empresa colombiana"
+        "experiencia": "Diseño de productos en empresa colombiana",
+        "imagenes": [
+            "img-foto1.jpg",
+            "img-foto2.jpg",
+            "img-foto3.jpg"
+        ]
     },
     {
         "id": 17,
@@ -192,7 +194,12 @@
         "descripcion": "Desarrollo de nuevos diseños en software cad",
         "precio": "559898",
         "tarifa": "por hora",
-        "experiencia": "Diseño de productos en empresa colombiana"
+        "experiencia": "Diseño de productos en empresa colombiana",
+        "imagenes": [
+            "img-foto1.jpg",
+            "img-foto2.jpg",
+            "img-foto3.jpg"
+        ]
     },
     {
         "id": 18,
