@@ -41,36 +41,46 @@
             <!--Lista de contenido perfil-->
 
             <div class="contenedorDerechoPerfil">
+                <h1> Mi información personal</h1>
                 <div class="contenedorFotoPerfil">
-                    <img src="/images/fotoPerfil.jpg" alt="">
+                    <img src=<%=usuario.fotoPerfil%> alt="">
                 </div>
                 <div class="datosDeCuenta">
+                    <h2>Datos Usuario</h2> 
                     <div class="nombrePersonalizado"> 
-                        <h3>Usuario</h3>
-                        <p><%=usuario.nombrePersonalizado%></p>
+                        <h3 >Usuario</h3>
+                        <p ><%=usuario.nombrePersonalizado%></p>
                     </div>
                     <div class="contenedorCorreo"> 
                         <h3>Correo</h3>
-                        <p>melisalopez@emil.com</p>
+                        <p><%=usuario.correo%></p>
+                    </div>
+                    <div class="contenedorContraseña"> 
+                        <h3>Contraseña</h3>
+                        <p><%=usuario.password%></p>
                     </div>
                 </div> 
                 <div class="datosPersonales">
                     <h2>Datos Personales</h2>   
                     <div class="contenedorNombre"> 
                         <h3>Nombre</h3>
-                        <p>Melisa Lopez</p>
+                        <p><%=usuario.nombre%></p>
+                    </div>
+                    <div class="tipoDocumento"> 
+                        <h3>Tipo de Documento</h3>
+                        <p><%=usuario.tipoDocumento%></p>
                     </div>
                     <div class="numeroDocumento"> 
                         <h3>Documento</h3>
-                        <p>1037645399</p>
+                        <p><%=usuario.numeroDocumento%></p>
                     </div>
                     <div class="numeroCelular"> 
                         <h3>Celular</h3>
-                        <p>3003844455</p>
+                        <p><%=usuario.celular%></p>
                     </div>
                     <div class="ciudadDeResidencia"> 
                         <h3>Ciudad de residencia</h3>
-                        <p>Envigado, Antioquia, Colombia</p>
+                        <p><%=usuario.ciudad%></p>
                     </div>
                     
                 </div>
@@ -93,9 +103,10 @@
                         <p>$630.000</p>
                     </div>
                 </div>
-                <button class="button editBtn"><a href="/">Editar</a></button>
+                <div class="botones">
+                 <button class="button editBtn"><a href="/">Editar</a></button>
                  <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
-    
+                </div>
             </div>
         </div>
     </main>

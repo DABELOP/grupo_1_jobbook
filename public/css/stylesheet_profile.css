@@ -21,14 +21,7 @@
 }
 
 
-.contenedorDerechoPerfil{
-    width: 85%;
-    border:solid var(--gris-oscuro) 1px;
-    border-radius:8px;
-    padding:20px;
-    margin:15px;
-    background-color: white;
-}
+
 
 .informacionPerfil{
     width: 40%;
@@ -39,8 +32,6 @@
     padding:20px;
     margin:7px;   
 }
-
-
 
 .contenedorDescripcion{
     display:flex;
@@ -82,6 +73,8 @@ font-size: 24px;
 .listaCategorias{
     margin-top: 30px;
 }
+
+
  /* Lista de contenido perfil */ 
 
 .misServicios{
@@ -107,5 +100,49 @@ font-size: 24px;
 .button:hover {
     background-color: var(--azul-oscuro);
 }
+
+ /* Mi informacion personal */ 
+
+
+.contenedorDerechoPerfil{
+    width: 85%;
+    border:solid var(--gris-oscuro) 1px;
+    border-radius:8px;
+    padding:20px;
+    margin:15px;
+    background-color: white;
+}
+
+.contenedorDerechoPerfil h1{
+   text-align: center;
+   margin:20px 20px 60px 20px;
+}
+
+.contenedorDerechoPerfil h3{
+    width: 40%;
+}
+
+.datosDeCuenta div{
+    display:flex;
+    margin:15px;
+}
+
+
+.datosPersonales div{
+    display:flex;
+    margin:15px;
+}
+
+.datosFinancieros div{
+    display:flex;
+    margin:15px;
+}
+
+.botones{
+    display:flex;
+    justify-content: center;
+    margin: 30px;
+}
+
 
 
