@@ -1,15 +1,13 @@
 <nav class="categorias">
+    <% let categorias = ['Tecnologia', 'Construcción', 'Diseño', 'Administracion',
+    'Ingenieria', 'Manufactura', 'Ventas', 'Transporte', 'Comunicaciones', 'Educacion',
+    'Negocios', 'Idiomas', 'Salud', 'Otros'] %> 
     <ul>
-        <li>Ingeniería</li>
-        <li>Abogacia</li>
-        <li>Contaduria</li>
-        <li>Psicologia</li>
-        <li>Comunicación</li>
-        <li>Arquitectura</li>
-        <li>Fotografía</li>
-        <li>Finanzas</li>
-        <li>Farmaceutica</li>
-        <li>Carpinteria</li>
-        <li>Construcción</li>
+        <% categorias.forEach( categoria => { %> 
+            <li><a href="/servicio/filtrar/?keywords=<%= categoria %>" class="categoria">
+                <%= categoria %>
+            </a></li>
+        <% }) %> 
+        
     </ul>
 </nav>

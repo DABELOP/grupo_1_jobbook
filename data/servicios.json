@@ -12,7 +12,7 @@
         "precio": 9861231,
         "tarifa": "Por hora",
         "descripcion": "mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique",
-        "categoria": "carpinteria"
+        "categoria": "Construcción"
     },
     {
         "id": 2,
@@ -22,7 +22,7 @@
         "precio": 4105981,
         "tarifa": "Personalizado",
         "descripcion": "ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus",
-        "categoria": "contaduria"
+        "categoria": "Diseño"
     },
     {
         "id": 3,
@@ -32,7 +32,7 @@
         "precio": "1250000",
         "tarifa": "Por dia",
         "descripcion": "vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat",
-        "categoria": "carpinteria"
+        "categoria": "Construcción"
     },
     {
         "id": 4,

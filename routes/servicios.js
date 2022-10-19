@@ -19,6 +19,10 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 // solicita todos los servicios
 router.get('/busqueda', serviciosController.busqueda);
+
+//solicita servicios por categorias
+router.get('/filtrar', serviciosController.filtrarPorCategoria);
+
 //crear un servicio
 router.get('/crear', serviciosController.crear);
 router.post('/', upload.any(), serviciosController.guardar);

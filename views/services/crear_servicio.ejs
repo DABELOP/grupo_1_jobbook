@@ -30,14 +30,12 @@
             <p class="tituloInput"><label for="categorias">Categorias:</label></p>
             
             <select name="categoria" id="categorias">
-                <option value="carpinteria">Carpinteria</option>
-                <option value="contaduria">Contaduría</option>
-                <option value="psicologia">Psicologia</option>
-                <option value="fotografia">Fotografia</option>
-                <option value="comunicacion">Comunicación</option>
-                <option value="farmaceutica">Farmaceutica</option>
-                <option value="abogacia">Abogacía</option>
-                <option value="construccion">Construcción</option>
+                <% let categorias = ['Tecnologia', 'Construcción', 'Diseño', 'Administracion',
+                'Ingenieria', 'Manufactura', 'Ventas', 'Transporte', 'Comunicaciones', 'Educacion',
+                'Negocios', 'Idiomas', 'Salud', 'Otros'] %>
+                <% categorias.forEach( categoria => { %> 
+                    <option value="<%= categoria %>"><%= categoria %></option>
+                <% }) %> 
               </select>
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i>Este campo es obligatorio</p>
         </label>
