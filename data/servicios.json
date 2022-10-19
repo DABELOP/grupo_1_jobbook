@@ -12,7 +12,7 @@
     "precio": 9861231,
     "tarifa": "Por hora",
     "descripcion": "mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique",
-    "categoria": "carpinteria"
+    "categoria": "Construcción"
   },
   {
     "id": 2,
@@ -22,7 +22,7 @@
     "precio": 4105981,
     "tarifa": "Personalizado",
     "descripcion": "ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus",
-    "categoria": "contaduria"
+    "categoria": "Diseño"
   },
   {
     "id": 3,
@@ -32,7 +32,7 @@
     "precio": "1250000",
     "tarifa": "Por dia",
     "descripcion": "vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat",
-    "categoria": "carpinteria"
+    "categoria": "Construcción"
   },
   {
     "id": 4,
@@ -42,7 +42,7 @@
     "precio": 3441669,
     "tarifa": "Personalizado",
     "descripcion": "nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum",
-    "categoria": "fotografia"
+    "categoria": "Construcción"
   },
   {
     "id": 5,
@@ -52,7 +52,7 @@
     "precio": 9287317,
     "tarifa": "Por hora",
     "descripcion": "sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et",
-    "categoria": "contaduria"
+    "categoria": "Diseño"
   },
   {
     "id": 6,
@@ -62,7 +62,7 @@
     "precio": "2500000",
     "tarifa": "Por dia",
     "descripcion": "vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat",
-    "categoria": "carpinteria"
+    "categoria": "Construcción"
   },
   {
     "id": 7,
@@ -72,7 +72,7 @@
     "precio": 2729404,
     "tarifa": "Por proyecto",
     "descripcion": "in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum",
-    "categoria": "psicologia"
+    "categoria": "Diseño"
   },
   {
     "id": 10,
@@ -82,7 +82,7 @@
     "precio": 1678157,
     "tarifa": "Por hora",
     "descripcion": "aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque",
-    "categoria": "farmaceutica"
+    "categoria": "Construcción"
   },
   {
     "id": 11,
