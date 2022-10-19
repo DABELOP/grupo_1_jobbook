@@ -27,7 +27,27 @@ const usuariosController = {
         let usuario=usuarios.find(usuario => usuario.id == req.params.id)
         res.render('users/mis_servicios',{usuario,serviciosUsuario, toThousand});
     },
-   
+    guardarEdicion: (req,res)=>{
+        let usuarioEditado=usuarios.find(usuario=>usuario.id == req.params.idusuario);
+        let idUsuario = usuarioEditado.id
+        let nuevosUsuario=[]
+
+
+        usuarios.forEach(usuario =>{
+
+        if(usuario.id == usuarioEditado.id){
+            usuario ={
+                ...usuarioEditado,
+                ...req.body,
+            }
+        }
+        nuevosUsuarios.push(usuario)
+        })
+
+        fs.writeFileSync(rutaUsuarios, JSON.stringify(nuevosUsuarios, null))
+
+        res.redirect('/usuario/profile/'+ idUsuario);
+    },
    
 };
 
