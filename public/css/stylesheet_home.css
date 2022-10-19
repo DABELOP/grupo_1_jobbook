@@ -93,16 +93,22 @@ background-color: var(--gris-claro);
 .categorias{
     border-top:1px var(--gris-oscuro) solid ;
     border-bottom:1px var(--gris-oscuro) solid ;
-    display: none;
-    overflow: hidden;
     justify-content: space-around;
 }
 .categorias ul{
     display: flex;
     list-style: none;
+    overflow: auto;
 }
 .categorias ul li{
     padding: 10px;
+}
+.categoria {
+    text-decoration: none;
+    color: var(--azul-oscuro);
+}
+.categoria:visited {
+    color: var(--azul-oscuro);
 }
 main{
     width: 100%;

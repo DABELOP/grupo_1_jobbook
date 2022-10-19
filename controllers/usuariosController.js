@@ -28,9 +28,9 @@ const usuariosController = {
         res.render('users/mis_servicios',{usuario,serviciosUsuario, toThousand});
     },
     guardarEdicion: (req,res)=>{
-        let usuarioEditado=usuarios.find(usuario=>usuario.id == req.params.idusuario);
+        let usuarioEditado=usuarios.find(usuario=>usuario.id == req.params.id);
         let idUsuario = usuarioEditado.id
-        let nuevosUsuario=[]
+        let nuevoUsuario=[]
 
 
         usuarios.forEach(usuario =>{
@@ -41,12 +41,17 @@ const usuariosController = {
                 ...req.body,
             }
         }
-        nuevosUsuarios.push(usuario)
+        nuevoUsuario.push(usuario)
         })
 
-        fs.writeFileSync(rutaUsuarios, JSON.stringify(nuevosUsuarios, null))
+        fs.writeFileSync(rutaUsuarios, JSON.stringify(nuevoUsuario, null))
 
         res.redirect('/usuario/profile/'+ idUsuario);
+    },
+    editar: (req,res)=>{
+        let usuario = usuarios.find(usuario => usuario.id == req.params.id);
+        res.render('users/editar_profile',{usuario, toThousand});
+        
     },
    
 };

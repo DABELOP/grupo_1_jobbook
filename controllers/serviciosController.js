@@ -31,6 +31,13 @@ const serviciosController = {
         res.render('services/busqueda_servicios',{serviciosBuscados, usuarios, toThousand});
     },
 
+    filtrarPorCategoria: (req,res)=>{  
+        let serviciosBuscados=servicios.filter(servicio => servicio.categoria == req.query.keywords);
+        console.log(serviciosBuscados);
+        if (req.query.keywords == "") serviciosBuscados=[];
+        res.render('services/busqueda_servicios',{serviciosBuscados, usuarios, toThousand});
+    },
+
     crear: (req,res)=>{
         res.render('services/crear_servicio');
     },
