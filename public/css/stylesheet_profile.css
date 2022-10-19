@@ -109,17 +109,21 @@ font-size: 24px;
     border:solid var(--gris-oscuro) 1px;
     border-radius:8px;
     padding:20px;
-    margin:15px;
+    margin:30px;
     background-color: white;
 }
 
 .contenedorDerechoPerfil h1{
    text-align: center;
-   margin:20px 20px 60px 20px;
+   margin:20px 20px 0px 20px;
 }
 
 .contenedorDerechoPerfil h3{
     width: 40%;
+}
+
+.contenedorDerechoPerfil div{
+    margin:50px;
 }
 
 .datosDeCuenta div{
