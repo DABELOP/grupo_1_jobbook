@@ -100,6 +100,27 @@ background-color: var(--gris-claro);
     list-style: none;
     overflow: auto;
 }
+.categorias ul::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+.categorias ul::-webkit-scrollbar:horizontal{
+    height: 10px;
+}
+.categorias ul::-webkit-scrollbar:vertical{
+    width: 10px;
+}
+.categorias ul::-webkit-scrollbar-button:increment, .categorias ul::-webkit-scrollbar-button:increment{
+    display: none;
+}
+.categorias ul::-webkit-scrollbar-thumb{
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.categorias ul::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+}
 .categorias ul li{
     padding: 10px;
 }
