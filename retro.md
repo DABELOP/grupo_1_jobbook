@@ -58,3 +58,29 @@ Continuar trabajando cumpliendo las metas y con buena comunicación
 
 
 
+## Retrospectiva sprint 4
+### Comenzar a hacer 
+
+
+### Hacer más 
+Tareas necesarias para el sitio fuera de los sprint
+
+
+### Continuar haciendo
+Asignacion de tareas en tablero de trabajo
+Cumplir con los tiempos de entrega
+Continuar trabajando cumpliendo las metas y con buena comunicación
+Actualizar tablero de trabajo con mas frecuencia 
+Priorizar tareas 
+Trabajo en equipo y dedicacion propuesta por los integranes
+
+
+### Hacer menos
+Hacer cosas de siguientes sprints 
+
+
+### Dejar de hacer
+
+
+
+
