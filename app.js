@@ -5,8 +5,15 @@ const indexRouter = require('./routes/index');
 const serviciosRouter = require('./routes/servicios'); 
 const usuariosRouter = require('./routes/usuarios');
 const methodOverride = require('method-override');
+const session = require('express-session');
 
-app.use(methodOverride('_method'))
+
+
+app.use(methodOverride('_method'));
+app.use(session({
+    secret: 'jobbook2022',
+    resave: false,
+    saveUninitialized: false}));
 
 //configuración para capturar información de los formularios
 app.use(express.urlencoded({extended: false}));
