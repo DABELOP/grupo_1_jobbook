@@ -53,6 +53,27 @@ const usuariosController = {
         res.render('users/editar_profile',{usuario, toThousand});
         
     },
+
+    crear: (req,res)=>{
+        if (usuarios.length > 0){
+        let allUsers = [...usuarios];
+        id = allUsers.pop().id + 1
+        }else{id=1};
+        
+        let nuevoUsuario = {...req.body}
+        delete nuevoUsuario.terminos;
+        delete nuevoUsuario.confirmarContraseña;
+
+        let nuevaDBUsuarios = usuarios;
+        nuevaDBUsuarios[usuarios.length] = {
+            id: id,
+            ...nuevoUsuario
+
+        };
+
+        fs.writeFileSync(rutaUsuarios,JSON.stringify(nuevaDBUsuarios, null, ' '));
+        res.redirect('/usuario/login');
+    }
    
 };
 

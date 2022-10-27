@@ -24,3 +24,24 @@
 ### - Se revisaron de nuevo las tareas realizadas 
 ### - Se  crearon los archivos JSON de productos y usuarios
 ### - Se planea tener todo el proyecto listo para el Lunes 10 de Octubre
+
+
+# 12-10-2022
+## Reunion weekly 
+
+### - Se revisaron de nuevo las tareas realizadas 
+### - Se asignaron tareas necesarias para el sitio que no se encuentran en los sprint 
+### - Creamos categorias finales para el proyecto 
+### - Hicimos grupalmente un controlador y los archivos JSON con categorias y usuarios
+
+
+# 19-10-2022
+## Reunion weekly 
+
+### - Se revisaron de nuevo las tareas realizadas 
+### - Revisamos las tareas del cuarto sprint cumplidas satisfactoriamente
+### - Revisamos quinto sprint y asignamos tareas para realizar 
+
+
+
+

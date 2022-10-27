@@ -39,75 +39,76 @@
             </div>
             
             <!--Lista de contenido perfil-->
-
-            <div class="contenedorDerechoPerfil">
-                <h1> Mi información personal</h1>
-                <div class="contenedorFotoPerfil">
-                    <img src=<%=usuario.fotoPerfil%> alt="">
+            <form class="contenedorDerechoPerfil" action="/usuario/profile/editar/<%=usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="contenedorDerechoPerfil">
+                    <h1> Editar mi información personal</h1>
+                    <div class="contenedorFotoPerfil">
+                        <img src=<%=usuario.fotoPerfil%> alt="">
+                    </div>
+                    <div class="datosDeCuenta">
+                        <h2>Datos Usuario</h2> 
+                        <div class="nombrePersonalizado"> 
+                            <h3 >Usuario</h3>
+                            <input type="text" name="nombrePersonalizado" value="<%=usuario.nombrePersonalizado%>" placeholder="Nombre de usuario" class="input">
+                        </div>
+                        <div class="contenedorCorreo"> 
+                            <h3>Correo</h3>
+                            <input type="text" name="contenedorCorreo" value="<%=usuario.correo%>" placeholder="Correo" class="input">
+                        </div>
+                        <div class="contenedorContraseña"> 
+                            <h3>Contraseña</h3>
+                            <input type="text" name="contenedorContraseña" value="<%=usuario.password%>" placeholder="Contraseña" class="input">
+                        </div>
+                    </div> 
+                    <div class="datosPersonales">
+                        <h2>Datos Personales</h2>   
+                        <div class="contenedorNombre"> 
+                            <h3>Nombre</h3>
+                            <input type="text" name="contenedorNombre" value="<%=usuario.nombre%>" placeholder="Nombre" class="input">
+                        </div>
+                        <div class="tipoDocumento"> 
+                            <h3>Tipo de Documento</h3>
+                            <input type="text" name="tipoDocumento" value="<%=usuario.tipoDocumento%>" placeholder="Tipo de Documento" class="input">
+                        </div>
+                        <div class="numeroDocumento"> 
+                            <h3>Documento</h3>
+                            <input type="text" name="numeroDocumento" value="<%=usuario.numeroDocumento%>" placeholder="Numero de documento" class="input">
+                        </div>
+                        <div class="numeroCelular"> 
+                            <h3>Celular</h3>
+                            <input type="text" name="numeroCelular" value="<%=usuario.celular%>" placeholder="Celular" class="input">
+                        </div>
+                        <div class="ciudadDeResidencia"> 
+                            <h3>Ciudad de residencia</h3>
+                            <input type="text" name="cciudadDeResidencia" value="<%=usuario.ciudad%>" placeholder="Ciudad" class="input">
+                        </div>
+                        
+                    </div>
+                    <div class="datosFinancieros">
+                        <h2>Datos Financieros</h2>
+                        <div class="totalServiciosComprados"> 
+                            <h3>Servicios comprados</h3>
+                            <p>5</p>
+                        </div>
+                        <div class="totalValorComprados"> 
+                            <h3>Valor de servicios comprados</h3>
+                            <p>$250.000</p>
+                        </div>
+                        <div class="totalServiciosVendidos"> 
+                            <h3>Servicios vendidos</h3>
+                            <p>15</p>
+                        </div>
+                        <div class="totalValorVendidos"> 
+                            <h3>Ganancias de servicios vendidos</h3>
+                            <p>$630.000</p>
+                        </div>
+                    </div>
+                    <div class="botones">
+                    <button class="button editBtn"><a href="/">Editar</a></button>
+                    <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
+                    </div>
                 </div>
-                <div class="datosDeCuenta">
-                    <h2>Datos Usuario</h2> 
-                    <div class="nombrePersonalizado"> 
-                        <h3 >Usuario</h3>
-                        <p ><%=usuario.nombrePersonalizado%></p>
-                    </div>
-                    <div class="contenedorCorreo"> 
-                        <h3>Correo</h3>
-                        <p><%=usuario.correo%></p>
-                    </div>
-                    <div class="contenedorContraseña"> 
-                        <h3>Contraseña</h3>
-                        <p><%=usuario.password%></p>
-                    </div>
-                </div> 
-                <div class="datosPersonales">
-                    <h2>Datos Personales</h2>   
-                    <div class="contenedorNombre"> 
-                        <h3>Nombre</h3>
-                        <p><%=usuario.nombre%></p>
-                    </div>
-                    <div class="tipoDocumento"> 
-                        <h3>Tipo de Documento</h3>
-                        <p><%=usuario.tipoDocumento%></p>
-                    </div>
-                    <div class="numeroDocumento"> 
-                        <h3>Documento</h3>
-                        <p><%=usuario.numeroDocumento%></p>
-                    </div>
-                    <div class="numeroCelular"> 
-                        <h3>Celular</h3>
-                        <p><%=usuario.celular%></p>
-                    </div>
-                    <div class="ciudadDeResidencia"> 
-                        <h3>Ciudad de residencia</h3>
-                        <p><%=usuario.ciudad%></p>
-                    </div>
-                    
-                </div>
-                <div class="datosFinancieros">
-                    <h2>Datos Financieros</h2>
-                    <div class="totalServiciosComprados"> 
-                        <h3>Servicios comprados</h3>
-                        <p>5</p>
-                    </div>
-                    <div class="totalValorComprados"> 
-                        <h3>Valor de servicios comprados</h3>
-                        <p>$250.000</p>
-                    </div>
-                    <div class="totalServiciosVendidos"> 
-                        <h3>Servicios vendidos</h3>
-                        <p>15</p>
-                    </div>
-                    <div class="totalValorVendidos"> 
-                        <h3>Ganancias de servicios vendidos</h3>
-                        <p>$630.000</p>
-                    </div>
-                </div>
-                <div class="botones">
-                 <button class="button editBtn"><a href="/">Editar</a></button>
-                 <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
-                </div>
-            </div>
+            </form>    
         </div>
     </main>
 
