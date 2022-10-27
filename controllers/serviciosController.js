@@ -88,11 +88,13 @@ const serviciosController = {
     },
 
     eliminar: (req,res)=>{
-        console.log('entro')
+        
         let servicioEliminar=servicios.find(servicio=>servicio.id == req.params.idServicio);
+        let idUsuario = servicioEliminar.idUsuario
         let nuevosServicios=servicios.filter(servicio=> servicio.id != servicioEliminar.id);
         fs.writeFileSync(rutaServicios, JSON.stringify(nuevosServicios, null))
-        res.redirect('/usuario/profile/'+ servicioEliminar.idUsuario+'/servicios');
+
+        res.render('/usuario/profile/'+ idUsuario + '/servicios');
     }
     
     

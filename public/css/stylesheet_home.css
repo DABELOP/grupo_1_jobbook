@@ -103,6 +103,11 @@ background-color: var(--gris-claro);
 .categorias ul li{
     padding: 10px;
 }
+
+.categorias a:hover{
+color:var(--azul-claro2);
+}
+
 .categoria {
     text-decoration: none;
     color: var(--azul-oscuro);

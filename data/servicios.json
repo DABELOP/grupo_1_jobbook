@@ -1,238 +1,181 @@
-<<<<<<< HEAD
-[{"id":1,"idUsuario":3,"titulo":"Remodelación y adecuación de espacios interiores y exteriores","imagenes":["imagen-principal.jpg","miniatura-1.jpg","miniatura-2.jpg","miniatura-3.jpg"],"precio":9861231,"tarifa":"Por hora","descripcion":"mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique","categoria":"carpinteria"},{"id":2,"idUsuario":2,"titulo":"Diseño de Interiores con áreas clave como diseño de espacios","imagenes":[],"precio":4105981,"tarifa":"Personalizado","descripcion":"ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus","categoria":"contaduria"},{"id":3,"idUsuario":8,"titulo":"Remodelación de locales comerciales y decoración","imagenes":[],"precio":"1250000","tarifa":"Por dia","descripcion":"vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat","categoria":"carpinteria"},{"id":4,"idUsuario":1,"titulo":"Remodelación y adecuación de espacios interiores y exteriores","imagenes":[{}],"precio":3441669,"tarifa":"Personalizado","descripcion":"nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum","categoria":"fotografia"},{"id":5,"idUsuario":4,"titulo":"Diseño de Interiores con áreas clave como diseño de espacios","imagenes":[{}],"precio":9287317,"tarifa":"Por hora","descripcion":"sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et","categoria":"contaduria"},{"id":6,"idUsuario":6,"titulo":"Remodelación de locales comerciales y planos","imagenes":[{}],"precio":"2500000","tarifa":"Por dia","descripcion":"vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat","categoria":"carpinteria"},{"id":7,"idUsuario":8,"titulo":"Diseño de Interiores con áreas clave como diseño de espacios","imagenes":[{}],"precio":2729404,"tarifa":"Por proyecto","descripcion":"in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum","categoria":"psicologia"},{"id":10,"idUsuario":13,"titulo":"Remodelación de locales comerciales y decoración","imagenes":[{},{}],"precio":1678157,"tarifa":"Por hora","descripcion":"aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque","categoria":"farmaceutica"},{"id":11,"idUsuario":13,"titulo":"Remodelación y adecuación de oficinas y centros de trabajo","imagenes":[{}],"precio":522494,"tarifa":"Personalizado","descripcion":"metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac","categoria":"comunicacion"},{"id":12,"idUsuario":11,"titulo":"Se hacen planos","imagenes":[{},{},{},{}],"precio":410797,"tarifa":"Personalizado","descripcion":"cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis","categoria":"abogacia"},{"id":13,"idUsuario":14,"titulo":"Se hacen planos","imagenes":[{}],"precio":6825526,"tarifa":"Por hora","descripcion":"vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis","categoria":"psicologia"},{"id":14,"idUsuario":4,"titulo":"Remodelación y diseño exterior de viviendas campestres","imagenes":[],"precio":"255000","tarifa":"Por hora","descripcion":"quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum","categoria":"construccion"},{"id":15,"idUsuario":6,"titulo":"Remodelación de locales comerciales y decoración","imagenes":[{},{}],"precio":2097213,"tarifa":"Personalizado","descripcion":"nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque","categoria":"psicologia"},{"id":16,"idUsuario":6,"titulo":"Desarrollo de nuevos modelos","categoria":"fotografia","descripcion":"Desarrollo de nuevos diseños en software cad","precio":"559898","tarifa":"por hora","experiencia":"Diseño de productos en empresa colombiana","imagenes":["img-foto1.jpg","img-foto2.jpg","img-foto3.jpg"]},{"id":17,"idUsuario":19,"titulo":"Desarrollo de nuevos modelos","categoria":"fotografia","descripcion":"Desarrollo de nuevos diseños en software cad","precio":"559898","tarifa":"por hora","experiencia":"Diseño de productos en empresa colombiana","imagenes":["img-foto1.jpg","img-foto2.jpg","img-foto3.jpg"]},{"id":18,"idUsuario":5,"titulo":"Desarrollo de nuevos modelos","categoria":"fotografia","descripcion":"Desarrollo de nuevos diseños en software cad","precio":"559898","tarifa":"por hora","experiencia":"Diseño de productos en empresa colombiana","imagenes":["img-foto1.jpg","img-foto2.jpg","img-foto3.jpg"]},{"id":19,"idUsuario":5,"titulo":"Desarrollo de nuevos modelos","categoria":"fotografia","descripcion":"Desarrollo de nuevos diseños en software cad","precio":"559898","tarifa":"por hora","experiencia":"Diseño de productos en empresa colombiana","imagenes":["img-foto1.jpg","img-foto2.jpg","img-foto3.jpg"]}]
-=======
 [
     {
-        "id": 1,
-        "idUsuario": 3,
-        "titulo": "Remodelación y adecuación de espacios interiores y exteriores",
-        "imagenes": [
-            "imagen-principal.jpg",
-            "miniatura-1.jpg",
-            "miniatura-2.jpg",
-            "miniatura-3.jpg"
-        ],
-        "precio": 9861231,
-        "tarifa": "Por hora",
-        "descripcion": "mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique",
-        "categoria": "Construcción"
+      "id": 1,
+      "idUsuario": 3,
+      "titulo": "Remodelación y adecuación de espacios interiores y exteriores",
+      "imagenes": [
+        "imagen-principal.jpg",
+        "miniatura-1.jpg",
+        "miniatura-2.jpg",
+        "miniatura-3.jpg"
+      ],
+      "precio": 9861231,
+      "tarifa": "Por hora",
+      "descripcion": "mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique",
+      "categoria": "Construcción"
     },
     {
-        "id": 2,
-        "idUsuario": 2,
-        "titulo": "Diseño de Interiores con áreas clave como diseño de espacios",
-        "imagenes": [],
-        "precio": 4105981,
-        "tarifa": "Personalizado",
-        "descripcion": "ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus",
-        "categoria": "Diseño"
+      "id": 2,
+      "idUsuario": 2,
+      "titulo": "Diseño de Interiores con áreas clave como diseño de espacios",
+      "imagenes": [],
+      "precio": 4105981,
+      "tarifa": "Personalizado",
+      "descripcion": "ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus",
+      "categoria": "Diseño"
     },
     {
-        "id": 3,
-        "idUsuario": 8,
-        "titulo": "Remodelación de locales comerciales y decoración",
-        "imagenes": [],
-        "precio": "1250000",
-        "tarifa": "Por dia",
-        "descripcion": "vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat",
-        "categoria": "Construcción"
+      "id": 3,
+      "idUsuario": 8,
+      "titulo": "Remodelación de locales comerciales y decoración",
+      "imagenes": [],
+      "precio": "1250000",
+      "tarifa": "Por dia",
+      "descripcion": "vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat",
+      "categoria": "Construcción"
     },
     {
-        "id": 4,
-        "idUsuario": 1,
-        "titulo": "Remodelación y adecuación de espacios interiores y exteriores",
-        "imagenes": [
-            {}
-        ],
-        "precio": 3441669,
-        "tarifa": "Personalizado",
-        "descripcion": "nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum",
-        "categoria": "fotografia"
+      "id": 4,
+      "idUsuario": 1,
+      "titulo": "Remodelación y adecuación de espacios interiores y exteriores",
+      "imagenes": [{}],
+      "precio": 3441669,
+      "tarifa": "Personalizado",
+      "descripcion": "nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum",
+      "categoria": "Construcción"
     },
     {
-        "id": 5,
-        "idUsuario": 4,
-        "titulo": "Diseño de Interiores con áreas clave como diseño de espacios",
-        "imagenes": [
-            {}
-        ],
-        "precio": 9287317,
-        "tarifa": "Por hora",
-        "descripcion": "sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et",
-        "categoria": "contaduria"
+      "id": 5,
+      "idUsuario": 4,
+      "titulo": "Diseño de Interiores con áreas clave como diseño de espacios",
+      "imagenes": [{}],
+      "precio": 9287317,
+      "tarifa": "Por hora",
+      "descripcion": "sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et",
+      "categoria": "Diseño"
     },
     {
-        "id": 6,
-        "idUsuario": 6,
-        "titulo": "Se hacen planos",
-        "imagenes": [
-            {}
-        ],
-        "precio": 8109826,
-        "tarifa": "Por proyecto",
-        "descripcion": "amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien",
-        "categoria": "contaduria"
+      "id": 6,
+      "idUsuario": 6,
+      "titulo": "Remodelación de locales comerciales y planos",
+      "imagenes": [{}],
+      "precio": "2500000",
+      "tarifa": "Por dia",
+      "descripcion": "vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat",
+      "categoria": "Construcción"
     },
     {
-        "id": 7,
-        "idUsuario": 8,
-        "titulo": "Diseño de Interiores con áreas clave como diseño de espacios",
-        "imagenes": [
-            {}
-        ],
-        "precio": 2729404,
-        "tarifa": "Por proyecto",
-        "descripcion": "in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum",
-        "categoria": "psicologia"
+      "id": 7,
+      "idUsuario": 8,
+      "titulo": "Diseño de Interiores con áreas clave como diseño de espacios",
+      "imagenes": [{}],
+      "precio": 2729404,
+      "tarifa": "Por proyecto",
+      "descripcion": "in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum",
+      "categoria": "Diseño"
     },
     {
-        "id": 8,
-        "idUsuario": 6,
-        "titulo": "Remodelación y adecuación de espacios interiores y exteriores",
-        "imagenes": [
-            {},
-            {},
-            {}
-        ],
-        "precio": 992893,
-        "tarifa": "Por proyecto",
-        "descripcion": "proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat",
-        "categoria": "comunicacion"
+      "id": 10,
+      "idUsuario": 13,
+      "titulo": "Remodelación de locales comerciales y decoración",
+      "imagenes": [{}, {}],
+      "precio": 1678157,
+      "tarifa": "Por hora",
+      "descripcion": "aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque",
+      "categoria": "Construcción"
     },
     {
-        "id": 10,
-        "idUsuario": 13,
-        "titulo": "Remodelación de locales comerciales y decoración",
-        "imagenes": [
-            {},
-            {}
-        ],
-        "precio": 1678157,
-        "tarifa": "Por hora",
-        "descripcion": "aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque",
-        "categoria": "farmaceutica"
+      "id": 11,
+      "idUsuario": 13,
+      "titulo": "Remodelación y adecuación de oficinas y centros de trabajo",
+      "imagenes": [{}],
+      "precio": 522494,
+      "tarifa": "Personalizado",
+      "descripcion": "metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac",
+      "categoria": "comunicacion"
     },
     {
-        "id": 11,
-        "idUsuario": 13,
-        "titulo": "Remodelación y adecuación de oficinas y centros de trabajo",
-        "imagenes": [
-            {}
-        ],
-        "precio": 522494,
-        "tarifa": "Personalizado",
-        "descripcion": "metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac",
-        "categoria": "comunicacion"
+      "id": 12,
+      "idUsuario": 11,
+      "titulo": "Se hacen planos",
+      "imagenes": [{}, {}, {}, {}],
+      "precio": 410797,
+      "tarifa": "Personalizado",
+      "descripcion": "cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis",
+      "categoria": "abogacia"
     },
     {
-        "id": 12,
-        "idUsuario": 11,
-        "titulo": "Se hacen planos",
-        "imagenes": [
-            {},
-            {},
-            {},
-            {}
-        ],
-        "precio": 410797,
-        "tarifa": "Personalizado",
-        "descripcion": "cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis",
-        "categoria": "abogacia"
+      "id": 13,
+      "idUsuario": 14,
+      "titulo": "Se hacen planos",
+      "imagenes": [{}],
+      "precio": 6825526,
+      "tarifa": "Por hora",
+      "descripcion": "vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis",
+      "categoria": "psicologia"
     },
     {
-        "id": 13,
-        "idUsuario": 14,
-        "titulo": "Se hacen planos",
-        "imagenes": [
-            {}
-        ],
-        "precio": 6825526,
-        "tarifa": "Por hora",
-        "descripcion": "vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis",
-        "categoria": "psicologia"
+      "id": 14,
+      "idUsuario": 4,
+      "titulo": "Remodelación y diseño exterior de viviendas campestres",
+      "imagenes": [],
+      "precio": "255000",
+      "tarifa": "Por hora",
+      "descripcion": "quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum",
+      "categoria": "construccion"
     },
     {
-        "id": 14,
-        "idUsuario": 4,
-        "titulo": "Remodelación y diseño exterior de viviendas campestres",
-        "imagenes": [],
-        "precio": "255000",
-        "tarifa": "Por hora",
-        "descripcion": "quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum",
-        "categoria": "construccion"
+      "id": 15,
+      "idUsuario": 6,
+      "titulo": "Remodelación de locales comerciales y decoración",
+      "imagenes": [{}, {}],
+      "precio": 2097213,
+      "tarifa": "Personalizado",
+      "descripcion": "nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque",
+      "categoria": "psicologia"
     },
     {
-        "id": 15,
-        "idUsuario": 6,
-        "titulo": "Remodelación de locales comerciales y decoración",
-        "imagenes": [
-            {},
-            {}
-        ],
-        "precio": 2097213,
-        "tarifa": "Personalizado",
-        "descripcion": "nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque",
-        "categoria": "psicologia"
+      "id": 16,
+      "idUsuario": 6,
+      "titulo": "Desarrollo de nuevos modelos",
+      "categoria": "fotografia",
+      "descripcion": "Desarrollo de nuevos diseños en software cad",
+      "precio": "559898",
+      "tarifa": "por hora",
+      "experiencia": "Diseño de productos en empresa colombiana",
+      "imagenes": ["img-foto1.jpg", "img-foto2.jpg", "img-foto3.jpg"]
     },
     {
-        "id": 16,
-        "idUsuario": 6,
-        "titulo": "Desarrollo de nuevos modelos",
-        "categoria": "fotografia",
-        "descripcion": "Desarrollo de nuevos diseños en software cad",
-        "precio": "559898",
-        "tarifa": "por hora",
-        "experiencia": "Diseño de productos en empresa colombiana",
-        "imagenes": [
-            "img-foto1.jpg",
-            "img-foto2.jpg",
-            "img-foto3.jpg"
-        ]
+      "id": 17,
+      "idUsuario": 19,
+      "titulo": "Desarrollo de nuevos modelos",
+      "categoria": "fotografia",
+      "descripcion": "Desarrollo de nuevos diseños en software cad",
+      "precio": "559898",
+      "tarifa": "por hora",
+      "experiencia": "Diseño de productos en empresa colombiana",
+      "imagenes": ["img-foto1.jpg", "img-foto2.jpg", "img-foto3.jpg"]
     },
     {
-        "id": 17,
-        "idUsuario": 19,
-        "titulo": "Desarrollo de nuevos modelos",
-        "categoria": "fotografia",
-        "descripcion": "Desarrollo de nuevos diseños en software cad",
-        "precio": "559898",
-        "tarifa": "por hora",
-        "experiencia": "Diseño de productos en empresa colombiana",
-        "imagenes": [
-            "img-foto1.jpg",
-            "img-foto2.jpg",
-            "img-foto3.jpg"
-        ]
+      "id": 18,
+      "idUsuario": 5,
+      "titulo": "Desarrollo de nuevos modelos",
+      "categoria": "fotografia",
+      "descripcion": "Desarrollo de nuevos diseños en software cad",
+      "precio": "559898",
+      "tarifa": "por hora",
+      "experiencia": "Diseño de productos en empresa colombiana",
+      "imagenes": ["img-foto1.jpg", "img-foto2.jpg", "img-foto3.jpg"]
     },
     {
-        "id": 18,
-        "idUsuario": 5,
-        "titulo": "Desarrollo de nuevos modelos",
-        "categoria": "fotografia",
-        "descripcion": "Desarrollo de nuevos diseños en software cad",
-        "precio": "559898",
-        "tarifa": "por hora",
-        "experiencia": "Diseño de productos en empresa colombiana",
-        "imagenes": [
-            "img-foto1.jpg",
-            "img-foto2.jpg",
-            "img-foto3.jpg"
-        ]
-    },
-    {
-        "id": 19,
-        "idUsuario": 5,
-        "titulo": "Desarrollo de nuevos modelos",
-        "categoria": "fotografia",
-        "descripcion": "Desarrollo de nuevos diseños en software cad",
-        "precio": "559898",
-        "tarifa": "por hora",
-        "experiencia": "Diseño de productos en empresa colombiana",
-        "imagenes": [
-            "img-foto1.jpg",
-            "img-foto2.jpg",
-            "img-foto3.jpg"
-        ]
+      "id": 19,
+      "idUsuario": 5,
+      "titulo": "Desarrollo de nuevos modelos",
+      "categoria": "fotografia",
+      "descripcion": "Desarrollo de nuevos diseños en software cad",
+      "precio": "559898",
+      "tarifa": "por hora",
+      "experiencia": "Diseño de productos en empresa colombiana",
+      "imagenes": ["img-foto1.jpg", "img-foto2.jpg", "img-foto3.jpg"]
     }
-]
->>>>>>> 6f2ec5cba00f445f1d45c98b57800d4e6f58d777
+  ]
