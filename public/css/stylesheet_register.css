@@ -1,6 +1,8 @@
 @import 'stylesheet.css';
 @import 'stylesheet_home.css';
 
+
+
 .formularioLogin, .contenedorInput{
     display: flex;
     flex-direction: column;
@@ -76,6 +78,12 @@
     color: red;
     display: none;
 }
+
+.mensajeError{
+    color: black;
+    font-size: 10px;
+}
+
 @media (min-width:460px) {
     .formularioLogin{
         width: 460px;

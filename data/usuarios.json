@@ -496,42 +496,9 @@
  },
  {
   "id": 20,
-  "nombre": "Marcela",
-  "email": "Marcemadrid1995@hotmail.com",
-  "nombrePersonalizado": "dabelop",
-  "contraseña": "1",
-  "confirmarContraseña": "1",
-  "terminos": "on"
- },
- {
-  "id": 21,
-  "nombre": "Danilo",
-  "email": "Marcemadrid1995@hotmail.com",
-  "nombrePersonalizado": "dabelop",
-  "contraseña": "2",
-  "confirmarContraseña": "2",
-  "terminos": "on"
- },
- {
-  "id": 22,
-  "nombre": "Juan G",
-  "email": "juan@gmail.com",
-  "nombrePersonalizado": "juan",
-  "contraseña": "2",
-  "confirmarContraseña": "2"
- },
- {
-  "id": 23,
-  "nombre": "Pepito Perez",
-  "email": "user@example.com",
-  "nombrePersonalizado": "pepitico",
-  "contraseña": "4"
- },
- {
-  "id": 24,
-  "nombre": "hola",
-  "email": "danilo@gmail.com",
-  "nombrePersonalizado": "correito",
-  "contraseña": "5"
+  "nombre": "Marcela Madrid",
+  "correo": "Marcemadrid1995@hotmail.com",
+  "nombrePersonalizado": "MarceMadrid",
+  "password": "marcemadrid"
  }
 ]

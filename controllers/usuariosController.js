@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const {validationResult} = require('express-validator');
+
 const rutaUsuarios = path.join(__dirname, '../data/usuarios.json');
 const usuarios = JSON.parse(fs.readFileSync(rutaUsuarios, 'utf-8'));
 
@@ -30,8 +32,7 @@ const usuariosController = {
     guardarEdicion: (req,res)=>{
         let usuarioEditado=usuarios.find(usuario=>usuario.id == req.params.id);
         let idUsuario = usuarioEditado.id
-        let nuevoUsuario=[]
-
+        let nuevoUsuario=[];
 
         usuarios.forEach(usuario =>{
 
@@ -48,6 +49,7 @@ const usuariosController = {
 
         res.redirect('/usuario/profile/'+ idUsuario);
     },
+
     editar: (req,res)=>{
         let usuario = usuarios.find(usuario => usuario.id == req.params.id);
         res.render('users/editar_profile',{usuario, toThousand});
@@ -55,10 +57,18 @@ const usuariosController = {
     },
 
     crear: (req,res)=>{
-        if (usuarios.length > 0){
+        let errores = validationResult(req);
+
+        if (!errores.isEmpty()){
+            return res.render('users/register',{
+                mensajesError:errores.mapped(),
+                oldData: req.body})
+        }
+
         let allUsers = [...usuarios];
-        id = allUsers.pop().id + 1
-        }else{id=1};
+        if (usuarios.length > 0){
+            id = allUsers.pop().id + 1
+        } else { id=1 };
         
         let nuevoUsuario = {...req.body}
         delete nuevoUsuario.terminos;
@@ -74,6 +84,7 @@ const usuariosController = {
         fs.writeFileSync(rutaUsuarios,JSON.stringify(nuevaDBUsuarios, null, ' '));
         res.redirect('/usuario/login');
     }
+    
    
 };
 

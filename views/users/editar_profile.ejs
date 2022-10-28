@@ -43,7 +43,7 @@
                 <div class="contenedorDerechoPerfil">
                     <h1> Editar mi información personal</h1>
                     <div class="contenedorFotoPerfil">
-                        <img src=<%=usuario.fotoPerfil%> alt="">
+                        <img src='/images/fotos-perfil/<%=usuario.fotoPerfil%>' alt="">
                     </div>
                     <div class="datosDeCuenta">
                         <h2>Datos Usuario</h2> 
@@ -53,18 +53,18 @@
                         </div>
                         <div class="contenedorCorreo"> 
                             <h3>Correo</h3>
-                            <input type="text" name="contenedorCorreo" value="<%=usuario.correo%>" placeholder="Correo" class="input">
+                            <input type="text" name="correo" value="<%=usuario.correo%>" placeholder="Correo" class="input">
                         </div>
                         <div class="contenedorContraseña"> 
                             <h3>Contraseña</h3>
-                            <input type="text" name="contenedorContraseña" value="<%=usuario.password%>" placeholder="Contraseña" class="input">
+                            <input type="text" name="password" value="<%=usuario.password%>" placeholder="Contraseña" class="input">
                         </div>
                     </div> 
                     <div class="datosPersonales">
                         <h2>Datos Personales</h2>   
                         <div class="contenedorNombre"> 
                             <h3>Nombre</h3>
-                            <input type="text" name="contenedorNombre" value="<%=usuario.nombre%>" placeholder="Nombre" class="input">
+                            <input type="text" name="nombre" value="<%=usuario.nombre%>" placeholder="Nombre" class="input">
                         </div>
                         <div class="tipoDocumento"> 
                             <h3>Tipo de Documento</h3>
@@ -76,11 +76,11 @@
                         </div>
                         <div class="numeroCelular"> 
                             <h3>Celular</h3>
-                            <input type="text" name="numeroCelular" value="<%=usuario.celular%>" placeholder="Celular" class="input">
+                            <input type="text" name="celular" value="<%=usuario.celular%>" placeholder="Celular" class="input">
                         </div>
                         <div class="ciudadDeResidencia"> 
                             <h3>Ciudad de residencia</h3>
-                            <input type="text" name="cciudadDeResidencia" value="<%=usuario.ciudad%>" placeholder="Ciudad" class="input">
+                            <input type="text" name="ciudad" value="<%=usuario.ciudad%>" placeholder="Ciudad" class="input">
                         </div>
                         
                     </div>

@@ -3,30 +3,22 @@ const router = express.Router();
 
 const usuariosController = require('../controllers/usuariosController');
 
-const multer = require('multer');
-const storage = multer.diskStorage({
-    //permite definir la carpeta donde se va  alamcenar el archivo
-    destination: function(req, file, cb) {
-    cb(null, 'public/images/fotos-perfil');
-    },
-    //Permite indicar con que nombre se guardará ese archivo en el servidor
-    filename: function(req, file, cb) {
-    cb(null,
-    `img-${file.fieldname}${path.extname(file.originalname)}`);
-    }
-    });
-const upload = multer({storage: storage});
+const upload = require('../middlewares/multerUsuarioMiddleware');
+const validationsRegister = require('../middlewares/validacionRegistroMiddleware');
+const validationsEdit = require('../middlewares/validacionEditarPerfilMiddleware');
+
+
 
 router.get('/login', usuariosController.login);
 router.get('/register', usuariosController.register);
-router.post('/register', usuariosController.crear);
+router.post('/register', validationsRegister, usuariosController.crear);
 router.get('/:id/contacto/:idServicio', usuariosController.contacto);
 router.get('/profile/:id', usuariosController.profile);
 router.get('/profile/:id/servicios', usuariosController.misServicios);
 
 //Modificar un perfil
 router.get('/profile/editar/:id', usuariosController.editar);
-router.put('/profile/editar/:id', upload.any(), usuariosController.guardarEdicion);
+router.put('/profile/editar/:id', upload.any(), validationsEdit, usuariosController.guardarEdicion);
 
 
 
