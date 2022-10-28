@@ -20,6 +20,10 @@
 }
 
 
+.contenedorDerechoPerfil input,select{
+width: 300px;
+}
+
 .contenedorDerechoPerfil{
     width: 85%;
     border-radius:8px;
@@ -153,5 +157,8 @@ font-size: 24px;
     margin: 30px;
 }
 
-
-
+.mensajeError{
+    color:red;
+    font-size: 12px;
+    margin-left: 10px;
+}

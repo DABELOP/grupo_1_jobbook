@@ -30,7 +30,16 @@ const usuariosController = {
         res.render('users/mis_servicios',{usuario,serviciosUsuario, toThousand});
     },
     guardarEdicion: (req,res)=>{
+        let errores = validationResult(req);
         let usuarioEditado=usuarios.find(usuario=>usuario.id == req.params.id);
+
+        if (!errores.isEmpty()){
+            return res.render('users/editar_profile',{
+                mensajesError:errores.mapped(),
+                oldData: req.body, usuario: usuarioEditado})
+        }
+
+
         let idUsuario = usuarioEditado.id
         let nuevoUsuario=[];
 

@@ -49,38 +49,91 @@
                         <h2>Datos Usuario</h2> 
                         <div class="nombrePersonalizado"> 
                             <h3 >Usuario</h3>
-                            <input type="text" name="nombrePersonalizado" value="<%=usuario.nombrePersonalizado%>" placeholder="Nombre de usuario" class="input">
+                            <span>
+                                <input type="text" name="nombrePersonalizado" placeholder="Nombre de usuario" class="input"
+                                value="<%= locals.oldData && oldData.nombrePersonalizado ? oldData.nombrePersonalizado:usuario.nombrePersonalizado%>">
+                                <% if (locals.mensajesError && mensajesError.nombrePersonalizado){ %>
+                                <p class="mensajeError"><%= mensajesError.nombrePersonalizado.msg %></p>
+                                <% } %>
+                            </span>
                         </div>
                         <div class="contenedorCorreo"> 
                             <h3>Correo</h3>
-                            <input type="text" name="correo" value="<%=usuario.correo%>" placeholder="Correo" class="input">
+                            <span>
+                                <input type="text" name="correo" placeholder="Correo" class="input"
+                                value="<%= locals.oldData && oldData.correo ? oldData.correo : usuario.correo%>">
+                                <% if (locals.mensajesError && mensajesError.correo){%>
+                                <p class="mensajeError"><%= mensajesError.correo.msg %></p>
+                                <% } %>
+                            </span>
                         </div>
                         <div class="contenedorContraseña"> 
                             <h3>Contraseña</h3>
-                            <input type="text" name="password" value="<%=usuario.password%>" placeholder="Contraseña" class="input">
+                            <span>
+                                <input type="text" name="password" placeholder="Contraseña" class="input"
+                                value="<%= locals.oldData && oldData.password ? oldData.password : usuario.password%>">
+                                <% if (locals.mensajesError && mensajesError.password){ %>
+                                <p class="mensajeError"><%= mensajesError.password.msg %></p>
+                                <% } %>
+                            </span>
                         </div>
                     </div> 
                     <div class="datosPersonales">
                         <h2>Datos Personales</h2>   
                         <div class="contenedorNombre"> 
                             <h3>Nombre</h3>
-                            <input type="text" name="nombre" value="<%=usuario.nombre%>" placeholder="Nombre" class="input">
+                            <span>
+                                <input type="text" name="nombre" placeholder="Nombre" class="input"
+                                value="<%= locals.oldData && oldData.nombre ? oldData.nombre : usuario.nombre%>">
+                                <% if (locals.mensajesError && locals.mensajesError.nombre){ %>
+                                <p class="mensajeError"><%= mensajesError.nombre.msg %></p>
+                                <% } %> 
+                            </span>
                         </div>
                         <div class="tipoDocumento"> 
                             <h3>Tipo de Documento</h3>
-                            <input type="text" name="tipoDocumento" value="<%=usuario.tipoDocumento%>" placeholder="Tipo de Documento" class="input">
+                            <select name="tipoDocumento">
+                                <option selected="selected" value="<%=usuario.tipoDocumento%>"><%=usuario.tipoDocumento%></option>
+                                <option value="Cedula Ciudadania">Cedula Ciudadania</option>
+                                <option value="Targeta Identidad">Targeta Identidad</option>
+                                <option value="Cedula Extranjeria">Cedula Extranjeria</option>
+                                <option value="NIT">NIT</option>
+                                <option value="Pasaporte">Pasaporte</option>
+                            </select>
+                        
+
                         </div>
                         <div class="numeroDocumento"> 
                             <h3>Documento</h3>
-                            <input type="text" name="numeroDocumento" value="<%=usuario.numeroDocumento%>" placeholder="Numero de documento" class="input">
+                            <span>
+                                <input type="text" name="numeroDocumento" placeholder="Numero de documento" class="input"
+                                    value="<%= locals.oldData && oldData.numeroDocumento ? oldData.numeroDocumento:usuario.numeroDocumento%>">
+                                <% if (locals.mensajesError && locals.mensajesError.numeroDocumento){ %> 
+                                <p class="mensajeError"><%= mensajesError.numeroDocumento.msg %> </p>
+                                <% } %> 
+                            </span>
                         </div>
+
                         <div class="numeroCelular"> 
                             <h3>Celular</h3>
-                            <input type="text" name="celular" value="<%=usuario.celular%>" placeholder="Celular" class="input">
+                            <span>
+                                <input type="text" name="celular"  placeholder="Celular" class="input"
+                                value="<%= locals.oldData && oldData.celular ? oldData.celular : usuario.celular%>">
+                                <% if (locals.mensajesError && locals.mensajesError.celular){ %>
+                                <p class="mensajeError"><%= mensajesError.celular.msg %> </p> 
+                                <% } %> 
+                            </span>
                         </div>
+
                         <div class="ciudadDeResidencia"> 
                             <h3>Ciudad de residencia</h3>
-                            <input type="text" name="ciudad" value="<%=usuario.ciudad%>" placeholder="Ciudad" class="input">
+                            <span>
+                                <input type="text" name="ciudad" placeholder="Ciudad" class="input"
+                                value="<%= locals.oldData && oldData.ciudad ? oldData.ciudad : usuario.ciudad%>">
+                                <% if (locals.mensajesError && locals.mensajesError.ciudad){ %>
+                                <p class="mensajeError"><%= mensajesError.ciudad.msg %> </p> 
+                                <% } %> 
+                            </span>
                         </div>
                         
                     </div>
@@ -90,22 +143,24 @@
                             <h3>Servicios comprados</h3>
                             <p>5</p>
                         </div>
+
                         <div class="totalValorComprados"> 
                             <h3>Valor de servicios comprados</h3>
                             <p>$250.000</p>
                         </div>
+
                         <div class="totalServiciosVendidos"> 
                             <h3>Servicios vendidos</h3>
                             <p>15</p>
                         </div>
+
                         <div class="totalValorVendidos"> 
                             <h3>Ganancias de servicios vendidos</h3>
                             <p>$630.000</p>
                         </div>
                     </div>
                     <div class="botones">
-                    <button class="button editBtn"><a href="/">Editar</a></button>
-                    <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
+                    <button class="button editBtn" type="submit">Editar usuario</button>
                     </div>
                 </div>
             </form>    
