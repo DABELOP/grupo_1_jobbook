@@ -25,7 +25,8 @@
         <h2>Únete a Jobbook</h2>
         <label class="contenedorInput">
             <p class="tituloInput">Nombre completo</p>
-            <input type="text" name="nombre" placeholder="Pepito Perez Gonzales" class="input">
+            <input type="text" name="nombre" placeholder="Pepito Perez Gonzales" class="input"
+            value="<%= locals.oldData && oldData.nombre ? oldData.nombre : null %>" >
             <% if (locals.mensajesError && mensajesError.nombre) { %>
             <p class="mensajeError"><%= mensajesError.nombre.msg %></p>
             <% } %>
@@ -33,14 +34,16 @@
 
         <label class="contenedorInput">
             <p class="tituloInput">E-mail</p>
-            <input type="email" name="correo" placeholder="user@example.com" class="input">
+            <input type="email" name="correo" placeholder="user@example.com" class="input"
+            value="<%= locals.oldData && oldData.correo ? oldData.correo : null %>" >
             <% if (locals.mensajesError && mensajesError.correo) { %>
             <p class="mensajeError"><%= mensajesError.correo.msg %></p>
             <% } %>
 
         <label class="contenedorInput">
             <p class="tituloInput">Usuario</p>
-            <input type="text" name="nombrePersonalizado" placeholder="pepigon" class="input">
+            <input type="text" name="nombrePersonalizado" placeholder="pepigon" class="input"
+            value="<%= locals.oldData && oldData.nombrePersonalizado ? oldData.nombrePersonalizado : null %>">
             <% if (locals.mensajesError && mensajesError.nombrePersonalizado) { %>
             <p class="mensajeError"><%= mensajesError.nombrePersonalizado.msg%></p>
             <% } %>
