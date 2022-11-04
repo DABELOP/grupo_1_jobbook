@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const bcryptjs = require('bcryptjs'); 
 
 const {validationResult} = require('express-validator');
 
@@ -14,6 +15,25 @@ const usuariosController = {
     login: (req,res)=>{
         res.render('users/login');
     },
+
+    loginProcess: (req,res)=>{
+        let usuarioLogin = usuarios.find(usuario => usuario.correo == req.body.correo);
+        if (usuarioLogin){
+            let validacionContrasena = bcryptjs.compareSync(req.body.password, usuarioLogin.password);
+
+            if (validacionContrasena) {
+                delete usuarioLogin.password
+                req.session.usuarioLogueado = usuarioLogin;
+            
+                if (req.body.recordarme){
+                    res.cookie('emailUsuario',req.body.correo, {maxAge:1000*60})
+                }
+                return res.redirect('/')
+            }
+         }
+        return res.render('users/login',{errores:{password:{msj:"Usuario o contraseña incorrectos"}}})
+    },  
+
     register: (req,res)=>{
         res.render('users/register');
     },
@@ -86,7 +106,8 @@ const usuariosController = {
         let nuevaDBUsuarios = usuarios;
         nuevaDBUsuarios[usuarios.length] = {
             id: id,
-            ...nuevoUsuario
+            ...nuevoUsuario,
+            password: bcryptjs.hashSync(req.body.password,10)
 
         };
 

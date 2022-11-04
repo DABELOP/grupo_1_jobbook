@@ -18,8 +18,12 @@
         <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
     <nav class="top-nav-bar-right">
-        <button class="button loginBtn"><a href="/usuario/login">Acceder</a></button>
+        <% if (locals.estaLogueado){ %> 
         <button class="profile"><a href="/usuario/profile/8"><i class="fa-solid fa-user"></i></a></button>
+       <% } else { %> 
+        <button class="button loginBtn"><a href="/usuario/login">Acceder</a></button>
         <button class="button registroBtn"><a href="/usuario/register">Registrar</a></button>
+       <% } %> 
+        
     </nav>
 </header>

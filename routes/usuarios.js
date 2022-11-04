@@ -10,10 +10,11 @@ const validationsEdit = require('../middlewares/validacionEditarPerfilMiddleware
 
 
 router.get('/login', usuariosController.login);
+router.post('/login', usuariosController.loginProcess);
 router.get('/register', usuariosController.register);
 router.post('/register', validationsRegister, usuariosController.crear);
 router.get('/:id/contacto/:idServicio', usuariosController.contacto);
-router.get('/profile/:id', usuariosController.profile);
+router.get('/profile/:id',usuariosController.profile);
 router.get('/profile/:id/servicios', usuariosController.misServicios);
 
 //Modificar un perfil

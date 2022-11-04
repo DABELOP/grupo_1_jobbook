@@ -21,19 +21,25 @@
     <!-- Navbar categorias -->
     <%- include('../partials/navbarCategorias.ejs') %> 
 
-    <form class="formularioLogin" action="">
+    <form class="formularioLogin" action="/usuario/login" method="POST" >
         <h2>Inicia sesión en Jobbook</h2>
         <label class="contenedorInput">
             <p class="tituloInput">E-mail</p>
-            <input type="email" name="email" placeholder="user@example.com" class="input">
+            <input type="email" name="correo" placeholder="user@example.com" class="input">
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
         </label>
         <label class="contenedorInput">
             <p class="tituloInput">Contraseña</p>
-            <input type="password" name="contraseña" placeholder="*********" class="input">
+            <input type="password" name="password" placeholder="*********" class="input">
             <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
         </label>
         <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> E-mail y/o contraseña no valido</p>
+        <label for="recordarme">
+            <input type="checkbox" name="recordarme" class="input">Recordar usuario 
+        </label>
+        <% if (locals.errores && errores.password){%>
+        <p><%= errores.password.msj %></p>
+        <% } %> 
         <button class="boton">Iniciar sesión</button>
         <p><a href="">¿Has olvidado tu contraseña?</a></p>
         <p>¿Aún no eres miembro? <a href="">Únete ahora</a></p>
