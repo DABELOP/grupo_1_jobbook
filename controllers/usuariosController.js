@@ -94,6 +94,11 @@ const usuariosController = {
                 oldData: req.body})
         }
 
+        if (req.body.password != req.body.confirmarContraseña){
+            return res.render('users/register',{mensajesError:{confirmarContraseña:{msj:"No coinciden las contraseñas"}}})
+        }
+
+
         let allUsers = [...usuarios];
         if (usuarios.length > 0){
             id = allUsers.pop().id + 1

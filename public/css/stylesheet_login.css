@@ -1,4 +1,4 @@
-@import 'stylesheet.css';
+/* @import 'stylesheet.css'; */
 @import 'stylesheet_home.css';
 
 .formularioLogin, .contenedorInput{
@@ -36,12 +36,18 @@
 }
 .formularioLogin p{
     padding: 4px;
-    font-size: 1.1rem;
+   
 }
 .advertencia{
     color: red;
     display: none;
 }
+
+.mensajeError {
+    color: red;
+    font-size: 13px;
+}
+
 @media (min-width:460px) {
     .formularioLogin{
         width: 460px;

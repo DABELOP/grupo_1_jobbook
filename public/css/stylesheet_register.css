@@ -56,7 +56,6 @@
 }
 .contenedorTerminos p:nth-of-type(1){
     margin: 8px;
-    font-size: 0.8rem;
 }
 .boton{
     border: none;
@@ -71,7 +70,6 @@
 }
 .formularioLogin p{
     padding: 4px;
-    font-size: 1.1rem;
     
 }
 .advertencia{
@@ -80,8 +78,8 @@
 }
 
 .mensajeError{
-    color: black;
-    font-size: 10px;
+    color: red;
+    font-size: 12px;
 }
 
 @media (min-width:460px) {
