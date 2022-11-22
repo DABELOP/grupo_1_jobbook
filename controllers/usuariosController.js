@@ -26,7 +26,7 @@ const usuariosController = {
                 req.session.usuarioLogueado = usuarioLogin;
             
                 if (req.body.recordarme){
-                    res.cookie('emailUsuario',req.body.correo, {maxAge:1000*60})
+                    res.cookie('emailUsuario',req.body.correo, {maxAge:1000*60*60})
                 }
                 return res.redirect('/')
             }
@@ -41,7 +41,7 @@ const usuariosController = {
         res.render('users/contacto_experto');
     },
     profile: (req,res)=>{
-        let usuario=usuarios.find(usuario => usuario.id == req.params.id)
+        let usuario=req.session.usuarioLogueado
         res.render('users/profile',{usuario, toThousand});
     },
     misServicios: (req,res)=>{
@@ -51,16 +51,14 @@ const usuariosController = {
     },
     guardarEdicion: (req,res)=>{
         let errores = validationResult(req);
-        let usuarioEditado=usuarios.find(usuario=>usuario.id == req.params.id);
-
-        if (!errores.isEmpty()){
+        let usuarioEditado=req.session.usuarioLogueado;
+        
+       if (!errores.isEmpty()){
             return res.render('users/editar_profile',{
                 mensajesError:errores.mapped(),
                 oldData: req.body, usuario: usuarioEditado})
-        }
+        } 
 
-
-        let idUsuario = usuarioEditado.id
         let nuevoUsuario=[];
 
         usuarios.forEach(usuario =>{
@@ -75,12 +73,11 @@ const usuariosController = {
         })
 
         fs.writeFileSync(rutaUsuarios, JSON.stringify(nuevoUsuario, null))
-
-        res.redirect('/usuario/profile/'+ idUsuario);
+        res.redirect('/usuario/profile');
     },
 
     editar: (req,res)=>{
-        let usuario = usuarios.find(usuario => usuario.id == req.params.id);
+        let usuario = req.session.usuarioLogueado;
         res.render('users/editar_profile',{usuario, toThousand});
         
     },
@@ -95,9 +92,12 @@ const usuariosController = {
         }
 
         if (req.body.password != req.body.confirmarContraseña){
-            return res.render('users/register',{mensajesError:{confirmarContraseña:{msj:"No coinciden las contraseñas"}}})
-        }
+            return res.render('users/register',{mensajesError:{confirmarContraseña:{msg:"No coinciden las contraseñas"}}, oldData: req.body})
+        }  
 
+        if (usuarios.find(usuario => usuario.correo == req.body.correo)){
+            return res.render('users/register',{mensajesError:{correo:{msg:"El correo ya se encuentra registrado"}}, oldData: req.body})
+        }
 
         let allUsers = [...usuarios];
         if (usuarios.length > 0){

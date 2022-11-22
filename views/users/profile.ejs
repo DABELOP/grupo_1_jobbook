@@ -32,8 +32,8 @@
             <!-- <div class="listaDeContenidoPerfil">
                 <h3>Mi Perfil</h3>  
                 <ul class="listaCategorias">
-                    <li><a href="/usuario/profile/<%=usuario.id%>">Mi información</a></li>
-                    <li><a href="/usuario/profile/<%=usuario.id%>/servicios">Servicios publicados</a></li>
+                    <li><a href="/usuario/profile/">Mi información</a></li>
+                    <li><a href="/usuario/profile//servicios">Servicios publicados</a></li>
                     <li><a href="">Publicar servicio</a></li>
                     <li><a href="">Ventas</a></li>
                     <li><a href="">Compras</a></li>
@@ -46,7 +46,9 @@
             <div class="contenedorDerechoPerfil">
                 <h1> Mi información personal</h1>
                 <div class="contenedorFotoPerfil">
+                    <% if (usuario.fotoPerfil){%> 
                     <img src='/images/fotos-perfil/<%=usuario.fotoPerfil%>' alt="">
+                    <% } %> 
                 </div>
                 <div class="datosDeCuenta">
                     <h2>Datos Usuario</h2> 
@@ -103,7 +105,7 @@
                     </div>
                 </div>
                 <div class="botones">
-                 <button class="button editBtn"><a href="/usuario/profile/editar/<%= usuario.id %> ">Editar</a></button>
+                 <button class="button editBtn"><a href="/usuario/profile/editar ">Editar</a></button>
                  <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
                 </div>
             </div>

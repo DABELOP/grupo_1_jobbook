@@ -48,6 +48,10 @@
     font-size: 13px;
 }
 
+.usuarioLogueado{
+    display:Flex;
+}
+
 @media (min-width:460px) {
     .formularioLogin{
         width: 460px;

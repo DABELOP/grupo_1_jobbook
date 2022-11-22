@@ -22,3 +22,12 @@ body{
     background-color: var(--gris-claro);
     color: var(--azul-oscuro);
 }
+
+.usuarioLogueado{
+    display:flex;
+    align-items: center;
+}
+
+.usuarioLogueado p {
+    margin-left: 10px;
+}
