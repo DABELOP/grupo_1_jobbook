@@ -162,3 +162,13 @@ font-size: 24px;
     font-size: 12px;
     margin-left: 10px;
 }
+
+.mensajeServicios{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.mensajeServicios a{
+    text-decoration: underline;
+    color:blue
+}

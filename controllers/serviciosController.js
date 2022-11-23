@@ -58,6 +58,7 @@ const serviciosController = {
 		let nuevoServicio = {
 			id: servicios[servicios.length - 1].id + 1,
 			...req.body,
+            idUsuario: req.session.usuarioLogueado.id,
 			imagenes: imagenes
 		};
 		servicios.push(nuevoServicio);

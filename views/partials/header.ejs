@@ -1,3 +1,4 @@
+<head> <link rel="stylesheet" href="/css/stylesheet_home.css"></head>
 <header>
     <a class="burger-menu">
         <i class="fas fa-bars"></i>
@@ -20,8 +21,11 @@
     <nav class="top-nav-bar-right">
         <% if (locals.estaLogueado){ %> 
         <div class = "usuarioLogueado">
-            <button class="profile"><a href="/usuario/profile "><i class="fa-solid fa-user"></i></a></button>
-             <p>Hola <%= locals.usuario.nombrePersonalizado%>  </p>
+            <button class="profile"><a href="/usuario/profile"><i class="fa-solid fa-user"></i></a></button>
+            <p class="saludoLogin">Hola <%= locals.usuario.nombrePersonalizado%>  </p>
+            <div class="opcionesLogin">
+                <p><a href="/usuario/logout">Cerrar sesion</a></p>
+                </div>
         </div>
         <% } else { %> 
         <button class="button loginBtn"><a href="/usuario/login">Acceder</a></button>

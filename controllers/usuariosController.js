@@ -19,10 +19,11 @@ const usuariosController = {
     loginProcess: (req,res)=>{
         let usuarioLogin = usuarios.find(usuario => usuario.correo == req.body.correo);
         if (usuarioLogin){
+            
             let validacionContrasena = bcryptjs.compareSync(req.body.password, usuarioLogin.password);
 
             if (validacionContrasena) {
-                delete usuarioLogin.password
+                //delete usuarioLogin.password
                 req.session.usuarioLogueado = usuarioLogin;
             
                 if (req.body.recordarme){
@@ -45,8 +46,9 @@ const usuariosController = {
         res.render('users/profile',{usuario, toThousand});
     },
     misServicios: (req,res)=>{
-        let serviciosUsuario=servicios.filter(servicio => servicio.idUsuario == req.params.id);
-        let usuario=usuarios.find(usuario => usuario.id == req.params.id)
+        let serviciosUsuario=servicios.filter(servicio => servicio.idUsuario == req.session.usuarioLogueado.id);
+        let usuario=usuarios.find(usuario => usuario.id == req.session.usuarioLogueado.id)
+        console.log(serviciosUsuario)
         res.render('users/mis_servicios',{usuario,serviciosUsuario, toThousand});
     },
     guardarEdicion: (req,res)=>{
@@ -118,6 +120,11 @@ const usuariosController = {
 
         fs.writeFileSync(rutaUsuarios,JSON.stringify(nuevaDBUsuarios, null, ' '));
         res.redirect('/usuario/login');
+    },
+
+    logout: (req,res) => {
+        req.session.destroy(); 
+        res.redirect('/')
     }
     
    

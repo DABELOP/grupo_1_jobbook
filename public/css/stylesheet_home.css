@@ -57,6 +57,7 @@ header{
     border:0px;
 }
 
+
 .profile a{
 color:var(--azul-claro2);
 background-color: var(--gris-claro);
@@ -272,7 +273,6 @@ footer a, footer section{
     justify-content: space-around;
 
 }
-
 
 
 

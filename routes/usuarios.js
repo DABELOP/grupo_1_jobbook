@@ -11,12 +11,13 @@ const guestMiddleware = require('../middlewares/invitadoMiddleware');
 
 
 router.get('/login',guestMiddleware, usuariosController.login);
+router.get('/logout', usuariosController.logout);
 router.post('/login', usuariosController.loginProcess);
 router.get('/register', guestMiddleware, usuariosController.register);
 router.post('/register', validationsRegister, usuariosController.crear);
 router.get('/:id/contacto/:idServicio', authMiddleware, usuariosController.contacto);
 router.get('/profile', authMiddleware, usuariosController.profile);
-router.get('/profile/:id/servicios', usuariosController.misServicios);
+router.get('/profile/servicios', usuariosController.misServicios);
 
 //Modificar un perfil
 router.get('/profile/editar',authMiddleware, usuariosController.editar);

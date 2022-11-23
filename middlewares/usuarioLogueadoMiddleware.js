@@ -8,11 +8,13 @@ function usuarioLogueadoMiddleware(req,res,next){
     res.locals.estaLogueado = false; 
     let correoEnCookie = req.cookies.emailUsuario;
     let usuarioDeCookie = usuarios.find(usuario => usuario.correo == correoEnCookie);
-    if (usuarioDeCookie){
-        req.session.usuarioLogueado = usuarioDeCookie;
-    }
 
-    if (req.session && req.session.usuarioLogueado){
+    /* if (usuarioDeCookie){
+        req.session.usuarioLogueado = usuarioDeCookie;
+    } */
+
+    if (req.session.usuarioLogueado && usuarioDeCookie && req.cookies){
+        req.session.usuarioLogueado = usuarioDeCookie;
         res.locals.estaLogueado = true;
         res.locals.usuario = usuarioDeCookie;
 

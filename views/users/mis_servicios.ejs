@@ -27,7 +27,7 @@
         <!--Lista de contenido perfil-->
         
     <%- include('../partials/navbarPerfil.ejs') %> 
-      <!--   <div class="listaDeContenidoPerfil">
+      <!-- <div class="listaDeContenidoPerfil">
             <h3>Mi Perfil</h3>  
             <ul class="listaCategorias">
                 <li><a href="/usuario/profile/<%=usuario.id%>">Mi información</a></li>
@@ -36,11 +36,12 @@
                 <li><a href="">Compras</a></li>
                 <li><a href="">Configuración</a></li>
             </ul>
-        </div> -->
+        </div>  -->
 
             <!--Lista de contenido perfil-->
 
-        <div class="listaServicios">       
+        <div class="listaServicios">  
+            <% if (serviciosUsuario.length >0){ %>      
             <% serviciosUsuario.forEach(servicio => {  %>
             
 
@@ -80,6 +81,9 @@
             </a>
         </div>
         <% }) %>
+        <% }else{ %>
+            <h4 class="mensajeServicios">En este momento no cuentas con servicios publicados. <br>Para publicar un servicio haz click <a href="/servicio/crear">AQUI</a></h4> 
+            <% } %> 
      <!--TARJETA DE SERVICIO HASTA ACA-->
     </div>
     
