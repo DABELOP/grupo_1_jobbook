@@ -80,7 +80,26 @@ Hacer cosas de siguientes sprints
 
 
 ### Dejar de hacer
+------------------------------------------------------------
 
+## Retrospectiva sprint 5
 
+### Comenzar a hacer 
+Unifica el idioma de las variables
 
+### Hacer más .
+Reuniones presenciales ya que esto afianza mas la relacion grupal
 
+### Continuar haciendo
+Asignacion de tareas en tablero de trabajo
+Cumplir con los tiempos de entrega
+Continuar trabajando cumpliendo las metas y con buena comunicación
+Actualizar tablero de trabajo con mas frecuencia 
+Priorizar tareas 
+Trabajo en equipo y dedicacion propuesta por los integranes
+
+### Hacer menos
+Actividades individuales y hacer mas grupales
+
+### Dejar de hacer
+Combinar terminos en ingles y español
