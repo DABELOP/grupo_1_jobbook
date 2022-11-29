@@ -9,9 +9,9 @@ function usuarioLogueadoMiddleware(req,res,next){
     let correoEnCookie = req.cookies.emailUsuario;
     let usuarioDeCookie = usuarios.find(usuario => usuario.correo == correoEnCookie);
 
-    /* if (usuarioDeCookie){
+    if (usuarioDeCookie){
         req.session.usuarioLogueado = usuarioDeCookie;
-    } */
+    } 
 
     if (req.session.usuarioLogueado && usuarioDeCookie && req.cookies){
         req.session.usuarioLogueado = usuarioDeCookie;

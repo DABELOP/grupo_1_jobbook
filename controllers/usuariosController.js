@@ -124,6 +124,7 @@ const usuariosController = {
 
     logout: (req,res) => {
         req.session.destroy(); 
+        res.clearCookie('emailUsuario');
         res.redirect('/')
     }
     
