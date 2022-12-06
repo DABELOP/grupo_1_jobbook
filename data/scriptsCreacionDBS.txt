@@ -1,0 +1,132 @@
+CREATE TABLE `jobbook_db`.`usuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombreCompleto` VARCHAR(100) NOT NULL,
+  `fotoPerfil` VARCHAR(100) NULL,
+  `nombrePersonalizado` VARCHAR(100) NULL,
+  `ciudad` VARCHAR(60) NULL,
+  `correo` VARCHAR(100) NULL,
+  `password` VARCHAR(200) NULL,
+  `celular` INT NULL,
+  `tipoDocumento` VARCHAR(45) NULL,
+  `usuarioscol` VARCHAR(45) NULL,
+  `numeroDocumento` INT NULL,
+  `fechaRegistro` DATE NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  UNIQUE INDEX `fotoPerfil_UNIQUE` (`fotoPerfil` ASC) VISIBLE,
+  UNIQUE INDEX `nombrePersonalizado_UNIQUE` (`nombrePersonalizado` ASC) VISIBLE,
+  UNIQUE INDEX `correo_UNIQUE` (`correo` ASC) VISIBLE)
+COMMENT = 'Tabla usuarios registrados en el sitio';
+
+
+
+ALTER TABLE `jobbook_db`.`usuarios` 
+CHANGE COLUMN `nombrePersonalizado` `nombrePersonalizado` VARCHAR(100) NOT NULL ,
+CHANGE COLUMN `correo` `correo` VARCHAR(100) NOT NULL ,
+CHANGE COLUMN `password` `password` VARCHAR(200) NOT NULL ;
+
+
+
+CREATE TABLE `jobbook_db`.`habilidades` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idUsuario` INT NOT NULL,
+  `habilidad` VARCHAR(200) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+
+
+
+CREATE TABLE `jobbook_db`.`experiencia` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idUsuario` INT NOT NULL,
+  `experiencia` VARCHAR(300) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `idUsuario_idx` (`idUsuario` ASC) VISIBLE,
+  CONSTRAINT ``
+    FOREIGN KEY (`idUsuario`)
+    REFERENCES `jobbook_db`.`usuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+
+CREATE TABLE `jobbook_db`.`servicios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idUsuario` INT NOT NULL,
+  `titulo` VARCHAR(100) NOT NULL,
+  `precio` INT NOT NULL,
+  `descripcion` TEXT NOT NULL,
+  `tarifa` VARCHAR(200) NULL,
+  `impresiones` INT NULL,
+  `idCategoria` INT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+
+
+CREATE TABLE `jobbook_db`.`categorias` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `categoria` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+
+
+CREATE TABLE `jobbook_db`.`imagenes` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `url` VARCHAR(200) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+COMMENT = '	';
+
+
+CREATE TABLE `jobbook_db`.`visitascontactoservicios` (
+  `id` INT NOT NULL,
+  `idServicio` INT NULL,
+  `idUsuario` INT NULL,
+  `fecha` DATE NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE `jobbook_db`.`calificaciones` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idServicio` INT NULL,
+  `calificacion` INT NULL,
+  `comentario` TEXT NULL,
+  `fecha` DATE NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+
+
+CREATE TABLE `jobbook_db`.`preguntas` (
+  `idServicio` INT NOT NULL AUTO_INCREMENT,
+  `pregunta` TEXT NULL,
+  `fecha` DATE NULL,
+  `idUsuario` INT NULL,
+  PRIMARY KEY (`idServicio`),
+  UNIQUE INDEX `idServicio_UNIQUE` (`idServicio` ASC) VISIBLE);
+
+
+CREATE TABLE `jobbook_db`.`respuestas` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idPregunta` INT NULL,
+  `respuesta` TEXT NULL,
+  `fecha` DATE NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+COMMENT = '				';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
