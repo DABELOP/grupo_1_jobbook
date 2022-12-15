@@ -29,6 +29,26 @@ module.exports = function(sequelize, dataTypes){
         timestamps: false
     }
 
-   let Visitacontactoservicio = sequelize.define(alias, cols, config); 
 
-}
+   let Visitacontactoservicio = sequelize.define(alias, cols, config);
+
+   Visitacontactoservicio.associate = function(models){
+
+        Visitacontactoservicio.belongsTo(models.Servicio,{
+            as: 'servicio',
+            foreignKey:'idServicio'
+        }),
+
+        
+        Visitacontactoservicio.belongsTo(models.Usuario,{
+            as: 'usuario',
+            foreignKey:'idUsuario'
+        })
+
+    }
+    
+
+    return Visitacontactoservicio;
+    
+    }
+

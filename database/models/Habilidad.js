@@ -27,4 +27,13 @@ module.exports = function(sequelize, dataTypes){
 
    let Habilidad = sequelize.define(alias, cols, config); 
 
+   Habilidad.associate = function(models){
+        Habilidad.belongsTo(models.Usuario,{
+            as: 'usuario',
+            foreignKey:'idUsuario'
+        });
+    }
+
+   return Habilidad; 
+
 }

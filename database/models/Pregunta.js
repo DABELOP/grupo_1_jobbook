@@ -36,4 +36,17 @@ module.exports = function(sequelize, dataTypes){
 
    let Pregunta = sequelize.define(alias, cols, config); 
 
+   Pregunta.associate = function(models){
+        Pregunta.belongsTo(models.Usuario,{
+            as: 'usuario',
+            foreignKey:'idUsuario'
+        }),
+        Pregunta.belongsTo(models.Servicio,{
+            as: 'servicio',
+            foreignKey:'idServicio'
+        })
+    }
+
+   return Pregunta;
+
 }

@@ -3,12 +3,12 @@ module.exports = function(sequelize, dataTypes){
     let alias = 'Usuario'; 
 
     let cols = {
-        id:{
+         id:{
             type: dataTypes.INTEGER,
             primaryKey:true,
             autoIncrement: true
         },
-
+ 
         nombreCompleto:{
             type: dataTypes.STRING
         },
@@ -51,7 +51,7 @@ module.exports = function(sequelize, dataTypes){
 
         fechaRegistro: {
             type: dataTypes.STRING
-        },
+        }, 
 
     }
 
@@ -61,5 +61,42 @@ module.exports = function(sequelize, dataTypes){
     }
 
    let Usuario = sequelize.define(alias, cols, config); 
+
+
+  Usuario.associate = function(models){
+
+        Usuario.hasMany(models.Servicio,{
+            as: 'servicios',
+            foreignKey:'idUsuario'
+        }),
+    
+        Usuario.hasMany(models.Calificacion,{
+            as: 'calificaciones',
+            foreignKey:'idUsuario'
+        }),
+    
+        Usuario.hasMany(models.Experiencia,{
+            as: 'experiencias',
+            foreignKey:'idUsuario'
+        }),
+    
+        Usuario.hasMany(models.Habilidad,{
+            as: 'habilidades',
+            foreignKey:'idUsuario'
+        }),
+
+        Usuario.hasMany(models.Pregunta,{
+            as: 'preguntas',
+            foreignKey:'idUsuario'
+        }),
+
+        Usuario.hasMany(models.Visitacontactoservicio,{
+            as: 'visitacontactoservicios',
+            foreignKey:'idUsuario'
+        }) 
+
+   } 
+
+   return Usuario;
 
 }

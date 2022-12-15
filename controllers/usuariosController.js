@@ -1,15 +1,8 @@
-const fs = require('fs');
-const path = require('path');
 const bcryptjs = require('bcryptjs'); 
-
 const {validationResult} = require('express-validator');
-
-const rutaUsuarios = path.join(__dirname, '../data/usuarios.json');
-const usuarios = JSON.parse(fs.readFileSync(rutaUsuarios, 'utf-8'));
-
-const rutaServicios = path.join(__dirname, '../data/servicios.json');
-const servicios = JSON.parse(fs.readFileSync(rutaServicios, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const db = require('../database/models');
+//const { emitWarning } = require('process');
 
 const usuariosController = {
     login: (req,res)=>{
@@ -17,22 +10,31 @@ const usuariosController = {
     },
 
     loginProcess: (req,res)=>{
-        let usuarioLogin = usuarios.find(usuario => usuario.correo == req.body.correo);
-        if (usuarioLogin){
+        
+        db.Usuario.findOne({
+            where: {correo: req.body.correo},
+            raw: true
+        })
+        .then(usuarioLogin => {
             
-            let validacionContrasena = bcryptjs.compareSync(req.body.password, usuarioLogin.password);
+            if (usuarioLogin){
+                
+                let validacionContrasena = bcryptjs.compareSync(req.body.password, usuarioLogin.password);
 
-            if (validacionContrasena) {
-                //delete usuarioLogin.password
-                req.session.usuarioLogueado = usuarioLogin;
-            
-                if (req.body.recordarme){
-                    res.cookie('emailUsuario',req.body.correo, {maxAge:1000*60*60})
+                if (validacionContrasena) {
+                    delete usuarioLogin.password
+                    req.session.usuarioLogueado = usuarioLogin;
+                
+                    if (req.body.recordarme){
+                        res.cookie('emailUsuario',req.body.correo, {maxAge:1000*60*60})
+                    }
+                    return res.redirect('/')
                 }
-                return res.redirect('/')
             }
-         }
-        return res.render('users/login',{errores:{password:{msj:"Usuario o contraseña incorrectos"}}})
+            return res.render('users/login',{errores:{password:{msj:"Usuario o contraseña incorrectos"}}})
+
+        })
+
     },  
 
     register: (req,res)=>{
@@ -43,6 +45,7 @@ const usuariosController = {
     },
     profile: (req,res)=>{
         let usuario=req.session.usuarioLogueado
+
         res.render('users/profile',{usuario, toThousand});
     },
     misServicios: (req,res)=>{
@@ -61,25 +64,26 @@ const usuariosController = {
                 oldData: req.body, usuario: usuarioEditado})
         } 
 
-        let nuevoUsuario=[];
-
-        usuarios.forEach(usuario =>{
-
-        if(usuario.id == usuarioEditado.id){
-            usuario ={
-                ...usuarioEditado,
-                ...req.body,
-            }
-        }
-        nuevoUsuario.push(usuario)
+        db.Usuario.update({
+          nombrePersonalizado: req.body.nombrePersonalizado,
+          nombreCompleto: req.body.nombre,
+          tipoDocumento: req.body.tipoDocumento,
+          numeroDocumento: req.body.numeroDocumento,
+          celular: req.body.celular,
+          ciudad: req.body.ciudad            
+        },
+        {
+          where:{
+            id: usuarioEditado.id
+          } 
         })
-
-        fs.writeFileSync(rutaUsuarios, JSON.stringify(nuevoUsuario, null))
+        
         res.redirect('/usuario/profile');
     },
 
     editar: (req,res)=>{
         let usuario = req.session.usuarioLogueado;
+        console.log(usuario)
         res.render('users/editar_profile',{usuario, toThousand});
         
     },
@@ -101,25 +105,15 @@ const usuariosController = {
             return res.render('users/register',{mensajesError:{correo:{msg:"El correo ya se encuentra registrado"}}, oldData: req.body})
         }
 
-        let allUsers = [...usuarios];
-        if (usuarios.length > 0){
-            id = allUsers.pop().id + 1
-        } else { id=1 };
-        
-        let nuevoUsuario = {...req.body}
-        delete nuevoUsuario.terminos;
-        delete nuevoUsuario.confirmarContraseña;
-
-        let nuevaDBUsuarios = usuarios;
-        nuevaDBUsuarios[usuarios.length] = {
-            id: id,
-            ...nuevoUsuario,
+       
+        db.Usuario.create({
+            nombreCompleto: req.body.nombre,
+            correo: req.body.correo,
+            nombrePersonalizado: req.body.nombrePersonalizado,
             password: bcryptjs.hashSync(req.body.password,10)
+        })
 
-        };
-
-        fs.writeFileSync(rutaUsuarios,JSON.stringify(nuevaDBUsuarios, null, ' '));
-        res.redirect('/usuario/login');
+        res.redirect('/usuario/login')
     },
 
     logout: (req,res) => {
@@ -130,6 +124,5 @@ const usuariosController = {
     
    
 };
-//
 
 module.exports = usuariosController;

@@ -48,8 +48,35 @@ module.exports = function(sequelize, dataTypes){
     let config = {
         tableName: 'servicios',
         timestamps: false
-    }
+    } 
 
    let Servicio = sequelize.define(alias, cols, config); 
+
+
+   Servicio.associate = function(models){
+    
+        Servicio.belongsTo(models.Usuario,{
+            as: 'usuario',
+            foreignKey:'idUsuario'
+        }),
+        Servicio.hasMany(models.Imagen,{
+            as: 'imagenes',
+            foreignKey:'idServicio'
+        }),
+        Servicio.hasMany(models.Visitacontactoservicio,{
+            as: 'visitacontactoservicios',
+            foreignKey:'idServicio'
+        }),
+        Servicio.hasMany(models.Pregunta,{
+            as: 'preguntas',
+            foreignKey:'idServicio'
+        }),
+        Servicio.belongsTo(models.Categoria,{
+            as: 'categoria',
+            foreignKey:'idCategoria'
+        })
+    }
+
+    return Servicio; 
 
 }

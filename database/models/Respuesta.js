@@ -31,4 +31,15 @@ module.exports = function(sequelize, dataTypes){
 
    let Respuesta = sequelize.define(alias, cols, config); 
 
+   Respuesta.associate = function(models){
+
+    Respuesta.belongsTo(models.Pregunta,{
+        as: 'pregunta',
+        foreignKey:'idPregunta'
+
+    })
+    }
+
+   return Respuesta;
+
 }

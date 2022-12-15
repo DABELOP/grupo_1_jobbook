@@ -73,7 +73,7 @@
                             <h3>Nombre</h3>
                             <span>
                                 <input type="text" name="nombre" placeholder="Nombre" class="input"
-                                value="<%= locals.oldData && oldData.nombre ? oldData.nombre : usuario.nombre%>">
+                                value="<%= locals.oldData && oldData.nombre ? oldData.nombre : usuario.nombreCompleto%>">
                                 <% if (locals.mensajesError && locals.mensajesError.nombre){ %>
                                 <p class="mensajeError"><%= mensajesError.nombre.msg %></p>
                                 <% } %> 
