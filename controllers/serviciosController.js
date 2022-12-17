@@ -8,8 +8,10 @@ const servicios = JSON.parse(fs.readFileSync(rutaServicios, 'utf-8'));
 
 const rutaUsuarios = path.join(__dirname, '../data/usuarios.json');
 const usuarios = JSON.parse(fs.readFileSync(rutaUsuarios, 'utf-8'));
+const db = require('../database/models');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
 
 const serviciosController = {
     detalleServicio: (req,res)=>{
@@ -25,17 +27,42 @@ const serviciosController = {
     },
 
     busqueda: (req,res)=>{  
-        let serviciosBuscados=servicios.filter(servicio => servicio.titulo.includes(req.query.keywords));
+        /* let serviciosBuscados=servicios.filter(servicio => servicio.titulo.includes(req.query.keywords));
         console.log(serviciosBuscados);
-        if (req.query.keywords == "") serviciosBuscados=[];
-        res.render('services/busqueda_servicios',{serviciosBuscados, usuarios, toThousand});
+        if (req.query.keywords == "") serviciosBuscados=[]; */
+        db.Servicio.findAll({
+           include: [{
+            model: Usuario,
+            as: 'usuarios' 
+          }],
+           raw: true,
+            where: {titulo: {[db.Sequelize.Op.like]: '%'+req.query.keywords+'%'}}  //PONER EL INCLUDE 
+        })
+        .then(serviciosBuscados => {
+            console.log(usuarios)
+            db.Usuario.findAll({
+                raw:true
+            })
+            .then(usuarios => {
+        res.render('services/busqueda_servicios',{serviciosBuscados,usuarios, toThousand});
+        })})
     },
 
     filtrarPorCategoria: (req,res)=>{  
-        let serviciosBuscados=servicios.filter(servicio => servicio.categoria == req.query.keywords);
+        /* let serviciosBuscados=servicios.filter(servicio => servicio.categoria == req.query.keywords);
         console.log(serviciosBuscados);
         if (req.query.keywords == "") serviciosBuscados=[];
+        res.render('services/busqueda_servicios',{serviciosBuscados, usuarios, toThousand}); */
+        db.Servicio.findAll({
+            include: ['usuario'],
+            where: {categoria: {[db.Sequelize.Op.like]: '%'+req.query.keywords+'%'}}  //PONER EL INCLUDE 
+        })
+        .then(serviciosBuscados => {
+        console.log(serviciosBuscados)
+        console.log(usuarios)
         res.render('services/busqueda_servicios',{serviciosBuscados, usuarios, toThousand});
+        })
+
     },
 
     crear: (req,res)=>{
