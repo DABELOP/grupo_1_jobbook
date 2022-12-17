@@ -73,25 +73,24 @@
         <%if (serviciosBuscados.length != 0){%>
         <% serviciosBuscados.forEach(servicio => {  %>
            
-            <% let usuario = usuarios.find(usuario => usuario.id==servicio.idUsuario) %>
-            <% console.log(usuario.calificacion) %> 
+             
             <!--TARJETA DE SERVICIO-->
             
             <a href="/servicio/<%= servicio.id %>"><div class="contenedorDetalleServicio">
                 <div class="contenedorFotoPerfil">
-                    <img src="/images/fotos-perfil/<%=usuario.fotoPerfil%>" alt="">
+                    <img src="/images/fotos-perfil/<%=servicio.usuario.fotoPerfil%>" alt="fotoPerfil">
                 </div>
         
                 <div class="contenedorDerechoBusqueda">
                     <div class="contenedorTituloCalificacion">
                         <div class="contenedorTitulo"> 
                             <h2><%= servicio.titulo %></h2>
-                            <p class="nombreProfesional"><%= usuario.nombreCompleto %></p>
-                            <p class="ciudadUbicacion"><%= usuario.ciudad %></p>
+                            <p class="nombreProfesional"><%= servicio.usuario.nombreCompleto %></p>
+                            <p class="ciudadUbicacion"><%= servicio.usuario.ciudad %></p>
                         </div>
                         <div class="contenedorCalificacion">  
-                            <img src="/images/estrellas/<%= usuario.calificacion %>-estrella.png" alt="estrella">
-                            <p class="trabajosRealizados"><%= servicio.trabajoRealizados %> trabajos realizados</p>
+                            <!-- <img src="/images/estrellas/<%#= usuario.calificacion %>-estrella.png" alt="estrella"> -->
+                            <!-- <p class="trabajosRealizados"><%#= servicio.trabajoRealizados %> trabajos realizados</p> -->
                             <div clas="contenedorPrecioTarifa">
                                 <strong><p class="precio">$ <%= toThousand(servicio.precio) %></p></strong>
                                 <p class="ciudadUbicacion"><%= servicio.tarifa %></p>
