@@ -39,9 +39,15 @@ module.exports = function(sequelize, dataTypes){
 
 
    Calificacion.associate = function(models){
+
         Calificacion.belongsTo(models.Usuario,{
             as: 'usuario',
             foreignKey:'idUsuario'
+        }),
+
+        Calificacion.belongsTo(models.Servicio,{
+            as: 'servicio',
+            foreignKey:'idServicio'
         });
  }
 

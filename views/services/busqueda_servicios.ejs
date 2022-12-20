@@ -89,8 +89,8 @@
                             <p class="ciudadUbicacion"><%= servicio.usuario.ciudad %></p>
                         </div>
                         <div class="contenedorCalificacion">  
-                            <!-- <img src="/images/estrellas/<%#= usuario.calificacion %>-estrella.png" alt="estrella"> -->
-                            <!-- <p class="trabajosRealizados"><%#= servicio.trabajoRealizados %> trabajos realizados</p> -->
+                            <img src="/images/estrellas/<%= servicio.promedioCalificaciones %>-estrella.png" alt="estrella">
+                            <p class="trabajosRealizados"><%= servicio.numeroCalificaciones %> trabajos realizados</p> 
                             <div clas="contenedorPrecioTarifa">
                                 <strong><p class="precio">$ <%= toThousand(servicio.precio) %></p></strong>
                                 <p class="ciudadUbicacion"><%= servicio.tarifa %></p>

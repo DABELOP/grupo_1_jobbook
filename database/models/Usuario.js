@@ -93,6 +93,11 @@ module.exports = function(sequelize, dataTypes){
         Usuario.hasMany(models.Visitacontactoservicio,{
             as: 'visitacontactoservicios',
             foreignKey:'idUsuario'
+        }),
+
+        Usuario.hasMany(models.Calificacion,{
+            as: 'calificacion',
+            foreignKey:'idUsuario'
         }) 
 
    } 
