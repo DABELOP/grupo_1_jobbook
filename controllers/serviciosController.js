@@ -37,73 +37,38 @@ const serviciosController = {
 
     busqueda: async (req, res) => {
 
-        db.Servicio.findAll({
-            include: 'usuario',/*[{
-            model: Usuario,
-            as: 'usuarios' 
-          }] ,*/
-            /* raw: true, */
-            where: { titulo: { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } } //PONER EL INCLUDE 
+        let serviciosBuscados = await Promise.resolve(db.Servicio.findAll({ include: 'usuario' },
+            { where: { titulo: { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } } }))
+
+        //Todos los usuarios de los servicios buscados 
+        let usuariosServicios = serviciosBuscados.map(servicio => ['idUsuario', servicio.idUsuario]);
+
+        //Almacena los id de usuarios para la consulta en calificaciones
+        let idUsuarios = []
+        for (let i = 0; i < usuariosServicios.length; i++) {
+            idUsuarios.push(Object.fromEntries([usuariosServicios[i]]))
+        }
+
+        //Busca todas las calificaciones relacionadas a los usuarios de los servicios buscados
+        let calificaciones = await Promise.resolve(db.Calificacion.findAll(
+            { where: { [db.Sequelize.Op.or]: idUsuarios } }))
+
+        //Agrega el numero de calificaciones y el promedio a cada servicio del array 
+        let servicios = serviciosBuscados.map(servicio => {
+            let calificacionesUsuario = calificaciones.filter(calificacion => calificacion.idUsuario == servicio.idUsuario)
+            let sumatoriaCalificaciones = calificacionesUsuario.reduce((accu, calificacion) => accu + calificacion.calificacion, 0)
+
+            servicio = {
+                ...servicio,
+                numeroCalificaciones: calificacionesUsuario.length,
+                promedioCalificaciones: Math.round(sumatoriaCalificaciones / calificacionesUsuario.length)
+            }
+            
+            return servicio
         })
-            .then(servicios => {
-
-                //let servicios = JSON.parse(JSON.stringify(serviciosBuscados, null, 2));
-               servicios.forEach(servicio => {
-
-                    let sumatoria = 0
-                    let serviciosParaEnviar = []
-
-                    db.Calificacion.findAll({
-                        where: { idUsuario: servicio.idUsuario }
-
-                    }).then((data) => {
-                        
-                        data.forEach(review => sumatoria += review.calificacion)
-                        sumatoria = sumatoria / data.length;
-                        let servicioViejo = servicio
-
-                        servicio = {
-                            ...servicio,
-                            numeroCalificaciones: data.length,
-                            promedioCalificaciones: sumatoria
-                        }
-                       
-                        serviciosParaEnviar.push(servicio)
-                            
-                        if (servicios[servicios.length-1] == servicioViejo) { 
-                            console.log(serviciosParaEnviar) 
-                            res.render('services/busqueda_servicios', { serviciosBuscados: serviciosParaEnviar, toThousand });
-                        }
-
-                    })  
-
-                });
-
-                //console.log(reviews)
-
-                /* async function getCalificaciones(){ 
-                   let calificaciones = await db.Calificacion.findAll({
-                   where: { idUsuario: servicio.idUsuario }
-                   });
-                 return calificaciones
-               }; 
-*/
-                //console.log(getCalificaciones())
-                //let calificaciones = getCalificaciones().then(result => result);
-                // let calificaciones = getCalificaciones(); 
-                //console.log(getCalificaciones()); 
-
-                //calificaciones.forEach(calificacion => sumatoriaCalificaciones += calificacion.calificacion)
 
 
-
-
-
-
-               // res.render('services/busqueda_servicios', { serviciosBuscados: servicios, toThousand });
-            })/* .then(data =>{
-                console.log(data)
-            }); */
+        res.render('services/busqueda_servicios', { serviciosBuscados: servicios, toThousand })
     },
 
     filtrarPorCategoria: (req, res) => {
