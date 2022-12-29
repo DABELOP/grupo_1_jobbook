@@ -1,3 +1,4 @@
+const { promiseImpl } = require('ejs');
 const fs = require('fs');
 const path = require('path');
 const { stringify } = require('querystring');
@@ -98,21 +99,25 @@ const serviciosController = {
 
     },
 
-    guardar: (req, res) => {
+    guardar: async (req, res) => {
         let imagenes;
+        
         if (req.files[0] != undefined) {
             imagenes = req.files.map(file => file.filename);
         } else {
-            imagenes = ["imagen-principal.jpg", "miniatura-1.jpg", "miniatura-2.jpg", "miniatura-3.jpg"]
-        }
-        let nuevoServicio = {
-            id: servicios[servicios.length - 1].id + 1,
-            ...req.body,
-            idUsuario: req.session.usuarioLogueado.id,
-            imagenes: imagenes
+            imagenes = ["default.jpg", "default.jpg", "default.jpg", "default.jpg"]
         };
-        servicios.push(nuevoServicio);
-        fs.writeFileSync(rutaServicios, JSON.stringify(servicios, null))
+        let nuevoServicio = {
+            titulo:req.body.titulo,
+            precio:req.body.precio,
+            descripcion:req.body.descripcion,
+            tarifa:req.body.tarifa,
+            idUsuario: req.session.usuarioLogueado.id,
+            idCategoria: await Promise.resolve( db.Categoria.findOne( {where: { categoria: req.body.categoria
+            }}))
+        };
+        db.Servicio.create(nuevoServicio);
+        //fs.writeFileSync(rutaServicios, JSON.stringify(servicios, null));
         res.redirect('/')
     },
 

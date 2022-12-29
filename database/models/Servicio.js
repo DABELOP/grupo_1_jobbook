@@ -74,6 +74,10 @@ module.exports = function(sequelize, dataTypes){
         Servicio.belongsTo(models.Categoria,{
             as: 'categoria',
             foreignKey:'idCategoria'
+        }),
+        Servicio.hasMany(models.Calificacion,{
+            as:'calificaciones',
+            foreignKey:'idServicio'
         })
     }
 

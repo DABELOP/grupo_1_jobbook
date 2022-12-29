@@ -88,7 +88,7 @@ const usuariosController = {
         
     },
 
-    crear: (req,res)=>{
+    crear: async (req,res)=>{
         let errores = validationResult(req);
 
         if (!errores.isEmpty()){
@@ -101,7 +101,7 @@ const usuariosController = {
             return res.render('users/register',{mensajesError:{confirmarContraseña:{msg:"No coinciden las contraseñas"}}, oldData: req.body})
         }  
 
-        if (usuarios.find(usuario => usuario.correo == req.body.correo)){
+        if ( await db.Usuario.findOne({where:{ correo: req.body.correo }})){
             return res.render('users/register',{mensajesError:{correo:{msg:"El correo ya se encuentra registrado"}}, oldData: req.body})
         }
 
