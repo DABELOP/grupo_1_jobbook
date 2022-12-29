@@ -107,14 +107,18 @@ const serviciosController = {
         } else {
             imagenes = ["default.jpg", "default.jpg", "default.jpg", "default.jpg"]
         };
+        let categoria = await Promise.resolve( db.Categoria.findOne(
+             {
+                where: { categoria: req.body.categoria}
+            }));
+            console.log(categoria)
         let nuevoServicio = {
             titulo:req.body.titulo,
             precio:req.body.precio,
             descripcion:req.body.descripcion,
             tarifa:req.body.tarifa,
             idUsuario: req.session.usuarioLogueado.id,
-            idCategoria: await Promise.resolve( db.Categoria.findOne( {where: { categoria: req.body.categoria
-            }}))
+            idCategoria: categoria.id
         };
         db.Servicio.create(nuevoServicio);
         //fs.writeFileSync(rutaServicios, JSON.stringify(servicios, null));
