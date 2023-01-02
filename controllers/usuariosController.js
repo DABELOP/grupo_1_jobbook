@@ -48,10 +48,13 @@ const usuariosController = {
 
         res.render('users/profile',{usuario, toThousand});
     },
-    misServicios: (req,res)=>{
-        let serviciosUsuario=servicios.filter(servicio => servicio.idUsuario == req.session.usuarioLogueado.id);
-        let usuario=usuarios.find(usuario => usuario.id == req.session.usuarioLogueado.id)
-        console.log(serviciosUsuario)
+    misServicios: async (req,res)=>{
+        let serviciosUsuario= await Promise.resolve(
+            db.Servicio.findAll({where: {idUsuario: req.session.usuarioLogueado.id }})
+        );
+        let usuario=await Promise.resolve(
+            db.Usuario.findOne({where:{ id: req.session.usuarioLogueado.id}})
+        );
         res.render('users/mis_servicios',{usuario,serviciosUsuario, toThousand});
     },
     guardarEdicion: (req,res)=>{
@@ -83,7 +86,6 @@ const usuariosController = {
 
     editar: (req,res)=>{
         let usuario = req.session.usuarioLogueado;
-        console.log(usuario)
         res.render('users/editar_profile',{usuario, toThousand});
         
     },

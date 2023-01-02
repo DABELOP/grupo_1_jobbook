@@ -30,9 +30,10 @@ const serviciosController = {
 
     },
 
-    contacto: (req, res) => {
-        let servicio = servicios.find(servicio => servicio.id == req.params.id);
-        let usuario = usuarios.find(usuario => usuario.id == servicio.idUsuario);
+    contacto: async (req, res) => {
+        let servicio = await Promise.resolve(
+            db.Servicio.findByPk(req.params.id));
+        let usuario = req.session.usuarioLogueado;
         res.render('services/contacto_experto', { usuario, servicio, toThousand });
     },
 
@@ -93,8 +94,10 @@ const serviciosController = {
         res.render('services/crear_servicio');
     },
 
-    editar: (req, res) => {
-        let servicio = servicios.find(servicio => servicio.id == req.params.idServicio);
+    editar: async (req, res) => {
+        let servicio = await Promise.resolve(
+            db.Servicio.findByPk(req.params.idServicio,{include:'imagenes'})
+            );
         res.render('services/editar_mi_servicio', { servicio, toThousand });
 
     },
@@ -111,7 +114,6 @@ const serviciosController = {
              {
                 where: { categoria: req.body.categoria}
             }));
-            console.log(categoria)
         let nuevoServicio = {
             titulo:req.body.titulo,
             precio:req.body.precio,
@@ -120,18 +122,31 @@ const serviciosController = {
             idUsuario: req.session.usuarioLogueado.id,
             idCategoria: categoria.id
         };
-        db.Servicio.create(nuevoServicio);
+        db.Servicio.create(nuevoServicio)
+        .then( 
+            (servicio)=>{imagenes.forEach(imagen =>{
+            db.Imagen.create({ 
+                idServicio:servicio.id,
+                url: imagen
+            })
+        })});
+        
         //fs.writeFileSync(rutaServicios, JSON.stringify(servicios, null));
         res.redirect('/')
     },
 
-    guardarEdicion: (req, res) => {
-        let servicioEditado = servicios.find(servicio => servicio.id == req.params.idServicio);
-        let idUsuario = servicioEditado.idUsuario
-        let nuevosServicios = []
-
-
-        servicios.forEach(servicio => {
+    guardarEdicion: async (req, res) => {
+        let servicioEditado = await Promise.resolve(
+            db.Servicio.findByPk(req.params.idServicio)
+            );
+        
+        db.Servicio.update({
+            ...servicioEditado,
+            ...req.body},
+            {where: {
+                id: req.params.idServicio
+            }});
+        /* servicios.forEach(servicio => {
 
             if (servicio.id == servicioEditado.id) {
                 servicio = {
@@ -140,21 +155,21 @@ const serviciosController = {
                 }
             }
             nuevosServicios.push(servicio)
-        })
+        }) */
 
-        fs.writeFileSync(rutaServicios, JSON.stringify(nuevosServicios, null))
+        /* fs.writeFileSync(rutaServicios, JSON.stringify(nuevosServicios, null)) */
 
-        res.redirect('/usuario/profile/' + idUsuario + '/servicios');
+        res.redirect('/usuario/profile/servicios');
     },
 
     eliminar: (req, res) => {
-
-        let servicioEliminar = servicios.find(servicio => servicio.id == req.params.idServicio);
+        db.Servicio.destroy({where: {id: req.params.idServicio}})
+        /* let servicioEliminar = servicios.find(servicio => servicio.id == req.params.idServicio);
         let idUsuario = servicioEliminar.idUsuario
         let nuevosServicios = servicios.filter(servicio => servicio.id != servicioEliminar.id);
-        fs.writeFileSync(rutaServicios, JSON.stringify(nuevosServicios, null))
+        fs.writeFileSync(rutaServicios, JSON.stringify(nuevosServicios, null)) */
 
-        res.render('/usuario/profile/' + idUsuario + '/servicios');
+        res.redirect('/usuario/profile/servicios');
     }
 
 
