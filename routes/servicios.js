@@ -1,9 +1,8 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-
-
 const serviciosController = require('../controllers/serviciosController');
+
 const multer = require('multer');
 const storage = multer.diskStorage({
     //permite definir la carpeta donde se va  alamcenar el archivo
@@ -38,7 +37,8 @@ router.put('/editar/:idServicio', upload.any(), serviciosController.guardarEdici
 //Eliminar un servicio
 router.delete('/eliminar/:idServicio', serviciosController.eliminar);
 
-
+//Agrega una pregunta
+router.post('/:id/pregunta', serviciosController.guardarPregunta);
 
 
 module.exports = router;

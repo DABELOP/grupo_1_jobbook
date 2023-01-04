@@ -133,13 +133,22 @@
 
                     <div class="preguntas">
                         <h2>Pregúntale al experto <i class="fa-solid fa-circle-question"></i></h2>
-                        <% if (preguntas){ %> 
-                        <% preguntas.forEach(pregunta => { %> 
-                        <p class="preguntaVisitante"><%= pregunta.pregunta.pregunta %></p>
-                        <p class="respuestaExperto"><%= pregunta.respuesta %></p>
-                        <% })} else { %> <p class="preguntaVisitante"> Aún no se hacen preguntas para este servicio </p> <% } %>   
-                        <input class="textboxPregunta" type="text" name="pregunta" placeholder="Escribe tu pregunta...">
-                        <button class="preguntarBtn" type="submit">Preguntar</button>
+                            <% if (preguntas){ %> 
+                                <% preguntas.forEach(pregunta => { %> 
+                                <p class="preguntaVisitante"><%= pregunta.pregunta.pregunta%></p>
+                                <p class="respuestaExperto"><%= pregunta.respuesta %></p>
+                            <% })}%>
+                            <% if (preguntasSR){ %> 
+                                <% preguntasSR.forEach(pregunta => { %> 
+                                <% if (pregunta != undefined){ %>     
+                                <p class="preguntaVisitante preguntasSR"><%=pregunta.pregunta%></p>
+                            <% }}) %>
+                            <% }else { %> <p class="preguntaVisitante"> Aún no se hacen preguntas para este servicio </p> 
+                            <% } %>  
+                        <form action="/servicio/<%=servicio.id%>/pregunta" method="POST">
+                            <input class="textboxPregunta" type="text" name="pregunta" placeholder="Escribe tu pregunta...">
+                            <button class="preguntarBtn" type="submit">Preguntar</button>
+                        </form> 
                     </div>
 
                     <div class="consejos">

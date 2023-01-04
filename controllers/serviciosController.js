@@ -19,12 +19,19 @@ const serviciosController = {
             {include: ['calificaciones', 'experiencias', 'habilidades']}))
 
         let preguntas = await Promise.resolve(db.Respuesta.findAll({include: ['pregunta'], where:{idServicio: servicio.id}}))
-
+        let preguntasSR = await Promise.resolve(db.Pregunta.findAll({where:{idServicio: servicio.id}}))
+        preguntasSR = preguntasSR.map(pregunta => {
+            for (i=0; i<preguntas.length; i++){
+                if (preguntas[i].idPregunta == pregunta.id) return 
+            }
+            return pregunta
+        })
+       
         let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) => 
             accu + calificacion.calificacion, 0)/usuario.calificaciones.length))
 
         
-        res.render('services/detalle_servicio', { servicio, usuario, promedioCalificacion, preguntas, toThousand });
+        res.render('services/detalle_servicio', { servicio, usuario, promedioCalificacion, preguntas, preguntasSR, toThousand });
     },
 
     contacto: async (req, res) => {
@@ -143,30 +150,28 @@ const serviciosController = {
             {where: {
                 id: req.params.idServicio
             }});
-        /* servicios.forEach(servicio => {
-
-            if (servicio.id == servicioEditado.id) {
-                servicio = {
-                    ...servicioEditado,
-                    ...req.body,
-                }
-            }
-            nuevosServicios.push(servicio)
-        }) */
-
-        /* fs.writeFileSync(rutaServicios, JSON.stringify(nuevosServicios, null)) */
 
         res.redirect('/usuario/profile/servicios');
     },
 
     eliminar: (req, res) => {
         db.Servicio.destroy({where: {id: req.params.idServicio}})
-        /* let servicioEliminar = servicios.find(servicio => servicio.id == req.params.idServicio);
-        let idUsuario = servicioEliminar.idUsuario
-        let nuevosServicios = servicios.filter(servicio => servicio.id != servicioEliminar.id);
-        fs.writeFileSync(rutaServicios, JSON.stringify(nuevosServicios, null)) */
-
         res.redirect('/usuario/profile/servicios');
+    },
+
+    guardarPregunta: (req, res) => {
+        if (req.session.usuarioLogueado){
+            db.Pregunta.create({ 
+                idServicio: req.params.id,
+                pregunta: req.body.pregunta,
+                idUsuario: req.session.usuarioLogueado.id
+            }).then(resp =>{
+                res.redirect('/servicio/' + req.params.id)
+            })
+            
+        }else{
+            res.redirect('/usuario/login')
+        }
     }
 
 
