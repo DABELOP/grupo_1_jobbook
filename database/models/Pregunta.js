@@ -45,6 +45,8 @@ module.exports = function(sequelize, dataTypes){
             as: 'servicio',
             foreignKey:'idServicio'
         })
+
+        
     }
 
    return Pregunta;

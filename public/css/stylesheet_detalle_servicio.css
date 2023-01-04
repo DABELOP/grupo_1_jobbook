@@ -45,6 +45,10 @@
     color:black; 
 }
 
+.categoriaServicio :hover{
+    color: blue;
+}
+
 .contenedorDetalle{
     display:flex;
     flex-direction: column-reverse;
@@ -52,6 +56,7 @@
     border-radius: 8px;
     padding: 20px;
     margin: 20px;
+    margin-top: 0;
     margin-bottom: 0;
 }
 
@@ -65,6 +70,7 @@
     width: 100%;
     max-width: 450px;
     margin:auto;
+    margin-right: 20px;
 }
 
 .descripcionServicio{
@@ -111,6 +117,10 @@
     color:var(--azul-oscuro);
 }
 
+.verCalificaciones :hover{
+    color:blue;
+}
+
 .botonContactar{
     margin-top: 20px;
     display:flex;
@@ -133,7 +143,7 @@
 
 .fotoPerfil{
     margin-top: 15px;
-    width: 150px;
+    width: 100px;
 }
 
 .contenedorDescripcion{
@@ -221,6 +231,10 @@ margin-bottom: 20px;
     padding:20px;
     background-color: white;
     border-radius: 5px;
+}
+
+.comentarioCalificacion{
+    margin-bottom: 20px;
 }
 
 .contenedorCalificaciones{

@@ -1,33 +1,30 @@
 const { promiseImpl } = require('ejs');
 const fs = require('fs');
 const path = require('path');
-const { stringify } = require('querystring');
-
-
-const rutaServicios = path.join(__dirname, '../data/servicios.json');
-const servicios = JSON.parse(fs.readFileSync(rutaServicios, 'utf-8'));
 
 const rutaUsuarios = path.join(__dirname, '../data/usuarios.json');
 const usuarios = JSON.parse(fs.readFileSync(rutaUsuarios, 'utf-8'));
 const db = require('../database/models');
-const Usuario = require('../database/models/Usuario');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 
 const serviciosController = {
-    detalleServicio: (req, res) => {
-        db.Servicio.findOne({
-            where: { id: req.params.id },
-            include: ['usuario', 'imagenes']
-        })
-            .then(servicio => {
-                console.log(servicio);
-                res.render('services/detalle_servicio', { servicio, toThousand });
-            })
-        //let servicio = servicios.find(servicio => servicio.id == req.params.id);
-        //let usuario = usuarios.find(usuario => usuario.id == servicio.idUsuario);
 
+    detalleServicio: async (req, res) => {
+        let servicio = await Promise.resolve(db.Servicio.findByPk(req.params.id,
+        {include: ['usuario', 'imagenes', 'categoria', 'calificaciones']}))
+
+        let usuario = await Promise.resolve(db.Usuario.findByPk(servicio.idUsuario,
+            {include: ['calificaciones', 'experiencias', 'habilidades']}))
+
+        let preguntas = await Promise.resolve(db.Respuesta.findAll({include: ['pregunta'], where:{idServicio: servicio.id}}))
+
+        let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) => 
+            accu + calificacion.calificacion, 0)/usuario.calificaciones.length))
+
+        
+        res.render('services/detalle_servicio', { servicio, usuario, promedioCalificacion, preguntas, toThousand });
     },
 
     contacto: async (req, res) => {

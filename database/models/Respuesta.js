@@ -21,6 +21,14 @@ module.exports = function(sequelize, dataTypes){
 
         fecha: {
             type: dataTypes.DATEONLY
+        },
+
+        idUsuario:{
+            type: dataTypes.INTEGER.UNSIGNED
+        },
+
+        idServicio:{
+            type: dataTypes.INTEGER.UNSIGNED
         }
     }
 
@@ -36,8 +44,18 @@ module.exports = function(sequelize, dataTypes){
     Respuesta.belongsTo(models.Pregunta,{
         as: 'pregunta',
         foreignKey:'idPregunta'
+    }),
 
+    Respuesta.belongsTo(models.Usuario,{
+        as: 'usuario',
+        foreignKey:'idUsuario'
+    }),
+    Respuesta.belongsTo(models.Servicio,{
+        as: 'servicio',
+        foreignKey:'idServicio'
     })
+
+
     }
 
    return Respuesta;
