@@ -20,10 +20,12 @@ window.onload = () => {
             errores.push('El campo tarifa es obligatorio.')
         };
 
-
         console.log(errores);
         if (errores.length > 0){
             event.preventDefault();
+
+            let listaErrores = document.querySelector('div.errores ul')
+            errores.forEach(error => listaErrores.innerHTML += '<li>'+error+'</li>')
         }
         
     }

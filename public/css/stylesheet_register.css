@@ -82,6 +82,12 @@
     font-size: 12px;
 }
 
+.errores{
+    color: red;
+    font-size: 12px;
+    margin-left: 15px;
+}
+
 @media (min-width:460px) {
     .formularioLogin{
         width: 460px;
