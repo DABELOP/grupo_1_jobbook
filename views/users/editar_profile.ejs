@@ -26,19 +26,7 @@
     <main>
         <div class="misServicios">
             <%- include('../partials/navbarPerfil.ejs') %> 
-            <!--Lista de contenido perfil-->
-            <!-- <div class="listaDeContenidoPerfil">
-                <h3>Mi Perfil</h3>  
-                <ul class="listaCategorias">
-                    <li><a href="/usuario/profile/">Mi información</a></li>
-                    <li><a href="/usuario/profile/servicios">Servicios publicados</a></li>
-                    <li><a href="">Ventas</a></li>
-                    <li><a href="">Compras</a></li>
-                    <li><a href="">Configuración</a></li>
-                </ul>
-            </div> -->
-            
-            <!--Lista de contenido perfil-->
+           
             <form class="contenedorDerechoPerfil" action="/usuario/profile/editar?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="contenedorDerechoPerfil">
                     <h1> Editar mi información personal</h1>
@@ -46,6 +34,8 @@
                         <% if (usuario){ %> 
                         <img src='/images/fotos-perfil/<%=usuario.fotoPerfil%>' alt="Foto perfil">
                         <% } %> 
+                        <p>Cambiar foto de perfil</p>
+                        <input type="file" name="fotos" class="input imagen" accept="image/*">
                     </div>
                     <div class="datosDeCuenta">
                         <h2>Datos Usuario</h2> 
@@ -126,12 +116,14 @@
                         </div>
                         
                     </div>
-                    
                     <div class="botones">
                     <button class="button editBtn" type="submit">Editar usuario</button>
+                     
                     </div>
                 </div>
-            </form>    
+            </form>
+            
+
         </div>
     </main>
 

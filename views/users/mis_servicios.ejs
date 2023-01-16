@@ -56,9 +56,7 @@
                         <p class="ciudadUbicacion"><%= usuario.ciudad %></p>
                     </div>
                     <div class="contenedorCalificacion">  
-                        <img src="/images/estrellas/<%= usuario.calificacion %>-estrella.png" alt="estrella">
-                        <p class="trabajosRealizados"> trabajos realizados</p>
-                        
+                    
                         <div clas="contenedorPrecioTarifa">
                             <strong><p class="precio">$<%= toThousand(servicio.precio) %></p></strong>
                             <p class="ciudadUbicacion"><%= servicio.tarifa %></p>
@@ -66,7 +64,7 @@
                     </div>
                 </div>
                 <div class="contenedorDescripcion">  
-                    <p><%= servicio.titulo %><%= servicio.descripcion %></p>
+                    <p><%= servicio.titulo %><%= servicio.descripcion.substr(1,150) %> ...</p>
                     
                 </div>
                 <div class="botonesEdicion">

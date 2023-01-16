@@ -1,13 +1,12 @@
-const path = require('path');
-const fs = require('fs');
-const rutaUsuarios = path.join(__dirname, '../data/usuarios.json');
-const usuarios = JSON.parse(fs.readFileSync(rutaUsuarios, 'utf-8'));
+const db = require('../database/models');
 
-
-function usuarioLogueadoMiddleware(req,res,next){
+async function usuarioLogueadoMiddleware  (req,res,next){
     res.locals.estaLogueado = false; 
+
+    if (req.cookies.emailUsuario){
     let correoEnCookie = req.cookies.emailUsuario;
-    let usuarioDeCookie = usuarios.find(usuario => usuario.correo == correoEnCookie);
+    let usuarioDeCookie = await Promise.resolve(db.Usuario.findOne({where:{correo: correoEnCookie}}))
+    
 
     if (usuarioDeCookie){
         req.session.usuarioLogueado = usuarioDeCookie;
@@ -18,7 +17,7 @@ function usuarioLogueadoMiddleware(req,res,next){
         res.locals.estaLogueado = true;
         res.locals.usuario = usuarioDeCookie;
 
-    } 
+    } }
 
     next();
 }

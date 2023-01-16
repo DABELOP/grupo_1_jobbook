@@ -1,6 +1,8 @@
+ 
 window.onload = () => {
+
     let formulario = document.querySelector('form.formularioLogin');
-    let imagenes = document.querySelectorAll('.imagen');
+    let imagenes = document.querySelector('.imagen');
     const extensionesPermitidas = /(.jpg|.jpeg|.png|.gif)$/i;
 
     formulario.titulo.focus();
@@ -20,6 +22,10 @@ window.onload = () => {
         };
         if (formulario.tarifa.value == '') {
             errores.push('El campo tarifa es obligatorio.')
+        };
+
+        if (imagenes.length > 4) {
+            errores.push('Solo se permiten hasta 4 imagenes por servicio')
         };
 
         for (let i = 0; i < imagenes.length; i++) {

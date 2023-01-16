@@ -42,6 +42,11 @@ width: 300px;
     margin:7px;   
 }
 
+.totalServiciosVendidos p, .totalServiciosComprados p{
+    margin-left: 20px;
+    font-size: 18px;
+}
+
 .contenedorDescripcion{
     display:flex;
     justify-content: space-between;
@@ -88,6 +93,10 @@ font-size: 24px;
 
 .misServicios{
     display:flex;
+}
+
+a .cambiar{
+    margin-left: 25px;
 }
 
 .button{

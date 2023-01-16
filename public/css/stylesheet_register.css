@@ -65,9 +65,14 @@
     margin: 8px 0;
     font-size: 1rem;
     height: 36px;
-    color: white;
+    color:white;
     cursor:pointer;
 }
+
+.boton:hover{
+    background-color:var(--azul-claro);
+}
+
 .formularioLogin p{
     padding: 4px;
     

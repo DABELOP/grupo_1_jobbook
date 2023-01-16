@@ -27,22 +27,6 @@
         <div class="misServicios">
         
             <%- include('../partials/navbarPerfil.ejs') %> 
-        
-            <!--Lista de contenido perfil-->
-            <!-- <div class="listaDeContenidoPerfil">
-                <h3>Mi Perfil</h3>  
-                <ul class="listaCategorias">
-                    <li><a href="/usuario/profile/">Mi información</a></li>
-                    <li><a href="/usuario/profile//servicios">Servicios publicados</a></li>
-                    <li><a href="">Publicar servicio</a></li>
-                    <li><a href="">Ventas</a></li>
-                    <li><a href="">Compras</a></li>
-                    <li><a href="">Configuración</a></li>
-                </ul>
-            </div>-->
-            
-            <!--Lista de contenido perfil-->
-
             <div class="contenedorDerechoPerfil">
                 <h1> Mi información personal</h1>
                 <div class="contenedorFotoPerfil">
@@ -86,26 +70,21 @@
                     
                 </div>
                 <div class="datosFinancieros">
-                    <h2>Datos Financieros</h2>
+                    <h2>Interacciones</h2>
                     <div class="totalServiciosComprados"> 
-                        <h3>Servicios comprados</h3>
+                        <h3>Servicios contactados</h3>
                         <p>5</p>
                     </div>
-                    <div class="totalValorComprados"> 
-                        <h3>Valor de servicios comprados</h3>
-                        <p>$250.000</p>
-                    </div>
+    
                     <div class="totalServiciosVendidos"> 
-                        <h3>Servicios vendidos</h3>
+                        <h3>Usuarios que han visto tus servicios</h3>
                         <p>15</p>
                     </div>
-                    <div class="totalValorVendidos"> 
-                        <h3>Ganancias de servicios vendidos</h3>
-                        <p>$630.000</p>
-                    </div>
+                   
                 </div>
                 <div class="botones">
                  <button class="button editBtn"><a href="/usuario/profile/editar ">Editar</a></button>
+                 <button class="button editBtn"><a href="/usuario/profile/editar/password">Cambiar contraseña</a></button> 
                  <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
                 </div>
             </div>

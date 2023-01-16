@@ -6,6 +6,8 @@ const db = require('../database/models');
 
 const usuariosController = {
     login: (req,res)=>{
+        req.session.destroy(); 
+        res.clearCookie('emailUsuario');
         res.render('users/login');
     },
 
@@ -13,18 +15,13 @@ const usuariosController = {
         
         db.Usuario.findOne({
             where: {correo: req.body.correo},
-            raw: true
         })
         .then(usuarioLogin => {
-            
+
             if (usuarioLogin){
                 
-                let validacionContrasena = bcryptjs.compareSync(req.body.password, usuarioLogin.password);
-
-                if (validacionContrasena) {
-                    delete usuarioLogin.password
+                if (bcryptjs.compareSync(req.body.password, usuarioLogin.password)) {
                     req.session.usuarioLogueado = usuarioLogin;
-                
                     if (req.body.recordarme){
                         res.cookie('emailUsuario',req.body.correo, {maxAge:1000*60*60})
                     }
@@ -45,7 +42,6 @@ const usuariosController = {
     },
     profile: (req,res)=>{
         let usuario=req.session.usuarioLogueado
-
         res.render('users/profile',{usuario, toThousand});
     },
     misServicios: async (req,res)=>{
@@ -79,9 +75,9 @@ const usuariosController = {
           where:{
             id: usuarioEditado.id
           } 
-        })
-        
+        }).then(usuario => {
         res.redirect('/usuario/profile');
+        })
     },
 
     editar: (req,res)=>{
@@ -122,8 +118,37 @@ const usuariosController = {
         req.session.destroy(); 
         res.clearCookie('emailUsuario');
         res.redirect('/')
-    }
+    },
+
+    password: (req,res) =>{ 
+        res.render('users/cambiar_password')
+    },
     
+    cambiarPassword: async (req, res) => {
+        let usuario = await Promise.resolve(db.Usuario.findByPk(req.session.usuarioLogueado.id))
+        
+        if (bcryptjs.compareSync(req.body.password, usuario.password) && (req.body.nuevaPassword == req.body.confirmarPassword)){
+            db.Usuario.update({
+                ...usuario,
+                password: bcryptjs.hashSync(req.body.nuevaPassword,10)            
+              },
+              {
+                where:{
+                  id: usuario.id
+                } 
+              }).then (usuario => {
+                return res.redirect('/usuario/login')
+              }
+              )
+
+        } else {
+            console.log('Entro aca')
+            //return res.redirect('/usuario/profile/editar/password')
+            return res.render('users/cambiar_password',{errores:{password:{msj:"Las contraseñas no coinciden"}}})
+        }
+
+         
+    }
    
 };
 
