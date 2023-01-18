@@ -69,7 +69,8 @@ const usuariosController = {
           tipoDocumento: req.body.tipoDocumento,
           numeroDocumento: req.body.numeroDocumento,
           celular: req.body.celular,
-          ciudad: req.body.ciudad            
+          ciudad: req.body.ciudad,
+          fotoPerfil: req.files[0] ? req.files[0].filename : 'imagen-default.jpg',            
         },
         {
           where:{
@@ -88,6 +89,7 @@ const usuariosController = {
 
     crear: async (req,res)=>{
         let errores = validationResult(req);
+        let nombreImagen
 
         if (!errores.isEmpty()){
             return res.render('users/register',{
@@ -102,10 +104,9 @@ const usuariosController = {
         if ( await db.Usuario.findOne({where:{ correo: req.body.correo }})){
             return res.render('users/register',{mensajesError:{correo:{msg:"El correo ya se encuentra registrado"}}, oldData: req.body})
         }
-
-       
+  
         db.Usuario.create({
-            fotoPerfil: 'imagen-default.jpg',
+            fotoPerfil:'imagen-default.jpg',
             nombreCompleto: req.body.nombre,
             correo: req.body.correo,
             nombrePersonalizado: req.body.nombrePersonalizado,

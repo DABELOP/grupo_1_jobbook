@@ -34,17 +34,26 @@ const serviciosController = {
     },
 
     contacto: async (req, res) => {
-        let servicio = await Promise.resolve(
-            db.Servicio.findByPk(req.params.id));
-        let usuario = req.session.usuarioLogueado;
-        res.render('services/contacto_experto', { usuario, servicio, toThousand });
+        if (!req.session.usuarioLogueado){
+            res.redirect('/usuario/login')
+        }
+
+        let servicio = await Promise.resolve(db.Servicio.findByPk(req.params.id));
+        let usuario = await Promise.resolve(db.Usuario.findByPk(servicio.idUsuario,{include: ['calificaciones']}));
+
+        let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) => 
+            accu + calificacion.calificacion, 0)/usuario.calificaciones.length))
+
+            console.log(usuario)
+
+        res.render('services/contacto_experto', { usuario, servicio, promedioCalificacion, toThousand });
     },
 
     busqueda: async (req, res) => {
 
-        let serviciosBuscados = await Promise.resolve(db.Servicio.findAll({ include: 'usuario' },
-            { where: { titulo: { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } } }))
-
+        let serviciosBuscados = await Promise.resolve(db.Servicio.findAll({ include: ['usuario'],
+             where: { titulo: { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } } }))
+        
         //Todos los usuarios de los servicios buscados 
         let usuariosServicios = serviciosBuscados.map(servicio => ['idUsuario', servicio.idUsuario]);
 
@@ -71,8 +80,7 @@ const serviciosController = {
             
             return servicio
         })
-
-
+        
         res.render('services/busqueda_servicios', { serviciosBuscados: servicios, toThousand })
     },
 
@@ -101,6 +109,7 @@ const serviciosController = {
         let servicio = await Promise.resolve(
             db.Servicio.findByPk(req.params.idServicio,{include:'imagenes'})
             );
+            console.log(servicio.imagenes[0].url)
         res.render('services/editar_mi_servicio', { servicio, toThousand });
 
     },
