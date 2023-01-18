@@ -5,6 +5,7 @@ const indexRouter = require('./routes/index');
 const serviciosRouter = require('./routes/servicios'); 
 const usuariosRouter = require('./routes/usuarios');
 const apiServiciosRouter = require('./routes/api/servicios');
+const apiUsuariosRouter = require('./routes/api/usuarios');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const usuarioLogueadoMiddleware = require('./middlewares/usuarioLogueadoMiddleware');
@@ -36,6 +37,7 @@ app.use('/servicio', serviciosRouter);
 app.use('/usuario',usuariosRouter );
 
 app.use('/api/servicios', apiServiciosRouter);
+app.use('/api/usuarios', apiUsuariosRouter);
 
 app.use(methodOverride('_method'));
 app.listen(3050,()=>console.log('Servidor corriendo en puerto 3050'));

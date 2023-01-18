@@ -105,6 +105,7 @@ const usuariosController = {
 
        
         db.Usuario.create({
+            fotoPerfil: 'imagen-default.jpg',
             nombreCompleto: req.body.nombre,
             correo: req.body.correo,
             nombrePersonalizado: req.body.nombrePersonalizado,

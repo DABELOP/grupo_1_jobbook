@@ -22,7 +22,7 @@
         <% if (locals.estaLogueado){ %> 
         <div class = "usuarioLogueado">
             <button class="profile"><a href="/usuario/profile"><i class="fa-solid fa-user"></i></a></button>
-            <p class="saludoLogin">Hola <%= locals.usuario.nombrePersonalizado%>  </p>
+            <p class="saludoLogin">Hola <%= locals.usuarioLogueado.nombrePersonalizado%>  </p>
             <div class="opcionesLogin">
                 <p><a href="/usuario/logout">Cerrar sesion</a></p>
                 </div>

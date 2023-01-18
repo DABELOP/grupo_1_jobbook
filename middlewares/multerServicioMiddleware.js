@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
     },
     //Permite indicar con que nombre se guardará ese archivo en el servidor
     filename: function(req, file, cb) {
-        let filename = `${Date.now}-img-${file.fieldname}${path.extname(file.originalname)}`
+        let filename = `${Date.now()}-img-${file.fieldname}${path.extname(file.originalname)}`
     cb(null, filename);
     }
     });
