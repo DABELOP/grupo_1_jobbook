@@ -1,6 +1,6 @@
  
 window.onload = () => {
-
+    
     let formulario = document.querySelector('form.formularioLogin');
     let imagenes = document.querySelector('.imagen');
     const extensionesPermitidas = /(.jpg|.jpeg|.png|.gif)$/i;

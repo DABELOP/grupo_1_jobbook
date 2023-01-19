@@ -25,9 +25,6 @@ const usuariosAPIController = {
     detalle: async (req, res) => {
         let usuario = await db.Usuario.findByPk(req.params.id, {attributes: ['id', 'nombreCompleto', 'correo', 'fotoPerfil' ]});
 
-      /*   usuarios.forEach(usuario => {
-            usuario.dataValues["urlFotoPerfil"] = ``;
-        }); */
 
         let respuesta = {
             meta: {

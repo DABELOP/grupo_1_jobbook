@@ -1,8 +1,8 @@
 const db = require('../database/models');
 
 async function usuarioLogueadoMiddleware(req, res, next) {
+   
     res.locals.estaLogueado = false;
-
     if (req.cookies.emailUsuario) {
 
         let usuarioDeCookie = await Promise.resolve(db.Usuario.findOne({ where: { correo: req.cookies.emailUsuario } }))
@@ -20,7 +20,7 @@ async function usuarioLogueadoMiddleware(req, res, next) {
         res.locals.usuarioLogueado = req.session.usuarioLogueado;
         res.locals.estaLogueado = true;
     }
-
+  
     next();
 }
 

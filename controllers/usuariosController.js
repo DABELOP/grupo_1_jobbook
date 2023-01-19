@@ -5,14 +5,12 @@ const db = require('../database/models');
 //const { emitWarning } = require('process');
 
 const usuariosController = {
-    login: (req,res)=>{
-        req.session.destroy(); 
+    login: (req,res)=>{ 
         res.clearCookie('emailUsuario');
         res.render('users/login');
     },
 
     loginProcess: (req,res)=>{
-        
         db.Usuario.findOne({
             where: {correo: req.body.correo},
         })
@@ -24,6 +22,10 @@ const usuariosController = {
                     req.session.usuarioLogueado = usuarioLogin;
                     if (req.body.recordarme){
                         res.cookie('emailUsuario',req.body.correo, {maxAge:1000*60*60})
+                    }
+                    
+                    if (req.session.ultimoServicio){
+                        return res.redirect('/servicio/'+req.session.ultimoServicio)
                     }
                     return res.redirect('/')
                 }

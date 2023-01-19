@@ -12,48 +12,59 @@ const serviciosController = {
 
     detalleServicio: async (req, res) => {
         let servicio = await Promise.resolve(db.Servicio.findByPk(req.params.id,
-        {include: ['usuario', 'imagenes', 'categoria', 'calificaciones']}))
+            { include: ['usuario', 'imagenes', 'categoria', 'calificaciones'] }))
 
         let usuario = await Promise.resolve(db.Usuario.findByPk(servicio.idUsuario,
-            {include: ['calificaciones', 'experiencias', 'habilidades']}))
+            { include: ['calificaciones', 'experiencias', 'habilidades'] }))
 
-        let preguntas = await Promise.resolve(db.Respuesta.findAll({include: ['pregunta'], where:{idServicio: servicio.id}}))
-        let preguntasSR = await Promise.resolve(db.Pregunta.findAll({where:{idServicio: servicio.id}}))
+        let preguntas = await Promise.resolve(db.Respuesta.findAll({ include: ['pregunta'], where: { idServicio: servicio.id } }))
+        let preguntasSR = await Promise.resolve(db.Pregunta.findAll({ where: { idServicio: servicio.id } }))
         preguntasSR = preguntasSR.map(pregunta => {
-            for (i=0; i<preguntas.length; i++){
-                if (preguntas[i].idPregunta == pregunta.id) return 
+            for (i = 0; i < preguntas.length; i++) {
+                if (preguntas[i].idPregunta == pregunta.id) return
             }
             return pregunta
         })
-       
-        let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) => 
-            accu + calificacion.calificacion, 0)/usuario.calificaciones.length))
 
-        
+        let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) =>
+            accu + calificacion.calificacion, 0) / usuario.calificaciones.length))
+
+
         res.render('services/detalle_servicio', { servicio, usuario, promedioCalificacion, preguntas, preguntasSR, toThousand });
     },
 
     contacto: async (req, res) => {
-        if (!req.session.usuarioLogueado){
+
+        if (!req.session.usuarioLogueado) {
+            req.session.ultimoServicio = req.params.id
             res.redirect('/usuario/login')
         }
 
         let servicio = await Promise.resolve(db.Servicio.findByPk(req.params.id));
-        let usuario = await Promise.resolve(db.Usuario.findByPk(servicio.idUsuario,{include: ['calificaciones']}));
+        let usuario = await Promise.resolve(db.Usuario.findByPk(servicio.idUsuario, { include: ['calificaciones'] }));
 
-        let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) => 
-            accu + calificacion.calificacion, 0)/usuario.calificaciones.length))
+        let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) =>
+            accu + calificacion.calificacion, 0) / usuario.calificaciones.length))
 
-            console.log(usuario)
+        /* db.Visitacontactoservicio.create({ 
+            idServicio:servicio.id,
+            idUsuario:usuario.id
+        })
+ 
+        db.Visitacontactoservicio.create({
+           
+        }) */
 
         res.render('services/contacto_experto', { usuario, servicio, promedioCalificacion, toThousand });
     },
 
     busqueda: async (req, res) => {
 
-        let serviciosBuscados = await Promise.resolve(db.Servicio.findAll({ include: ['usuario'],
-             where: { titulo: { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } } }))
-        
+        let serviciosBuscados = await Promise.resolve(db.Servicio.findAll({
+            include: ['usuario'],
+            where: { titulo: { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } }
+        }))
+
         //Todos los usuarios de los servicios buscados 
         let usuariosServicios = serviciosBuscados.map(servicio => ['idUsuario', servicio.idUsuario]);
 
@@ -77,10 +88,10 @@ const serviciosController = {
                 numeroCalificaciones: calificacionesUsuario.length,
                 promedioCalificaciones: Math.round(sumatoriaCalificaciones / calificacionesUsuario.length)
             }
-            
+
             return servicio
         })
-        
+
         res.render('services/busqueda_servicios', { serviciosBuscados: servicios, toThousand })
     },
 
@@ -107,76 +118,83 @@ const serviciosController = {
 
     editar: async (req, res) => {
         let servicio = await Promise.resolve(
-            db.Servicio.findByPk(req.params.idServicio,{include:'imagenes'})
-            );
-            console.log(servicio.imagenes[0].url)
+            db.Servicio.findByPk(req.params.idServicio, { include: 'imagenes' })
+        );
+        console.log(servicio.imagenes[0].url)
         res.render('services/editar_mi_servicio', { servicio, toThousand });
 
     },
 
     guardar: async (req, res) => {
         let imagenes;
-     
+
         if (req.files[0] != undefined) {
             imagenes = req.files.map(file => file.filename);
         } else {
             imagenes = ["default.jpg", "default.jpg", "default.jpg", "default.jpg"]
         };
-        let categoria = await Promise.resolve( db.Categoria.findOne(
-             {
-                where: { categoria: req.body.categoria}
+        let categoria = await Promise.resolve(db.Categoria.findOne(
+            {
+                where: { categoria: req.body.categoria }
             }));
         let nuevoServicio = {
-            titulo:req.body.titulo,
-            precio:req.body.precio,
-            descripcion:req.body.descripcion,
-            tarifa:req.body.tarifa,
+            titulo: req.body.titulo,
+            precio: req.body.precio,
+            descripcion: req.body.descripcion,
+            tarifa: req.body.tarifa,
             idUsuario: req.session.usuarioLogueado.id,
             idCategoria: categoria.id
         };
         db.Servicio.create(nuevoServicio)
-        .then( 
-            (servicio)=>{imagenes.forEach(imagen =>{
-            db.Imagen.create({ 
-                idServicio:servicio.id,
-                url: imagen
-            })
-        })});
-        
+            .then(
+                (servicio) => {
+                    imagenes.forEach(imagen => {
+                        db.Imagen.create({
+                            idServicio: servicio.id,
+                            url: imagen
+                        })
+                    })
+                });
+
         res.redirect('/')
     },
 
     guardarEdicion: async (req, res) => {
         let servicioEditado = await Promise.resolve(
             db.Servicio.findByPk(req.params.idServicio)
-            );
-        
+        );
+
         db.Servicio.update({
             ...servicioEditado,
-            ...req.body},
-            {where: {
-                id: req.params.idServicio
-            }});
+            ...req.body
+        },
+            {
+                where: {
+                    id: req.params.idServicio
+                }
+            });
 
         res.redirect('/usuario/profile/servicios');
     },
 
     eliminar: (req, res) => {
-        db.Servicio.destroy({where: {id: req.params.idServicio}})
+        db.Servicio.destroy({ where: { id: req.params.idServicio } })
         res.redirect('/usuario/profile/servicios');
     },
 
     guardarPregunta: (req, res) => {
-        if (req.session.usuarioLogueado){
-            db.Pregunta.create({ 
+
+        if (req.session.usuarioLogueado) {
+            db.Pregunta.create({
                 idServicio: req.params.id,
                 pregunta: req.body.pregunta,
                 idUsuario: req.session.usuarioLogueado.id
-            }).then(resp =>{
+            }).then(resp => {
                 res.redirect('/servicio/' + req.params.id)
             })
-            
-        }else{
+
+        } else {
+            req.session.ultimoServicio = req.params.id
             res.redirect('/usuario/login')
         }
     }

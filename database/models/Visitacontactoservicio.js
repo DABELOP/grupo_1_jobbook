@@ -20,7 +20,7 @@ module.exports = function(sequelize, dataTypes){
         },
 
         fecha: {
-            type: dataTypes.DATEONLY
+            type: dataTypes.INTEGER.UNSIGNED
         }
     }
 
