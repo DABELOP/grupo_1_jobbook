@@ -46,14 +46,12 @@ const serviciosController = {
         let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) =>
             accu + calificacion.calificacion, 0) / usuario.calificaciones.length))
 
-        /* db.Visitacontactoservicio.create({ 
+        db.Visitacontactoservicio.create({ 
             idServicio:servicio.id,
             idUsuario:usuario.id
         })
- 
-        db.Visitacontactoservicio.create({
-           
-        }) */
+        .then(visita => console.log(visita))
+        .catch(e => console.log(e));
 
         res.render('services/contacto_experto', { usuario, servicio, promedioCalificacion, toThousand });
     },
@@ -101,12 +99,11 @@ const serviciosController = {
         if (req.query.keywords == "") serviciosBuscados=[];
         res.render('services/busqueda_servicios',{serviciosBuscados, usuarios, toThousand}); */
         db.Servicio.findAll({
-            include: ['usuario'],
-            where: { categoria: { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } }  //PONER EL INCLUDE 
+            include: ['usuario', 'categoria'],
+            where: { '$categoria.categoria$': { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } }  //PONER EL INCLUDE 
         })
             .then(serviciosBuscados => {
-                console.log(serviciosBuscados)
-                console.log(usuarios)
+                console.log(serviciosBuscados[0].categoria)
                 res.render('services/busqueda_servicios', { serviciosBuscados, usuarios, toThousand });
             })
 

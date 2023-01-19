@@ -3,6 +3,7 @@ const router = express.Router();
 
 const serviciosController = require('../controllers/serviciosController');
 const upload = require('../middlewares/multerServicioMiddleware');
+const authMiddleware = require('../middlewares/logueadoMiddleware');
 
 // solicita todos los servicios
 router.get('/busqueda', serviciosController.busqueda);
@@ -11,15 +12,15 @@ router.get('/busqueda', serviciosController.busqueda);
 router.get('/filtrar', serviciosController.filtrarPorCategoria);
 
 //crear un servicio
-router.get('/crear', serviciosController.crear);
+router.get('/crear',authMiddleware, serviciosController.crear);
 router.post('/', upload.any(),serviciosController.guardar);
 
 //Detalle de un servicio
 router.get('/:id', serviciosController.detalleServicio);
-router.get('/:id/contacto', serviciosController.contacto);
+router.get('/:id/contacto', authMiddleware, serviciosController.contacto);
 
 //Modificar un servicio
-router.get('/editar/:idServicio', serviciosController.editar);
+router.get('/editar/:idServicio', authMiddleware, serviciosController.editar);
 router.put('/editar/:idServicio', upload.any(), serviciosController.guardarEdicion);
 
 //Eliminar un servicio
