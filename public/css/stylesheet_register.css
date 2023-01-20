@@ -69,6 +69,15 @@
     cursor:pointer;
 }
 
+.borrarImagenes{
+display:none;
+} 
+
+.imagenNueva{
+    margin-top: 15;
+    margin-bottom: 15px;
+    display:none;
+}
 .boton:hover{
     background-color:var(--azul-claro);
 }

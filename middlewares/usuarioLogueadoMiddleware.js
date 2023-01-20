@@ -7,7 +7,6 @@ async function usuarioLogueadoMiddleware(req, res, next) {
 
         let usuarioDeCookie = await Promise.resolve(db.Usuario.findOne({ where: { correo: req.cookies.emailUsuario } }))
 
-        console.log(req.cookies.emailUsuario);
 
         if (usuarioDeCookie) {
             req.session.usuarioLogueado = usuarioDeCookie;

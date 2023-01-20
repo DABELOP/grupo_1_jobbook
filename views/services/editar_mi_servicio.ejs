@@ -1,86 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/stylesheet_register.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <script src="/js/crearServicioValidacion.js"></script>
+    <script type='module'src="/js/eliminarImagenesServicio.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
     <title>Jobbok-stylesheet_home</title>
 </head>
+
 <body>
     <!-- Header -->
-    <%- include('../partials/header.ejs') %> 
+    <%- include('../partials/header.ejs') %>
 
-    <!-- Navbar categorias -->
-    <%- include('../partials/navbarCategorias.ejs') %> 
+        <!-- Navbar categorias -->
+        <%- include('../partials/navbarCategorias.ejs') %>
 
-    <form class="formularioLogin" action="/servicio/editar/<%=servicio.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-        <h2>Editar este servicio</h2>
-        <label class="contenedorInput">
-            <p class="tituloInput">Titulo del servicio</p>
-            <input type="text" name="titulo" value="<%=servicio.titulo%>" placeholder="Remodelacion y adecuacion de espacios interiores" class="input">
-            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i>Este campo es obligatorio</p>
-        </label>
-        <label class="contenedorInput">
-            <p class="tituloInput"><label for="categorias">Categorias:</label></p>
-            
-            <select name="categoria" id="categorias">
-                <% let categorias = ['Tecnología', 'Construcción', 'Diseño', 'Administracion',
-                'Ingenieria', 'Manufactura', 'Ventas', 'Transporte', 'Comunicaciones', 'Educacion',
-                'Negocios', 'Idiomas', 'Salud', 'Otros'] %>
-                <% categorias.forEach( categoria => { %> 
-                    <option value="<%= categoria %>"><%= categoria %></option>
-                <% }) %> 
-            </select>
-            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i>Este campo es obligatorio</p>
-        </label>
-        <label class="contenedorInput">
-            <p class="tituloInput">Descripción del servicio ofrecido</p>
-            <textarea  name="descripcion" placeholder="Describa su servicio al detalle" class="input" rows="6"><%=servicio.descripcion%></textarea>
-            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
-        </label>
-        <label class="contenedorInput">
-            <p class="tituloInput">Precio</p>
-            <input type="number" value="<%=toThousand(servicio.precio)%>" name="precio" placeholder="$xx.xxx" class="input">
-            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
-            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Nombre de usuario ya existe</p>
-        </label>
-        <label class="contenedorInput">
-            <p class="tituloInput">Tarifa</p>
-            <input type="text" value="<%=servicio.tarifa%>" name="tarifa" placeholder="por hora, m2, por proyecto" class="input">
-            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
-            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Nombre de usuario ya existe</p>
-        </label>
-        
-            <p class="tituloInput">Agrega fotos o evidencias de tus servicios</p>
-            <%let imagenesExistentes = servicio.imagenes.length%>
-            
-            <div class = "imagenesServicio">
-                <%for (i=0;i<imagenesExistentes;i++){%>
-                <div>
-                <img src="/images/imagenes-servicios/<%=servicio.imagenes[i].url%>">
-                <p><a>Eliminar imagen</a></p>
-                </div>
-                <%}%>
-            </div>
+            <form class="formularioLogin" action="/servicio/editar/<%=servicio.id%>?_method=PUT" method="POST"
+                enctype="multipart/form-data">
+                <h2>Editar este servicio</h2>
+                <label class="contenedorInput">
+                    <p class="tituloInput">Titulo del servicio</p>
+                    <input type="text" name="titulo" value="<%=servicio.titulo%>"
+                        placeholder="Remodelacion y adecuacion de espacios interiores" class="input">
+                    <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i>Este campo es obligatorio</p>
+                </label>
+                <label class="contenedorInput">
+                    <p class="tituloInput"><label for="categorias">Categorias:</label></p>
 
-            <label class="contenedorInput">
-            <%for (i=imagenesExistentes;i<4;i++){%>
-                <input type="file" name="foto<%=i+1%>"  class="input">
-            <%}%>
+                    <select name="categoria" id="categorias">
+                        <% let categorias=['Tecnología', 'Construcción' , 'Diseño' , 'Administracion' , 'Ingenieria'
+                            , 'Manufactura' , 'Ventas' , 'Transporte' , 'Comunicaciones' , 'Educacion' , 'Negocios'
+                            , 'Idiomas' , 'Salud' , 'Otros' ] %>
+                            <% categorias.forEach( categoria=> { %>
+                                <option value="<%= categoria %>">
+                                    <%= categoria %>
+                                </option>
+                                <% }) %>
+                    </select>
+                    <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i>Este campo es obligatorio</p>
+                </label>
+                <label class="contenedorInput">
+                    <p class="tituloInput">Descripción del servicio ofrecido</p>
+                    <textarea name="descripcion" placeholder="Describa su servicio al detalle" class="input"
+                        rows="6"><%=servicio.descripcion%></textarea>
+                    <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+                </label>
+                <label class="contenedorInput">
+                    <p class="tituloInput">Precio</p>
+                    <input type="number" value="<%=toThousand(servicio.precio)%>" name="precio" placeholder="$xx.xxx"
+                        class="input">
+                    <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+                    <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Nombre de usuario ya existe</p>
+                </label>
+                <label class="contenedorInput">
+                    <p class="tituloInput">Tarifa</p>
+                    <input type="text" value="<%=servicio.tarifa%>" name="tarifa"
+                        placeholder="por hora, m2, por proyecto" class="input">
+                    <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+                    <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Nombre de usuario ya existe</p>
+                </label>
 
-            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
-        </label>
-                
-        <button class="boton" type="submit">Guardar cambios</button>
-        
-    </form>
-    <!-- Footer -->
-    <%- include('../partials/footer.ejs') %> 
+                <p class="tituloInput">Agrega fotos o evidencias de tus servicios</p>
+                <%let imagenesExistentes=servicio.imagenes.length%>
+
+                    <div class="imagenesServicio">
+                        <%for (i=0;i<imagenesExistentes;i++){%>
+                            <div class="imagenServicio">
+                                <img class="<%=servicio.imagenes[i].url%>" src="/images/imagenes-servicios/<%=servicio.imagenes[i].url%>">
+                                <p><a class='eliminarImagen'>Eliminar imagen</a></p>
+                                <input type="file" name="fotos" class="imagenNueva" accept="image/*">
+                            </div>
+                            <%}%>
+                    </div>
+                    
+                    <input type="text" name="borrarImagenes" class="borrarImagenes">
+
+                    <label class="contenedorInput">
+                        <%for (i=imagenesExistentes;i<4;i++){%>
+                            <input type="file" name="foto<%=i+1%>" class="input">
+                            <%}%>
+
+                                <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es
+                                    obligatorio</p>
+                    </label>
+
+                    <button class="boton" type="submit">Guardar cambios</button>
+
+            </form>
+            <!-- Footer -->
+            <%- include('../partials/footer.ejs') %>
 </body>
+
 </html>

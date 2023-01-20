@@ -63,6 +63,13 @@ color:var(--azul-claro2);
 background-color: var(--gris-claro);
 }
 
+
+.profile a img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
 .explorar {
     border: none;
     padding: 0 4px;

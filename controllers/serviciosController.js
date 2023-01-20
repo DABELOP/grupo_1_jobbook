@@ -46,12 +46,12 @@ const serviciosController = {
         let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) =>
             accu + calificacion.calificacion, 0) / usuario.calificaciones.length))
 
-        db.Visitacontactoservicio.create({ 
-            idServicio:servicio.id,
-            idUsuario:usuario.id
+        db.Visitacontactoservicio.create({
+            idServicio: servicio.id,
+            idUsuario: usuario.id
         })
-        .then(visita => console.log(visita))
-        .catch(e => console.log(e));
+            .then(visita => console.log(visita))
+            .catch(e => console.log(e));
 
         res.render('services/contacto_experto', { usuario, servicio, promedioCalificacion, toThousand });
     },
@@ -94,10 +94,7 @@ const serviciosController = {
     },
 
     filtrarPorCategoria: (req, res) => {
-        /* let serviciosBuscados=servicios.filter(servicio => servicio.categoria == req.query.keywords);
-        console.log(serviciosBuscados);
-        if (req.query.keywords == "") serviciosBuscados=[];
-        res.render('services/busqueda_servicios',{serviciosBuscados, usuarios, toThousand}); */
+
         db.Servicio.findAll({
             include: ['usuario', 'categoria'],
             where: { '$categoria.categoria$': { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } }  //PONER EL INCLUDE 
@@ -117,7 +114,7 @@ const serviciosController = {
         let servicio = await Promise.resolve(
             db.Servicio.findByPk(req.params.idServicio, { include: 'imagenes' })
         );
-        console.log(servicio.imagenes[0].url)
+
         res.render('services/editar_mi_servicio', { servicio, toThousand });
 
     },
@@ -157,6 +154,26 @@ const serviciosController = {
     },
 
     guardarEdicion: async (req, res) => {
+
+        let imagenesEliminar = req.body.borrarImagenes.split(',')
+        imagenesEliminar.forEach(imagen => {
+            db.Imagen.destroy({ where: { url: imagen } })
+                .then(resultado => console.log("Imagen eliminada de la DB"))
+        })
+
+        let imagenes;
+
+        if (req.files[0] != undefined) {
+            imagenes = req.files.map(file => file.filename);
+
+            imagenes.forEach(imagen => {
+                db.Imagen.create({
+                    idServicio: req.params.idServicio,
+                    url: imagen
+                })
+            })
+        }
+
         let servicioEditado = await Promise.resolve(
             db.Servicio.findByPk(req.params.idServicio)
         );
@@ -169,9 +186,8 @@ const serviciosController = {
                 where: {
                     id: req.params.idServicio
                 }
-            });
-
-        res.redirect('/usuario/profile/servicios');
+            })
+        .then(servicio => res.redirect('/usuario/profile/servicios'));
     },
 
     eliminar: (req, res) => {
