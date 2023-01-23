@@ -1,5 +1,3 @@
-//const db = require('../database/models/Imagen.js');
-
 window.onload = () => {
     let ImagenesServicio = document.querySelectorAll('.imagenServicio');
 
@@ -17,9 +15,5 @@ window.onload = () => {
         }})  
     }
 
-    /* function eliminarImagen (nombreImagen){
-        db.destroy({ where: { url: nombreImagen } })
-        .then(resultado => console.log("Imagen eliminada de la DB"))
-    } */
 
     

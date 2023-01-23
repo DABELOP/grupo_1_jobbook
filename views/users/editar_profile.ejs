@@ -1,133 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/stylesheet_home.css">
     <link rel="stylesheet" href="/css/stylesheet_profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
     <title>Jobbok-Perfil</title>
 </head>
+
 <body>
 
 
     <!-- Header -->
-    <%- include('../partials/header.ejs') %> 
+    <%- include('../partials/header.ejs') %>
 
-    <!-- Navbar categorias -->
-    <%- include('../partials/navbarCategorias.ejs') %> 
+        <!-- Navbar categorias -->
+        <%- include('../partials/navbarCategorias.ejs') %>
 
 
-    <main>
-        <div class="misServicios">
-            <%- include('../partials/navbarPerfil.ejs') %> 
-           
-            <form class="contenedorDerechoPerfil" action="/usuario/profile/editar?_method=PUT" method="POST" enctype="multipart/form-data">
-                <div class="contenedorDerechoPerfil">
-                    <h1> Editar mi información personal</h1>
-                    <div class="contenedorFotoPerfil">
-                        
-                        <img src='/images/fotos-perfil/<%=usuario.fotoPerfil%>' alt="Foto perfil">
-                        
-                        <p>Cambiar foto de perfil</p>
-                        <input type="file" name="fotos" class="input imagen" accept="image/*">
-                    </div>
-                    <div class="datosDeCuenta">
-                        <h2>Datos Usuario</h2> 
-                        <div class="nombrePersonalizado"> 
-                            <h3 >Usuario</h3>
-                            <span>
-                                <input type="text" name="nombrePersonalizado" placeholder="Nombre de usuario" class="input"
-                                value="<%= locals.oldData && oldData.nombrePersonalizado ? oldData.nombrePersonalizado:usuario.nombrePersonalizado%>">
-                                <% if (locals.mensajesError && mensajesError.nombrePersonalizado){ %>
-                                <p class="mensajeError"><%= mensajesError.nombrePersonalizado.msg %></p>
-                                <% } %>
-                            </span>
-                        </div>
-                        <div class="contenedorCorreo"> 
-                            <h3>Correo</h3>
-                            <span>
-                                <p><%=usuario.correo%></p>
-                            </span>
-                        </div>
-                        
-                    </div> 
-                    <div class="datosPersonales">
-                        <h2>Datos Personales</h2>   
-                        <div class="contenedorNombre"> 
-                            <h3>Nombre</h3>
-                            <span>
-                                <input type="text" name="nombre" placeholder="Nombre" class="input"
-                                value="<%= locals.oldData && oldData.nombre ? oldData.nombre : usuario.nombreCompleto%>">
-                                <% if (locals.mensajesError && locals.mensajesError.nombre){ %>
-                                <p class="mensajeError"><%= mensajesError.nombre.msg %></p>
-                                <% } %> 
-                            </span>
-                        </div>
-                        <div class="tipoDocumento"> 
-                            <h3>Tipo de Documento</h3>
-                            <select name="tipoDocumento">
-                                <option selected="selected" value="<%=usuario.tipoDocumento%>"><%=usuario.tipoDocumento%></option>
-                                <option value="Cedula Ciudadania">Cedula Ciudadania</option>
-                                <option value="Targeta Identidad">Targeta Identidad</option>
-                                <option value="Cedula Extranjeria">Cedula Extranjeria</option>
-                                <option value="NIT">NIT</option>
-                                <option value="Pasaporte">Pasaporte</option>
-                            </select>
-                        
+            <main>
+                <div class="misServicios">
+                    <%- include('../partials/navbarPerfil.ejs') %>
 
-                        </div>
-                        <div class="numeroDocumento"> 
-                            <h3>Documento</h3>
-                            <span>
-                                <input type="text" name="numeroDocumento" placeholder="Numero de documento" class="input"
-                                    value="<%= locals.oldData && oldData.numeroDocumento ? oldData.numeroDocumento:usuario.numeroDocumento%>">
-                                <% if (locals.mensajesError && locals.mensajesError.numeroDocumento){ %> 
-                                <p class="mensajeError"><%= mensajesError.numeroDocumento.msg %> </p>
-                                <% } %> 
-                            </span>
-                        </div>
+                        <form class="contenedorDerechoPerfil" action="/usuario/profile/editar?_method=PUT" method="POST"
+                            enctype="multipart/form-data">
+                            <div class="contenedorDerechoPerfil">
+                                <h1> Editar mi información personal</h1>
+                                <div class="contenedorFotoPerfil">
 
-                        <div class="numeroCelular"> 
-                            <h3>Celular</h3>
-                            <span>
-                                <input type="text" name="celular"  placeholder="Celular" class="input"
-                                value="<%= locals.oldData && oldData.celular ? oldData.celular : usuario.celular%>">
-                                <% if (locals.mensajesError && locals.mensajesError.celular){ %>
-                                <p class="mensajeError"><%= mensajesError.celular.msg %> </p> 
-                                <% } %> 
-                            </span>
-                        </div>
+                                    <img src='/images/fotos-perfil/<%=usuario.fotoPerfil%>' alt="Foto perfil">
 
-                        <div class="ciudadDeResidencia"> 
-                            <h3>Ciudad de residencia</h3>
-                            <span>
-                                <input type="text" name="ciudad" placeholder="Ciudad" class="input"
-                                value="<%= locals.oldData && oldData.ciudad ? oldData.ciudad : usuario.ciudad%>">
-                                <% if (locals.mensajesError && locals.mensajesError.ciudad){ %>
-                                <p class="mensajeError"><%= mensajesError.ciudad.msg %> </p> 
-                                <% } %> 
-                            </span>
-                        </div>
-                        
-                    </div>
-                    <div class="botones">
-                    <button class="button editBtn" type="submit">Editar usuario</button>
-                     
-                    </div>
+                                    <p>Cambiar foto de perfil</p>
+                                    <input type="file" name="fotos" class="input imagen" accept="image/*">
+                                </div>
+                                <div class="datosDeCuenta">
+                                    <h2>Datos Usuario</h2>
+                                    <div class="nombrePersonalizado">
+                                        <h3>Usuario</h3>
+                                        <span>
+                                            <input type="text" name="nombrePersonalizado"
+                                                placeholder="Nombre de usuario" class="input"
+                                                value="<%= locals.oldData && oldData.nombrePersonalizado ? oldData.nombrePersonalizado:usuario.nombrePersonalizado%>">
+                                            <% if (locals.mensajesError && mensajesError.nombrePersonalizado){ %>
+                                                <p class="mensajeError">
+                                                    <%= mensajesError.nombrePersonalizado.msg %>
+                                                </p>
+                                                <% } %>
+                                        </span>
+                                    </div>
+                                    <div class="contenedorCorreo">
+                                        <h3>Correo</h3>
+                                        <span>
+                                            <p>
+                                                <%=usuario.correo%>
+                                            </p>
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <div class="datosPersonales">
+                                    <h2>Datos Personales</h2>
+                                    <div class="contenedorNombre">
+                                        <h3>Nombre</h3>
+                                        <span>
+                                            <input type="text" name="nombre" placeholder="Nombre" class="input"
+                                                value="<%= locals.oldData && oldData.nombre ? oldData.nombre : usuario.nombreCompleto%>">
+                                            <% if (locals.mensajesError && locals.mensajesError.nombre){ %>
+                                                <p class="mensajeError">
+                                                    <%= mensajesError.nombre.msg %>
+                                                </p>
+                                                <% } %>
+                                        </span>
+                                    </div>
+                                    <div class="tipoDocumento">
+                                        <h3>Tipo de Documento</h3>
+                                        <select name="tipoDocumento">
+                                            <option selected="selected" value="<%=usuario.tipoDocumento%>">
+                                                <%=usuario.tipoDocumento%>
+                                            </option>
+                                            <option value="Cedula Ciudadania">Cedula Ciudadania</option>
+                                            <option value="Targeta Identidad">Targeta Identidad</option>
+                                            <option value="Cedula Extranjeria">Cedula Extranjeria</option>
+                                            <option value="NIT">NIT</option>
+                                            <option value="Pasaporte">Pasaporte</option>
+                                        </select>
+
+
+                                    </div>
+                                    <div class="numeroDocumento">
+                                        <h3>Documento</h3>
+                                        <span>
+                                            <input type="text" name="numeroDocumento" placeholder="Numero de documento"
+                                                class="input"
+                                                value="<%= locals.oldData && oldData.numeroDocumento ? oldData.numeroDocumento:usuario.numeroDocumento%>">
+                                            <% if (locals.mensajesError && locals.mensajesError.numeroDocumento){ %>
+                                                <p class="mensajeError">
+                                                    <%= mensajesError.numeroDocumento.msg %>
+                                                </p>
+                                                <% } %>
+                                        </span>
+                                    </div>
+
+                                    <div class="numeroCelular">
+                                        <h3>Celular</h3>
+                                        <span>
+                                            <input type="text" name="celular" placeholder="Celular" class="input"
+                                                value="<%= locals.oldData && oldData.celular ? oldData.celular : usuario.celular%>">
+                                            <% if (locals.mensajesError && locals.mensajesError.celular){ %>
+                                                <p class="mensajeError">
+                                                    <%= mensajesError.celular.msg %>
+                                                </p>
+                                                <% } %>
+                                        </span>
+                                    </div>
+
+                                    <div class="ciudadDeResidencia">
+                                        <h3>Ciudad de residencia</h3>
+                                        <span>
+                                            <input type="text" name="ciudad" placeholder="Ciudad" class="input"
+                                                value="<%= locals.oldData && oldData.ciudad ? oldData.ciudad : usuario.ciudad%>">
+                                            <% if (locals.mensajesError && locals.mensajesError.ciudad){ %>
+                                                <p class="mensajeError">
+                                                    <%= mensajesError.ciudad.msg %>
+                                                </p>
+                                                <% } %>
+                                        </span>
+                                    </div>
+                                </div>
+                                    <div class="experiencia">
+                                        <h2>Habilidades y experiencia</h2>
+                                        <div class="experiencias">
+                                            <h3>Experiencia</h3>
+                                            <input value="<%=usuario.experiencias[0].experiencia ? usuario.experiencias[0].experiencia : ''%>" 
+                                             type="text" name="experiencia" placeholder="Experiencia de usuario" class="experienciaInput">
+                                        </div>
+
+                                        <div class="habilidades">
+                                            <h3>Habilidades</h3>
+                                            <input value="<%=usuario.habilidades[0].habilidad ? usuario.habilidades[0].habilidad : ''%>"
+                                            type="text" name="habilidad" placeholder="Habilidades de usuario" class="habilidadInput">
+                                        </div>
+
+                                    </div>
+
+                                
+                                <div class="botones">
+                                    <button class="button editBtn" type="submit">Editar usuario</button>
+
+                                </div>
+                            </div>
+                        </form>
+
+
                 </div>
-            </form>
-            
+            </main>
 
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <%- include('../partials/footer.ejs') %> 
+            <!-- Footer -->
+            <%- include('../partials/footer.ejs') %>
 </body>
+
 </html>

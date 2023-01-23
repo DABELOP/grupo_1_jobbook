@@ -42,7 +42,7 @@ width: 300px;
     margin:7px;   
 }
 
-.totalServiciosVendidos p, .totalServiciosComprados p{
+.habilidades p, .experiencias p{
     margin-left: 20px;
     font-size: 18px;
 }
@@ -155,9 +155,17 @@ a .cambiar{
     margin:15px;
 }
 
-.datosFinancieros div{
+.experiencia div{
     display:flex;
     margin:15px;
+}
+
+.experiencia input{
+    height: 100px;
+}
+
+.habilidadInput{
+    height: 100px;
 }
 
 .botones{

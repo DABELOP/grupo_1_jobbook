@@ -1,97 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/stylesheet_home.css">
     <link rel="stylesheet" href="/css/stylesheet_profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
     <title>Jobbok-Perfil</title>
 </head>
+
 <body>
 
 
     <!-- Header -->
-    <%- include('../partials/header.ejs') %> 
+    <%- include('../partials/header.ejs') %>
 
-    <!-- Navbar categorias -->
-    <%- include('../partials/navbarCategorias.ejs') %> 
+        <!-- Navbar categorias -->
+        <%- include('../partials/navbarCategorias.ejs') %>
 
 
-    <main>
-        <div class="misServicios">
-        
-            <%- include('../partials/navbarPerfil.ejs') %> 
-            <div class="contenedorDerechoPerfil">
-                <h1> Mi información personal</h1>
-                <div class="contenedorFotoPerfil">
-                    <% if (usuario.fotoPerfil){%> 
-                    <img src='/images/fotos-perfil/<%=usuario.fotoPerfil%>' alt="">
-                    <% } %> 
-                </div>
-                <div class="datosDeCuenta">
-                    <h2>Datos Usuario</h2> 
-                    <div class="nombrePersonalizado"> 
-                        <h3 >Usuario</h3>
-                        <p ><%=usuario.nombrePersonalizado%></p>
-                    </div>
-                    <div class="contenedorCorreo"> 
-                        <h3>Correo</h3>
-                        <p><%=usuario.correo%></p>
-                    </div>
-                </div> 
-                <div class="datosPersonales">
-                    <h2>Datos Personales</h2>   
-                    <div class="contenedorNombre"> 
-                        <h3>Nombre</h3>
-                        <p><%=usuario.nombre%></p>
-                    </div>
-                    <div class="tipoDocumento"> 
-                        <h3>Tipo de Documento</h3>
-                        <p><%=usuario.tipoDocumento%></p>
-                    </div>
-                    <div class="numeroDocumento"> 
-                        <h3>Documento</h3>
-                        <p><%=usuario.numeroDocumento%></p>
-                    </div>
-                    <div class="numeroCelular"> 
-                        <h3>Celular</h3>
-                        <p><%=usuario.celular%></p>
-                    </div>
-                    <div class="ciudadDeResidencia"> 
-                        <h3>Ciudad de residencia</h3>
-                        <p><%=usuario.ciudad%></p>
-                    </div>
-                    
-                </div>
-                <div class="datosFinancieros">
-                    <h2>Interacciones</h2>
-                    <div class="totalServiciosComprados"> 
-                        <h3>Servicios contactados</h3>
-                        <p>5</p>
-                    </div>
-    
-                    <div class="totalServiciosVendidos"> 
-                        <h3>Usuarios que han visto tus servicios</h3>
-                        <p>15</p>
-                    </div>
-                   
-                </div>
-                <div class="botones">
-                 <button class="button editBtn"><a href="/usuario/profile/editar ">Editar</a></button>
-                 <button class="button editBtn"><a href="/usuario/profile/editar/password">Cambiar contraseña</a></button> 
-                 <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
-                </div>
-            </div>
-        </div>
-    </main>
+            <main>
+                <div class="misServicios">
 
-    <!-- Footer -->
-    <%- include('../partials/footer.ejs') %> 
+                    <%- include('../partials/navbarPerfil.ejs') %>
+                        <div class="contenedorDerechoPerfil">
+                            <h1> Mi información personal</h1>
+                            <div class="contenedorFotoPerfil">
+                                <% if (usuario.fotoPerfil){%>
+                                    <img src='/images/fotos-perfil/<%=usuario.fotoPerfil%>' alt="">
+                                    <% } %>
+                            </div>
+                            <div class="datosDeCuenta">
+                                <h2>Datos Usuario</h2>
+                                <div class="nombrePersonalizado">
+                                    <h3>Usuario</h3>
+                                    <p>
+                                        <%=usuario.nombrePersonalizado%>
+                                    </p>
+                                </div>
+                                <div class="contenedorCorreo">
+                                    <h3>Correo</h3>
+                                    <p>
+                                        <%=usuario.correo%>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="datosPersonales">
+                                <h2>Datos Personales</h2>
+                                <div class="contenedorNombre">
+                                    <h3>Nombre</h3>
+                                    <p>
+                                        <%=usuario.nombre%>
+                                    </p>
+                                </div>
+                                <div class="tipoDocumento">
+                                    <h3>Tipo de Documento</h3>
+                                    <p>
+                                        <%=usuario.tipoDocumento%>
+                                    </p>
+                                </div>
+                                <div class="numeroDocumento">
+                                    <h3>Documento</h3>
+                                    <p>
+                                        <%=usuario.numeroDocumento%>
+                                    </p>
+                                </div>
+                                <div class="numeroCelular">
+                                    <h3>Celular</h3>
+                                    <p>
+                                        <%=usuario.celular%>
+                                    </p>
+                                </div>
+                                <div class="ciudadDeResidencia">
+                                    <h3>Ciudad de residencia</h3>
+                                    <p>
+                                        <%=usuario.ciudad%>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="experiencia">
+                                <h2>Habilidades y experiencia</h2>
+                                <div class="experiencias">
+                                    <h3>Experiencia</h3>
+                                    <p><%=usuario.experiencias[0].experiencia ? usuario.experiencias[0].experiencia : ''%></p>
+                                </div>
+
+                                <div class="habilidades">
+                                    <h3>Habilidades</h3>
+                                    <p><%=usuario.habilidades[0].habilidad ? usuario.habilidades[0].habilidad : ''%></p>
+                                </div>
+
+                            </div>
+                            <div class="botones">
+                                <button class="button editBtn"><a href="/usuario/profile/editar ">Editar</a></button>
+                                <button class="button editBtn"><a href="/usuario/profile/editar/password">Cambiar
+                                        contraseña</a></button>
+                                <button class="button eliminarBtn"><a href="/">Eliminar</a></button>
+                            </div>
+                        </div>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <%- include('../partials/footer.ejs') %>
 </body>
+
 </html>

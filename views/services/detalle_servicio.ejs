@@ -15,6 +15,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap"
             rel="stylesheet">
+        <script src="/js/mostrarImagenDetalleServicio.js"></script>
 
         <title>jobbook-Servicio</title>
     </head>
@@ -54,7 +55,7 @@
 
                             <%}else{%>
                                 <div class="contenedorImagenesMiniatura">
-                                    <img class="imagenMiniatura" src="/images/imagenes-servicios/imagen-default.jpg>"
+                                    <img class="imagenMiniatura" src="/images/imagenes-servicios/imagen-default.jpg"
                                         alt="miniatura-default">
 
                                 </div>
@@ -88,9 +89,11 @@
                                         </p>
                                         <p class="verCalificaciones"><a href="#calificaciones">Ver calificaciones</a>
                                         </p>
+                                        <% if (promedioCalificacion){ %> 
                                         <img class="estrellasCalificacion"
                                             src="/images/estrellas/<%=promedioCalificacion%>-estrella.png"
                                             alt="estrellas" />
+                                            <% } else { %><p>No tiene calificaciones</p> <% } %> 
                                         <form method="get" action="/servicio/<%=servicio.id%>/contacto">
                                             <div class="botonContactar"><button>Contactar al experto</button></a></div>
                                         </form>
@@ -166,8 +169,9 @@
 
                 <div class="calificaciones" id="calificaciones">
                     <h3 class="numeroCalificaciones">Calificaciones: <%= servicio.calificaciones.length %> </h3>
+                    <% if (promedioCalificacion){ %> 
                     <img class="estrellaCalificacion" src="/images/estrellas/<%=Math.round(servicio.calificaciones.reduce((accu, calificacion) =>accu + calificacion.calificacion, 0)/servicio.calificaciones.length)%>-estrella.png"/>
-                    
+                    <% } else { %> <p>No tiene calificaciones</p> <% } %>  
                     <div class="contenedorCalificaciones">
                         <% servicio.calificaciones.forEach(calificacion =>{ %> 
                         <div class="visitanteEstrellas">
