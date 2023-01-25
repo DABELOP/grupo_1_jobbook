@@ -38,6 +38,17 @@ const serviciosAPIController = {
             servicio
         };
         res.json(respuesta)
+    },
+    categorias: async (req, res) => {
+        let categorias = await db.Categoria.findAll();
+        let respuesta = {
+            meta: {
+                status: 200,
+                url: `api/servicios/categorias`,
+            },
+            categorias
+        };
+        res.json(respuesta)
     }
 }
 

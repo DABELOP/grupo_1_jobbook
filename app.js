@@ -10,9 +10,15 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const usuarioLogueadoMiddleware = require('./middlewares/usuarioLogueadoMiddleware');
 const cookie = require('cookie-parser');
+const cors = require('cors');
 
+const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+ }
 
-
+app.use(cors(corsOptions));
 app.use(methodOverride('_method'));
 
 app.use(session({
