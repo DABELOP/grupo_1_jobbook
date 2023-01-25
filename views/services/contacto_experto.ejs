@@ -37,7 +37,9 @@
                 <p class="ciudadUbicacion"><%=usuario.ciudad%></p>
                 <strong><p class="precio">$<%=toThousand(servicio.precio)%></p></strong>
                 <p class="tarifaPorHora"><%=servicio.tarifa%></p>
+                <% if (promedioCalificacion > 0){ %> 
                 <img class="estrellasCalificacion" src="/images/estrellas/<%=promedioCalificacion%>-estrella.png" alt="<%=promedioCalificacion%> estrellas"/>
+                <% } %> 
             </div>
 
             <div class="datosContacto">

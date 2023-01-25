@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer')
 
    module.exports =verificarMail = async (correo, nombreCompleto, codigo) => {
-    console.log('ENTRO')
+
     const config ={
         host: 'smtp.gmail.com',
         port: 587,
@@ -14,11 +14,11 @@ const nodemailer = require('nodemailer')
     const mensaje={
         from: 'Equipo Jobbook',
         to: correo,
-        subject: 'Correo de prueba',
-        text: `${nombreCompleto} verifica tu cuenta de correo electronico`,
-        html:`<p>Bienvenido a la familia Jobbook</p>
-        <p>Verfica tu cuenta con el siguiente codigo:</p>
-        <p>${codigo}<p/>`
+        subject: 'Verifica tu cuenta Jobbook',
+        text: `verifica tu cuenta de correo electronico`,
+        html:`<p style="text-align: center; color:#364f6b; font-size:28px"><strong>Bievenido a la familia Jobbook</strong></p>
+        <p style="text-align: center; color:#364f6b; font-size:18px"><strong>${nombreCompleto} verifica tu cuenta de correo con el siguiente codigo:</strong></p>
+        <p style="text-align: center; color:#5b81ac; font-size:40px"><strong>${codigo}</strong></p>`
 
     }
 

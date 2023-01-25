@@ -121,7 +121,7 @@ const serviciosController = {
 
     guardar: async (req, res) => {
         let imagenes;
-
+        console.log('ENTRO')
         if (req.files[0] != undefined) {
             imagenes = req.files.map(file => file.filename);
         } else {
