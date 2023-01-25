@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/stylesheet_login.css">
+    <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
+    <title>Jobbok-verificacion</title>
+</head>
+<body>
+
+
+    <!-- Header -->
+    <%- include('../partials/header.ejs') %> 
+
+    <!-- Navbar categorias -->
+    <%- include('../partials/navbarCategorias.ejs') %> 
+
+    <form class="formularioLogin" action="/usuario/verificacion" method="POST" >
+        <h2>Verifica tu cuenta de Email</h2>
+        <label class="contenedorInput">
+            <p class="tituloInput">Enviamos un codigo de 6 digitos a tu correo electronico, introducelo aqui:</p>
+            <input type="text" name="codigo" placeholder="123456" class="input">
+            <p class="advertencia"><i class="fa-regular fa-circle-xmark"></i> Este campo es obligatorio</p>
+        </label>
+       
+        <% if (locals.mensajesError && mensajesError.confirmarCodigo) { %>
+            <p class="mensajeError"><%= mensajesError.confirmarCodigo.msg %></p>
+            <% } %>
+         
+        <button class="boton">Validar</button>
+        
+    </form>
+
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %> 
+</body>
+</html>

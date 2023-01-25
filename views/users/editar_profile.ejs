@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
+    <script type='module' src="/js/controlHabilidadesExperiencia.js"></script>
     <title>Jobbok-Perfil</title>
 </head>
 
@@ -136,25 +137,60 @@
                                         </span>
                                     </div>
                                 </div>
-                                    <div class="experiencia">
-                                        <h2>Habilidades y experiencia</h2>
-                                        <div class="experiencias">
-                                            <h3>Experiencia</h3>
-                                            <input value="<%=usuario.experiencias[0].experiencia ? usuario.experiencias[0].experiencia : ''%>" 
-                                             type="text" name="experiencia" placeholder="Experiencia de usuario" class="experienciaInput">
-                                        </div>
+                                <div class="experiencia">
+                                    <h2>Habilidades y experiencia</h2>
 
-                                        <div class="habilidades">
-                                            <h3>Habilidades</h3>
-                                            <input value="<%=usuario.habilidades[0].habilidad ? usuario.habilidades[0].habilidad : ''%>"
-                                            type="text" name="habilidad" placeholder="Habilidades de usuario" class="habilidadInput">
+                                    <div class="experiencias">
+                                        <h3>Experiencia</h3>
+                                        <div class="inputsExperiencia">
+                                            <% if (usuario.experiencias){ %> 
+                                            <% for (let i=0 ; i < usuario.experiencias.length ; i++){ %>
+                                                <div class="experienciasPrevias">
+                                                    <input value="<%=usuario.experiencias[i].experiencia%>" type="text"
+                                                        name="experiencia" placeholder="Experiencia de usuario"
+                                                        class="experienciaInput">
+                                                    <p class="eliminarExperienciaBtn"
+                                                        id="<%=usuario.experiencias[i].id%>">Eliminar</p>
+                                                </div>
+                                                <% }} %>
+                                                    <div class="agregarExperiencia">
+                                                        <input type="text" name="experienciaNueva"
+                                                            placeholder="Escriba una nueva experiencia"
+                                                            class="experienciaInput experienciaNueva">
+                                                        <p class="agregarExperienciaBtn">Agregar</p>
+                                                    </div>
+                                                   
                                         </div>
-
                                     </div>
 
-                                
+                                    <div class="habilidades">
+                                        <h3>Habilidades</h3>
+                                        <div class="inputsHabilidades">
+                                            <% if (usuario.habilidades){ %> 
+                                            <% for (let i=0 ; i < usuario.habilidades.length ; i++){ %>
+                                                <div class="habilidadesPrevias">
+                                                    <input value="<%=usuario.habilidades[i].habilidad%>" type="text"
+                                                        name="habilidad" placeholder="Habilidades de usuario"
+                                                        class="habilidadInput">
+                                                    <p class="eliminarHabilidadBtn" id="<%=usuario.habilidades[i].id%>">
+                                                        Eliminar</p>
+                                                </div>
+                                                <% }} %>
+                                                    <div class="agregarHabilidad">
+                                                        <input type="text" name="habilidadNueva"
+                                                            placeholder="Escriba una nueva habilidad"
+                                                            class="habilidadInput habilidadNueva">
+                                                        <p class="agregarHabilidadBtn">Agregar</p>
+                                                    </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
                                 <div class="botones">
-                                    <button class="button editBtn" type="submit">Editar usuario</button>
+                                    <button class="button editBtn" type="submit">Guardar edicion</button>
 
                                 </div>
                             </div>

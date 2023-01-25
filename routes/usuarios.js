@@ -13,10 +13,11 @@ router.get('/login',guestMiddleware, usuariosController.login);
 router.get('/logout', usuariosController.logout);
 router.post('/login', usuariosController.loginProcess);
 router.get('/register', guestMiddleware, usuariosController.register);
-router.post('/register', validationsRegister, usuariosController.crear);
+router.post('/register', validationsRegister, usuariosController.crear);  //ESTE ES EL PENDIENTE 
 router.get('/:id/contacto/:idServicio', authMiddleware, usuariosController.contacto);
 router.get('/profile', authMiddleware, usuariosController.profile);
 router.get('/profile/servicios', usuariosController.misServicios);
+router.post('/verificacion',guestMiddleware, usuariosController.verificacion);
 
 //Modificar un perfil
 router.get('/profile/editar',authMiddleware, usuariosController.editar);

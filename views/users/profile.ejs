@@ -58,7 +58,7 @@
                                 <div class="contenedorNombre">
                                     <h3>Nombre</h3>
                                     <p>
-                                        <%=usuario.nombre%>
+                                        <%=usuario.nombreCompleto%>
                                     </p>
                                 </div>
                                 <div class="tipoDocumento">
@@ -91,12 +91,20 @@
                                 <h2>Habilidades y experiencia</h2>
                                 <div class="experiencias">
                                     <h3>Experiencia</h3>
-                                    <p><%=usuario.experiencias[0].experiencia ? usuario.experiencias[0].experiencia : ''%></p>
+                                    <ul>
+                                        <% for(let i = 0 ; i < usuario.experiencias.length ; i++){ %> 
+                                        <li><%=usuario.experiencias[i].experiencia%></li>
+                                        <% } %> 
+                                    </ul>
                                 </div>
 
                                 <div class="habilidades">
                                     <h3>Habilidades</h3>
-                                    <p><%=usuario.habilidades[0].habilidad ? usuario.habilidades[0].habilidad : ''%></p>
+                                    <ul>
+                                        <% for(let i = 0 ; i < usuario.habilidades.length ; i++){ %> 
+                                        <li><%=usuario.habilidades[i].habilidad%></li>
+                                        <% } %> 
+                                    </ul>
                                 </div>
 
                             </div>

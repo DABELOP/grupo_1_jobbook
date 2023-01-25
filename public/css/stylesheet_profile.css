@@ -160,12 +160,48 @@ a .cambiar{
     margin:15px;
 }
 
-.experiencia input{
-    height: 100px;
+.inputsExperiencia{
+    display:flex;
+    flex-direction: column;
+}
+
+.inputsHabilidades{
+    display:flex;
+    flex-direction: column;
+}
+
+.experienciaInput{
+    margin-bottom: 15px;
+}
+
+.inputsExperiencia div{
+    margin-top: -12px;
+}
+
+.inputsHabilidades div{
+    margin-top: -12px;
+}
+
+.experiencias p:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+.habilidades p:hover{
+    color: blue;
+    cursor:pointer;
+}
+
+.experiencia .experiencias{
+    margin-bottom: 20px;
+}
+
+.experiencia li{
+    margin-bottom: 5px;
 }
 
 .habilidadInput{
-    height: 100px;
+    margin-bottom: 15px;
 }
 
 .botones{

@@ -2,7 +2,8 @@ const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require('../database/models');
-//const { emitWarning } = require('process');
+const verificarMail = require('../middlewares/verificacionEmail')
+
 
 const usuariosController = {
     login: (req, res) => {
@@ -42,8 +43,8 @@ const usuariosController = {
     contacto: (req, res) => {
         res.render('users/contacto_experto');
     },
-    profile: async(req, res) => {
-        let usuario = await Promise.resolve(db.Usuario.findByPk(req.session.usuarioLogueado.id, 
+    profile: async (req, res) => {
+        let usuario = await Promise.resolve(db.Usuario.findByPk(req.session.usuarioLogueado.id,
             { include: ['experiencias', 'habilidades'] }));
         res.render('users/profile', { usuario, toThousand });
     },
@@ -58,7 +59,7 @@ const usuariosController = {
     },
     guardarEdicion: async (req, res) => {
         let errores = validationResult(req);
-        let usuarioEditado = await Promise.resolve(db.Usuario.findByPk(req.session.usuarioLogueado.id, 
+        let usuarioEditado = await Promise.resolve(db.Usuario.findByPk(req.session.usuarioLogueado.id,
             { include: ['experiencias', 'habilidades'] }));
 
         if (!errores.isEmpty()) {
@@ -68,38 +69,70 @@ const usuariosController = {
             })
         }
 
-        if (await Promise.resolve(db.Experiencia.findAll({ where: { 
-            idUsuario: req.session.usuarioLogueado.id } })) != '') {
-                
-            db.Experiencia.update({
+       
+        //EDICION EXPERIENCIA
+        db.Experiencia.destroy({ where: { idUsuario: req.session.usuarioLogueado.id } })
 
-                experiencia: req.body.experiencia
-            },
-                {
-                    where: { idUsuario: req.session.usuarioLogueado.id }
+        if (Array.isArray(req.body.experiencia)) {
+            for (let i = 0; i < req.body.experiencia.length; i++) {
+                db.Experiencia.create({
+                    idUsuario: req.session.usuarioLogueado.id,
+                    experiencia: req.body.experiencia[i]
                 })
-        } else {
+            }
+        } else if(req.body.experiencia != ""){
             db.Experiencia.create({
                 idUsuario: req.session.usuarioLogueado.id,
                 experiencia: req.body.experiencia
             })
         }
 
-        if (await Promise.resolve(db.Habilidad.findAll({ where: { 
-            idUsuario: req.session.usuarioLogueado.id } }))!= '') {
-            db.Habilidad.update({
-                habilidad: req.body.habilidad
-            },
-                {
-                    where: { idUsuario: req.session.usuarioLogueado.id }
+        if (Array.isArray(req.body.experienciaNueva)) {
+            for (let i = 0; i < req.body.experienciaNueva.length; i++) {
+                db.Experiencia.create({
+                    idUsuario: req.session.usuarioLogueado.id,
+                    experiencia: req.body.experienciaNueva[i]
                 })
-        } else {
+            }
+        } else if(req.body.experienciaNueva != ""){
+            db.Experiencia.create({
+                idUsuario: req.session.usuarioLogueado.id,
+                experiencia: req.body.experienciaNueva
+            })
+        }
+
+        //EDICION HABILIDADES
+
+        db.Habilidad.destroy({ where: { idUsuario: req.session.usuarioLogueado.id } })
+
+        if (Array.isArray(req.body.habilidad)) {
+            for (let i = 0; i < req.body.habilidad.length; i++) {
+                db.Habilidad.create({
+                    idUsuario: req.session.usuarioLogueado.id,
+                    habilidad: req.body.habilidad[i]
+                })
+            }
+        } else if(req.body.habilidad != ""){
             db.Habilidad.create({
                 idUsuario: req.session.usuarioLogueado.id,
                 habilidad: req.body.habilidad
             })
         }
-        
+
+        if (Array.isArray(req.body.habilidadNueva)) {
+            for (let i = 0; i < req.body.habilidadNueva.length; i++) {
+                db.Habilidad.create({
+                    idUsuario: req.session.usuarioLogueado.id,
+                    habilidad: req.body.habilidadNueva[i]
+                })
+            }
+        } else if(req.body.habilidadNueva != ""){
+            db.Habilidad.create({
+                idUsuario: req.session.usuarioLogueado.id,
+                habilidad: req.body.habilidadNueva
+            })
+        }
+
         db.Usuario.update({
             nombrePersonalizado: req.body.nombrePersonalizado,
             nombreCompleto: req.body.nombre,
@@ -117,18 +150,32 @@ const usuariosController = {
                 res.redirect('/usuario/profile');
             })
     },
+    
 
     editar: async (req, res) => {
-        let usuario = await Promise.resolve(db.Usuario.findByPk(req.session.usuarioLogueado.id, 
+        let usuario = await Promise.resolve(db.Usuario.findByPk(req.session.usuarioLogueado.id,
             { include: ['experiencias', 'habilidades'] }));
-           
+
         res.render('users/editar_profile', { usuario, toThousand });
 
     },
 
+    verificacion: async (req, res) => {
+
+        if (req.body.codigo != req.session.claveRegistro) {
+            return res.render('users/verificacionCorreo', { mensajesError: { confirmarCodigo: { msg: "El codigo es invalido" } } })
+        }
+
+        db.Usuario.create(req.session.usuarioRegistro) 
+        .then(resultado =>{
+            req.session.destroy();
+            res.redirect('/usuario/login')
+        })
+    },
+
     crear: async (req, res) => {
+
         let errores = validationResult(req);
-        let nombreImagen
 
         if (!errores.isEmpty()) {
             return res.render('users/register', {
@@ -144,16 +191,21 @@ const usuariosController = {
         if (await db.Usuario.findOne({ where: { correo: req.body.correo } })) {
             return res.render('users/register', { mensajesError: { correo: { msg: "El correo ya se encuentra registrado" } }, oldData: req.body })
         }
-
-        db.Usuario.create({
+        req.session.usuarioRegistro={
             fotoPerfil: 'imagen-default.jpg',
             nombreCompleto: req.body.nombre,
             correo: req.body.correo,
             nombrePersonalizado: req.body.nombrePersonalizado,
             password: bcryptjs.hashSync(req.body.password, 10)
-        })
+        }
 
-        res.redirect('/usuario/login')
+         min = Math.ceil(100000);
+         max = Math.floor(999999);
+        req.session.claveRegistro = Math.floor(Math.random() * (max - min) + min);
+
+        verificarMail(req.body.correo, req.body.nombre, req.session.claveRegistro)
+        
+        res.render('users/verificacionCorreo');
     },
 
     logout: (req, res) => {
