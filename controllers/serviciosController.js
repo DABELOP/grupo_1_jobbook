@@ -4,6 +4,7 @@ const path = require('path');
 const rutaUsuarios = path.join(__dirname, '../data/usuarios.json');
 const usuarios = JSON.parse(fs.readFileSync(rutaUsuarios, 'utf-8'));
 const db = require('../database/models');
+const Visitacontactoservicio = require('../database/models/Visitacontactoservicio');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -12,7 +13,10 @@ const serviciosController = {
 
     detalleServicio: async (req, res) => {
         let servicio = await Promise.resolve(db.Servicio.findByPk(req.params.id,
-            { include: ['usuario', 'imagenes', 'categoria', 'calificaciones'] }))
+            { include: ['usuario', 'imagenes', 'categoria', 'calificaciones','visitacontactoservicios'] }))
+
+        let sugeridos = await Promise.resolve(db.Servicio.findAll({ where: { 
+            idCategoria: servicio.idCategoria }, order:[['impresiones','DESC']],limit: 4, include: ['imagenes'] }))
 
         let usuario = await Promise.resolve(db.Usuario.findByPk(servicio.idUsuario,
             { include: ['calificaciones', 'experiencias', 'habilidades'] }))
@@ -26,11 +30,13 @@ const serviciosController = {
             return pregunta
         })
 
+        console.log(sugeridos[0].imagenes[0].url)
+
         let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) =>
             accu + calificacion.calificacion, 0) / usuario.calificaciones.length))
 
 
-        res.render('services/detalle_servicio', { servicio, usuario, promedioCalificacion, preguntas, preguntasSR, toThousand });
+        res.render('services/detalle_servicio', { servicio, usuario, promedioCalificacion, preguntas, preguntasSR, sugeridos, toThousand });
     },
 
     contacto: async (req, res) => {
@@ -100,7 +106,7 @@ const serviciosController = {
             where: { '$categoria.categoria$': { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } }  //PONER EL INCLUDE 
         })
             .then(serviciosBuscados => {
-                console.log(serviciosBuscados[0].categoria)
+    
                 res.render('services/busqueda_servicios', { serviciosBuscados, usuarios, toThousand });
             })
 
@@ -121,7 +127,6 @@ const serviciosController = {
 
     guardar: async (req, res) => {
         let imagenes;
-        console.log('ENTRO')
         if (req.files[0] != undefined) {
             imagenes = req.files.map(file => file.filename);
         } else {
@@ -150,7 +155,7 @@ const serviciosController = {
                     })
                 });
 
-        res.redirect('/')
+        res.redirect('/usuario/profile/servicios')
     },
 
     guardarEdicion: async (req, res) => {

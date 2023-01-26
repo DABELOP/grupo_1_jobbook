@@ -190,14 +190,15 @@
                     <h2>También te puede interesar</h2>
                     <div class="contenedorSugeridos">
 
-                        <div class="Sugerido"><a href="#">
-                                <img class="imagenSugerido" src="images/popular-services-financial.jpg" alt="mniatura">
-                                <h3>Asesoria financiera declaración de renta</h3>
-                                <p>$28.000 Tarifa por hora</p>
-                                <img class="estrellasSugerido" src="images/estrellas/4-estrella.png"
-                                    alt="4 estrellas" />
-                            </a></div>
-
+                        <% sugeridos.forEach(sugerido => { %> 
+                            <div class="Sugerido"><a href="#">
+                                <img class="imagenSugerido" src="/images/imagenes-servicios/<%=servicio.imagenes[0].url%>" alt="mniatura">
+                                <h3><%=sugerido.titulo.substr(1,50)%> </h3>
+                                <p>$<%= toThousand(sugerido.precio) %></p>
+                                <img class="estrellasSugerido" src="/images/estrellas/4-estrella.png"
+                                    alt="estrellas" />  
+                                </a></div>
+                            <% }) %> 
                     </div>
                 </div>
             </main>

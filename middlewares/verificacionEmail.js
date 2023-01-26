@@ -26,5 +26,6 @@ const nodemailer = require('nodemailer')
     const info = await transport.sendMail(mensaje);
 
     console.log(info)
+    console.log(codigo)
 
     }
