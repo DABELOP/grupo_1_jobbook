@@ -1,12 +1,13 @@
  
 window.onload = () => {
-    
+    console.log('ENTRO A VALIDAR')
     let formulario = document.querySelector('form.formularioLogin');
     let imagenes = document.querySelector('.imagen');
     const extensionesPermitidas = /(.jpg|.jpeg|.png|.gif)$/i;
 
     formulario.titulo.focus();
     formulario.onsubmit = (event) => {
+        
         let errores = [];
         if (formulario.titulo.value == '') {
             errores.push('El campo título es obligatorio.')
@@ -27,7 +28,7 @@ window.onload = () => {
         if (imagenes.length > 4) {
             errores.push('Solo se permiten hasta 4 imagenes por servicio')
         };
-
+    
         for (let i = 0; i < imagenes.length; i++) {
             if (imagenes[i].value == '') {
 
@@ -36,8 +37,7 @@ window.onload = () => {
                 break
             }
         };
-
-        console.log(errores);
+        
         if (errores.length > 0) {
             event.preventDefault();
 

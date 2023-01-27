@@ -76,7 +76,6 @@
            
              
             <!--TARJETA DE SERVICIO-->
-            
             <a href="/servicio/<%= servicio.dataValues.id %>"><div class="contenedorDetalleServicio">
                 <div class="contenedorFotoPerfil">
                     <img src="/images/fotos-perfil/<%=servicio.usuario.fotoPerfil%>" alt="fotoPerfil">
@@ -89,8 +88,10 @@
                             <p class="nombreProfesional"><%= servicio.usuario.nombreCompleto %></p>
                             <p class="ciudadUbicacion"><%= servicio.usuario.ciudad %></p>
                         </div>
-                        <div class="contenedorCalificacion">  
+                        <div class="contenedorCalificacion"> 
+                            <% if (servicio.promedioCalificaciones > 0){ %>  
                             <img src="/images/estrellas/<%= servicio.promedioCalificaciones %>-estrella.png" alt="estrella">
+                            <% } %> 
                             <p class="trabajosRealizados"><%= servicio.numeroCalificaciones %> trabajos realizados</p> 
                             <div clas="contenedorPrecioTarifa">
                                 <strong><p class="precio">$ <%= toThousand(servicio.dataValues.precio) %></p></strong>
