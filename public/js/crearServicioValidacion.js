@@ -41,7 +41,7 @@ window.onload = () => {
         if (errores.length > 0) {
             event.preventDefault();
 
-            let listaErrores = document.querySelector('div.errores ul')
+            let listaErrores = document.querySelector('.errores ul')
             errores.forEach(error => listaErrores.innerHTML += '<li>' + error + '</li>')
         }
 

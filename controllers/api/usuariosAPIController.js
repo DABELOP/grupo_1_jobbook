@@ -13,7 +13,7 @@ const usuariosAPIController = {
         let respuesta = {
             meta: {
                 status: 200,
-                url: 'api/servicios',
+                url: 'api/usuarios',
             },
             count: usuarios.length,
             usuarios

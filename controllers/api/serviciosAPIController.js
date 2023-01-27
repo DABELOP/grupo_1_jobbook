@@ -46,7 +46,44 @@ const serviciosAPIController = {
                 status: 200,
                 url: `api/servicios/categorias`,
             },
+            count: categorias.length,
             categorias
+        };
+        res.json(respuesta)
+    },
+    imagenes: async (req, res) => {
+        let imagenes = await db.Imagen.findAll();
+        let respuesta = {
+            meta: {
+                status: 200,
+                url: `api/servicios/imagenes`,
+            },
+            count: imagenes.length,
+            imagenes
+        };
+        res.json(respuesta)
+    },
+    preguntas: async (req, res) => {
+        let preguntas = await db.Pregunta.findAll();
+        let respuesta = {
+            meta: {
+                status: 200,
+                url: `api/servicios/preguntas`,
+            },
+            count: preguntas.length,
+            preguntas
+        };
+        res.json(respuesta)
+    },
+    respuestas: async (req, res) => {
+        let respuestas = await db.Respuesta.findAll();
+        let respuesta = {
+            meta: {
+                status: 200,
+                url: `api/servicios/respuestas`,
+            },
+            count: respuestas.length,
+            respuestas
         };
         res.json(respuesta)
     }

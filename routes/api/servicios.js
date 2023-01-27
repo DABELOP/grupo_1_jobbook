@@ -4,6 +4,9 @@ const serviciosAPIController = require('../../controllers/api/serviciosAPIContro
 
 router.get('/', serviciosAPIController.lista);
 router.get('/categorias', serviciosAPIController.categorias);
+router.get('/imagenes', serviciosAPIController.imagenes);
+router.get('/preguntas', serviciosAPIController.preguntas);
+router.get('/respuestas', serviciosAPIController.respuestas);
 router.get('/:id', serviciosAPIController.detalle);
 
 
