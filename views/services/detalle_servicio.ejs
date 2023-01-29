@@ -6,8 +6,10 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" href="/images/favicon2.png" type="image/png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/2f477f726e.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="/images/favicon2.png" type="image/png">
         <link href="/css/stylesheet.css" rel="stylesheet">
         <link href="/css/stylesheet_detalle_servicio.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/stylesheet_home.css">
@@ -191,8 +193,12 @@
                     <div class="contenedorSugeridos">
 
                         <% sugeridos.forEach(sugerido => { %> 
-                            <div class="Sugerido"><a href="#">
-                                <img class="imagenSugerido" src="/images/imagenes-servicios/<%=servicio.imagenes[0].url%>" alt="mniatura">
+                            <div class="Sugerido"><a href="http://localhost:3050/servicio/<%=sugerido.id%> ">
+                                <%let imagen  
+                                if(sugerido.imagenes[0] == undefined){ 
+                                     imagen = 'imagen-default.jpg'           
+                                }else{imagen = sugerido.imagenes[0].url}%> 
+                                <img class="imagenSugerido" src="/images/imagenes-servicios/<%=imagen%>" alt="mniatura">
                                 <h3><%=sugerido.titulo.substr(1,50)%> </h3>
                                 <p>$<%= toThousand(sugerido.precio) %></p>
                                 <img class="estrellasSugerido" src="/images/estrellas/4-estrella.png"

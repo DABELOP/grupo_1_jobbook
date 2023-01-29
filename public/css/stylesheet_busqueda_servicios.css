@@ -40,11 +40,46 @@ padding:0;
 margin-bottom: 6px;    
 }
 
+.listaUbicaciones li:hover{
+    color:blue;
+}
+
+.listaUbicaciones li{
+   cursor:pointer;
+}
+
 .listaCategorias li a, .listaUbicaciones li a{
 text-decoration: none;
 color:var(--gris-oscuro);
 }
 
+.listaCategorias li a:hover{
+    color:blue;
+}
+
+.filtroPrecioBtn{
+    border:0px;
+    background-color: var(--gris-claro);
+    margin-left: 40px;
+}
+
+.filtroPrecioCBtn{
+    border:0px;
+    margin-left: 10px;
+    background-color: var(--gris-claro);
+    font-size: 18px;
+    color:var(--azul-oscuro)
+}
+
+.filtroPrecioBtn i:hover{
+    color:var(--azul-claro);
+    cursor:pointer;
+}
+
+.filtroPrecioCBtn i:hover{
+    color:var(--azul-claro);
+    cursor:pointer;
+}
 
 .filtroPrecio input{
     width: 70px;
@@ -146,16 +181,18 @@ main{
     height: 20px;
     width: 100%;
     margin-right: 30px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .filtrarDesplegable{
-    text-align: right;
-    padding-right:30px;
+
+    padding-right:10px;
     font-size: 14px;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
-.filtroDesplegable form{
+.filtroDesplegable select{
     display: flex;
     justify-content: flex-end;
    margin-right: 30px;
@@ -164,19 +201,11 @@ main{
 .filtroDesplegable select{
     width: 160px;
     font-size: 12px;
-    display: none;
     color:var(--azul-oscuro);
     position:relative;
     right:20px;
 }
 
-.filtroDesplegable:hover  select{
-    display:block;
-}
-
-.filtroDesplegable:hover  .filtrarDesplegable{
-    display:none;
-}
 
 .contenedorDetalleServicio:hover{
     box-shadow: 10px 10px 10px lightgray;

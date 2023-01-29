@@ -24,9 +24,10 @@ const usuariosController = {
                         if (req.body.recordarme) {
                             res.cookie('emailUsuario', req.body.correo, { maxAge: 1000 * 60 * 60 })
                         }
-
+                
                         if (req.session.ultimoServicio) {
-                            return res.redirect('/servicio/' + req.session.ultimoServicio)
+                            let idServicio = req.session.ultimoServicio
+                            return res.redirect('/servicio/' + idServicio)
                         }
                         return res.redirect('/')
                     }
@@ -49,14 +50,36 @@ const usuariosController = {
         res.render('users/profile', { usuario, toThousand });
     },
     misServicios: async (req, res) => {
-        let serviciosUsuario = await Promise.resolve(
-            db.Servicio.findAll({ where: { idUsuario: req.session.usuarioLogueado.id } })
+        let serviciosUsuario = await Promise.resolve(  
+            db.Servicio.findAll({ where: { idUsuario: req.session.usuarioLogueado.id }, include: ['visitacontactoservicios']})
         );
         let usuario = await Promise.resolve(
             db.Usuario.findOne({ where: { id: req.session.usuarioLogueado.id } })
         );
         res.render('users/mis_servicios', { usuario, serviciosUsuario, toThousand });
     },
+    misServiciosContactados: async (req, res) => {
+        
+        let serviciosContactados = await Promise.resolve(
+            db.Visitacontactoservicio.findAll({ where: { idUsuario: req.session.usuarioLogueado.id }, 
+                include: ['usuario','servicio'], group: ['idServicio']})
+        );
+        
+        
+
+        res.render('users/mis_servicios_contactados', { serviciosContactados, toThousand });
+    },
+
+    calificar: async (req, res) => {
+        db.Calificacion.create({
+            idUsuario: req.session.usuarioLogueado.id, 
+            idServicio: req.params.id,
+            calificacion: req.body.calificacion,
+            comentario:req.body.comentario       
+        })
+        res.redirect('/usuario/profile/serviciosContactados')
+    },
+
     guardarEdicion: async (req, res) => {
         let errores = validationResult(req);
         let usuarioEditado = await Promise.resolve(db.Usuario.findByPk(req.session.usuarioLogueado.id,
@@ -236,7 +259,6 @@ const usuariosController = {
                 )
 
         } else {
-            console.log('Entro aca')
             //return res.redirect('/usuario/profile/editar/password')
             return res.render('users/cambiar_password', { errores: { password: { msj: "Las contraseñas no coinciden" } } })
         }

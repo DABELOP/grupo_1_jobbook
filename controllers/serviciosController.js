@@ -12,6 +12,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const serviciosController = {
 
     detalleServicio: async (req, res) => {
+       
         let servicio = await Promise.resolve(db.Servicio.findByPk(req.params.id,
             { include: ['usuario', 'imagenes', 'categoria', 'calificaciones','visitacontactoservicios'] }))
 
@@ -30,21 +31,13 @@ const serviciosController = {
             return pregunta
         })
 
-        console.log(sugeridos[0].imagenes[0].url)
-
         let promedioCalificacion = Math.round((usuario.calificaciones.reduce((accu, calificacion) =>
             accu + calificacion.calificacion, 0) / usuario.calificaciones.length))
-
 
         res.render('services/detalle_servicio', { servicio, usuario, promedioCalificacion, preguntas, preguntasSR, sugeridos, toThousand });
     },
 
     contacto: async (req, res) => {
-
-        if (!req.session.usuarioLogueado) {
-            req.session.ultimoServicio = req.params.id
-            res.redirect('/usuario/login')
-        }
 
         let servicio = await Promise.resolve(db.Servicio.findByPk(req.params.id));
         let usuario = await Promise.resolve(db.Usuario.findByPk(servicio.idUsuario, { include: ['calificaciones'] }));
@@ -53,24 +46,58 @@ const serviciosController = {
             accu + calificacion.calificacion, 0) / usuario.calificaciones.length))
 
         db.Visitacontactoservicio.create({
-            idServicio: servicio.id,
-            idUsuario: usuario.id
+            idServicio: req.params.id,
+            idUsuario: req.session.usuarioLogueado.id
         })
+
             .then(visita => console.log(visita))
             .catch(e => console.log(e));
-
+       
         res.render('services/contacto_experto', { usuario, servicio, promedioCalificacion, toThousand });
     },
 
     busqueda: async (req, res) => {
+        //FILTROS DE BUSQUEDA 
+        let defectoCiudad = {  [db.Sequelize.Op.or]: [
+            {[db.Sequelize.Op.like]: ['%a%']},{[db.Sequelize.Op.like]: ['%e%']},
+            {[db.Sequelize.Op.like]: ['%i%']},{[db.Sequelize.Op.like]: ['%o%']},
+            {[db.Sequelize.Op.like]: ['%u%']}
+          ]}
+        
+        let numeros = []  
+        let defectoNumero =  {[db.Sequelize.Op.or]: numeros}
+          for (let i = 0 ; i<10 ; i++){
+            numeros.push({[db.Sequelize.Op.like]: ['%'+i+'%']})
+          }
+        let minVal = req.query.min ? req.query.min: '';
+        let maxVal = req.query.max ? req.query.max: '';  
+        
+        let min = req.query.min ? {[db.Sequelize.Op.gt]: [req.query.min]} : defectoNumero
+        let max = req.query.max ? {[db.Sequelize.Op.lt]: [req.query.max]} : defectoNumero
+        let ciudad = req.query.ciudad ? req.query.ciudad : defectoCiudad
+        let orden = 'ASC'
+        if (req.query.orden){
+            if (req.query.orden == 'menor') orden ='ASC'
+            if (req.query.orden == 'mayor') orden = 'DESC'
+        } 
 
-        let serviciosBuscados = await Promise.resolve(db.Servicio.findAll({
+         let serviciosBuscados = await Promise.resolve(db.Servicio.findAll({
             include: ['usuario'],
-            where: { titulo: { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } }
-        }))
+            where: {   
+              titulo: { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' },
+             '$usuario.ciudad$':ciudad,
+              precio:{[db.Sequelize.Op.and]: [min,max]}
+            },
+            order: [['precio', orden]],
+        })) 
 
+       let ciudades = []
+       serviciosBuscados.forEach(servicio => {
+        if (ciudades.indexOf(servicio.usuario.ciudad)<0) ciudades.push(servicio.usuario.ciudad)
+        })
+        
         //Todos los usuarios de los servicios buscados 
-        let usuariosServicios = serviciosBuscados.map(servicio => ['idUsuario', servicio.idUsuario]);
+       let usuariosServicios = serviciosBuscados.map(servicio => ['idUsuario', servicio.idUsuario]);
 
         //Almacena los id de usuarios para la consulta en calificaciones
         let idUsuarios = []
@@ -96,20 +123,84 @@ const serviciosController = {
             return servicio
         })
 
-        res.render('services/busqueda_servicios', { serviciosBuscados: servicios, toThousand })
+        res.render('services/busqueda_servicios', { serviciosBuscados: servicios, ciudades, minVal, maxVal,toThousand })
     },
 
-    filtrarPorCategoria: (req, res) => {
+    filtrarPorCategoria: async(req, res) => {
+        let defectoCiudad = {  [db.Sequelize.Op.or]: [
+            {[db.Sequelize.Op.like]: ['%a%']},{[db.Sequelize.Op.like]: ['%e%']},
+            {[db.Sequelize.Op.like]: ['%i%']},{[db.Sequelize.Op.like]: ['%o%']},
+            {[db.Sequelize.Op.like]: ['%u%']}
+          ]}
+        
+        let numeros = []  
+        let defectoNumero =  {[db.Sequelize.Op.or]: numeros}
+          for (let i = 0 ; i<10 ; i++){
+            numeros.push({[db.Sequelize.Op.like]: ['%'+i+'%']})
+          }
+        let minVal = req.query.min ? req.query.min: '';
+        let maxVal = req.query.max ? req.query.max: '';  
+        
+        let min = req.query.min ? {[db.Sequelize.Op.gt]: [req.query.min]} : defectoNumero
+        let max = req.query.max ? {[db.Sequelize.Op.lt]: [req.query.max]} : defectoNumero
+        let ciudad = req.query.ciudad ? req.query.ciudad : defectoCiudad
+        let orden = 'ASC'
+        if (req.query.orden){
+            if (req.query.orden == 'menor') orden ='ASC'
+            if (req.query.orden == 'mayor') orden = 'DESC'
+        } 
 
-        db.Servicio.findAll({
+         let serviciosBuscados = await Promise.resolve(db.Servicio.findAll({
+            include: ['usuario','categoria'],
+            where: {   
+            '$categoria.categoria$': { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' },
+             '$usuario.ciudad$':ciudad,
+              precio:{[db.Sequelize.Op.and]: [min,max]}
+            },
+            order: [['precio', orden]],
+        })) 
+
+       let ciudades = []
+       serviciosBuscados.forEach(servicio => {
+        if (ciudades.indexOf(servicio.usuario.ciudad)<0) ciudades.push(servicio.usuario.ciudad)
+        })
+        
+        //Todos los usuarios de los servicios buscados 
+       let usuariosServicios = serviciosBuscados.map(servicio => ['idUsuario', servicio.idUsuario]);
+
+        //Almacena los id de usuarios para la consulta en calificaciones
+        let idUsuarios = []
+        for (let i = 0; i < usuariosServicios.length; i++) {
+            idUsuarios.push(Object.fromEntries([usuariosServicios[i]]))
+        }
+
+        //Busca todas las calificaciones relacionadas a los usuarios de los servicios buscados
+        let calificaciones = await Promise.resolve(db.Calificacion.findAll(
+            { where: { [db.Sequelize.Op.or]: idUsuarios } }))
+
+        //Agrega el numero de calificaciones y el promedio a cada servicio del array 
+        let servicios = serviciosBuscados.map(servicio => {
+            let calificacionesUsuario = calificaciones.filter(calificacion => calificacion.idUsuario == servicio.idUsuario)
+            let sumatoriaCalificaciones = calificacionesUsuario.reduce((accu, calificacion) => accu + calificacion.calificacion, 0)
+
+            servicio = {
+                ...servicio,
+                numeroCalificaciones: calificacionesUsuario.length,
+                promedioCalificaciones: Math.round(sumatoriaCalificaciones / calificacionesUsuario.length)
+            }
+
+            return servicio
+        })
+
+        res.render('services/busqueda_servicios', { serviciosBuscados: servicios, ciudades, minVal, maxVal,toThousand })
+        /* db.Servicio.findAll({
             include: ['usuario', 'categoria'],
             where: { '$categoria.categoria$': { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' } }  //PONER EL INCLUDE 
         })
             .then(serviciosBuscados => {
     
                 res.render('services/busqueda_servicios', { serviciosBuscados, usuarios, toThousand });
-            })
-
+            }) */
     },
 
     crear: (req, res) => {

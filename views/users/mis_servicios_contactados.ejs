@@ -33,61 +33,53 @@
             <!--Lista de contenido perfil-->
 
         <div class="listaServicios">  
-            <% if (serviciosUsuario.length >0){ %>      
-            <% serviciosUsuario.forEach(servicio => {  %>
+            <% if (serviciosContactados.length >0){ %>      
+            <% serviciosContactados.forEach(servicio => {  %>
             
 
             <!--TARJETA DE SERVICIO-->
-            <a href="/servicio/<%= servicio.id %>"><div class="contenedorDetalleServicio">
+            <!-- <a href="/servicio/<%#= servicio.servicio.id %>"> --><div class="contenedorDetalleServicio">
             
             <div class="contenedorDerechoBusqueda">
                 <div class="contenedorTituloCalificacion">
                     <div class="contenedorTitulo"> 
-                        <h2><%= servicio.titulo %></h2>
-                        <p class="nombreProfesional"><%= usuario.nombre %></p>
-                        <p class="ciudadUbicacion"><%= usuario.ciudad %></p>
+                        <h2><%= servicio.servicio.titulo %></h2>
+                        <p class="nombreProfesional"><%#= servicio.usuario.nombreCompleto%></p>
+                        <p class="ciudadUbicacion"><%= servicio.usuario.ciudad %></p>
                     </div>
                     <div class="contenedorCalificacion">  
                     
                         <div clas="contenedorPrecioTarifa">
-                            <strong><p class="precio">$<%= toThousand(servicio.precio) %></p></strong>
-                            <p class="ciudadUbicacion"><%= servicio.tarifa %></p>
-                            <p><%=servicio.visitacontactoservicios.length%>  Vistas de contacto</p>
+                            <strong><p class="precio">$<%= toThousand(servicio.servicio.precio) %></p></strong>
+                            <p class="ciudadUbicacion"><%= servicio.servicio.tarifa %></p>
                         </div>
                     </div>
                 </div>
                 <div class="contenedorDescripcion">  
-                    <p><%= servicio.titulo %><%= servicio.descripcion.substr(1,150) %> ...</p>
+                    <p><%= servicio.servicio.titulo %><%= servicio.servicio.descripcion.substr(1,150) %> ...</p>
                     
                 </div>
                 <div class="botonesEdicion">
-                    <form action="/servicio/editar/<%= servicio.id %>" method="GET">
-                        <button class="button editBtn">Editar</button>
-                    </form>
-                    <form action="/servicio/eliminar/<%= servicio.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
-                        <button class="button deletBtn" id="<%= servicio.id %>" >Eliminar</button>
+                   <form action="/usuario/profile/serviciosContactados/calificar/<%=servicio.servicio.id%>" method="POST">
+                        <input class="calificarInput" type="text" name='comentario'value="" placeholder="Califica el servicio..."></input>
+                        <input max="5" min="1"type="number" name="calificacion" style="text-align:center" placeholder="Numero estrellas" class="Nestrellas">  
+                        <button type="submit" class="button deletBtn" id="" >Calificar</button>
                     </form> 
+                    <a href="http://localhost:3050/servicio/<%=servicio.servicio.id%> ">
+                    <button class="button deletBtn" id="" >Ver servicio</button></a>
                 </div>
             </div>
-            </a>
+            <!-- </a> -->
         </div>
         <% }) %>
         <% }else{ %>
-            <h4 class="mensajeServicios">En este momento no cuentas con servicios publicados. <br>Para publicar un servicio haz click <a href="/servicio/crear">AQUI</a></h4> 
+            <h4 class="mensajeServicios">En este momento no cuentas con servicios visitados. </h4> 
             <% } %> 
      <!--TARJETA DE SERVICIO HASTA ACA-->
     </div>
     
 </main>
 
-<script>
-function pregunta(id){      
-let resultado = window.confirm('Estas seguro de eliminar este servicio ?' + id);
-if (resultado == true) {
-
-}
-}
-</script>
 
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %> 

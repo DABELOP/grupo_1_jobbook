@@ -17,6 +17,8 @@ router.post('/register', validationsRegister, usuariosController.crear);  //ESTE
 router.get('/:id/contacto/:idServicio', authMiddleware, usuariosController.contacto);
 router.get('/profile', authMiddleware, usuariosController.profile);
 router.get('/profile/servicios', usuariosController.misServicios);
+router.get('/profile/serviciosContactados', usuariosController.misServiciosContactados);
+router.post('/profile/serviciosContactados/calificar/:id', usuariosController.calificar);
 router.post('/verificacion',guestMiddleware, usuariosController.verificacion);
 
 //Modificar un perfil

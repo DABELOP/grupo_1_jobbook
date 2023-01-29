@@ -1,192 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/stylesheet_home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="/images/favicon2.png" type="image/png">
     <script src="https://kit.fontawesome.com/10efa87d39.js" crossorigin="anonymous"></script>
     <title>Jobbok-home</title>
 </head>
+
 <body>
     <!-- Header -->
-    <%- include('../partials/header.ejs') %> 
-    
-    <!-- Navbar categorias -->
-    <%- include('../partials/navbarCategorias.ejs') %> 
-    <main>
-        <section>
-            <div class="top-container-image">
-                <img src="/images/home-main.jpg" alt="professional">
-                <div class="contenedorBuscar">
-                    <h2>Encuentra el profesional perfecto para tu negocio</h2>
-                    <form action="/servicio/busqueda/" method="GET" class="main-search">
-                        <input type="search" name="keywords" placeholder="servicios abogados">
-                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                    <nav class="categories-popular">
-                        <p>popular:</p>
-                        <ul>
-                            <li>contador</li>
-                            <li>ingeniero</li>
-                            <li>psicologo</li>
-                            <li>mecanico</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </section>
-        <section>
-            <h2 class="tituloSeccion">Servicios profesionales populares</h2>
-            <div class="container-popular-services">
-                <article class="popular-service">
-                    <img src="/images/popular-services-financial.jpg" alt="img-cafetera-moulinex.jpg">                
-                    <div class="descripcion">
-                        <p class="price">Asesoria financiera</p>
-                        <h3 >Declaración de renta</h3>
+    <%- include('../partials/header.ejs') %>
+
+        <!-- Navbar categorias -->
+        <%- include('../partials/navbarCategorias.ejs') %>
+            <main>
+                <section>
+                    <div class="top-container-image">
+                        <img src="/images/home-main.jpg" alt="professional">
+                        <div class="contenedorBuscar">
+                            <h2>Encuentra el profesional perfecto para tu negocio</h2>
+                            <form action="/servicio/busqueda/" method="GET" class="main-search">
+                                <input type="search" name="keywords" placeholder="servicios abogados">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                            <nav class="categories-popular">
+                                <p>popular:</p>
+                                <ul>
+                                    <li>contador</li>
+                                    <li>ingeniero</li>
+                                    <li>psicologo</li>
+                                    <li>mecanico</li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
-                </article>
-                <article class="popular-service">
-                    <img src="/images/popular-services-psychology.jpg" alt="img-cafetera-moulinex.jpg">                
-                    <div class="descripcion">
-                        <p class="price">Terapia emocional</p>
-                        <h3 >Consulta un psicologo</h3>
+                </section>
+                <section>
+                    <h2 class="tituloSeccion">Servicios profesionales populares</h2>
+                    <div class="container-popular-services">
+
+                        <article class="popular-service">
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Asesoria+financiera">
+                                <img src="/images/popular-services-financial.jpg" alt="img"></a>
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Asesoria+financiera">
+                                <div class="descripcion">
+                                    <p class="price">Asesoria financiera</p>
+                                    <h3>Declaración de renta</h3>
+                                </div>
+                            </a>
+                        </article>
+                        <article class="popular-service">
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Terapia+emocional">
+                                <img src="/images/popular-services-psychology.jpg" alt="img-cafetera-moulinex.jpg"></a>
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Terapia+emocional">
+                                <div class="descripcion">
+                                    <p class="price">Terapia emocional</p>
+                                    <h3>Consulta un psicologo</h3>
+                                </div>
+                            </a>
+                        </article>
+                        <article class="popular-service">
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Diseña+tu+casa">
+                                <img src="/images/popularServicesBuild.jpg" alt="img"></a>
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Diseña+tu+casa">
+                                <div class="descripcion">
+                                    <p class="price">Diseña tu casa</p>
+                                    <h3>Arquitectura tradicional</h3>
+                                </div>
+                            </a>
+                        </article>
+                        <article class="popular-service">
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Diseño+de+procesos">
+                                <img src="/images/popularServicesProcess.jpg" alt="img"></a>
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Diseño+de+procesos">
+                                <div class="descripcion">
+                                    <p class="price">Diseño de procesos</p>
+                                    <h3>Ingeniería conceptual</h3>
+                                </div>
+                            </a>
+                        </article>
                     </div>
-                </article>
-                <article class="popular-service">
-                    <img src="/images/popularServicesBuild.jpg" alt="img-cafetera-moulinex.jpg">                
-                    <div class="descripcion">
-                        <p class="price">Diseña tu casa</p>
-                        <h3 >Arquitectura tradicional</h3>
+                </section>
+                <section>
+                    <h2 class="tituloSeccion">Necesitas encargar un trabajo</h2>
+                    <div class="contenedorEncargarTrabajo">
+                        <article class="encargarTrabajo">
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Constitución+de+empresas">
+                                <div class="descripcionTrabajo">
+                                    <img src="/images/encargarTrabajoConstitucion.png" alt="img">
+                                    <h3 class="price">Constitución de empresas</h3>
+                                </div>
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                    consequuntur magni dolores eos qui ratione voluptatem.</p>
+                            </a>
+                        </article>
+                        <article class="encargarTrabajo">
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Remodelación+de+espacios">
+                                <div class="descripcionTrabajo">
+                                    <img src="/images/encargarTrabajoRemodelacion.png" alt="img">
+                                    <h3 class="price">Remodelación de espacios</h3>
+                                </div>
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                    consequuntur magni dolores eos qui ratione voluptatem.</p>
+                            </a>
+                        </article>
+                        <article class="encargarTrabajo">
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Auditorias">
+                                <div class="descripcionTrabajo">
+                                    <img src="/images/encargarTrabajoAuditoria.png" alt="img">
+                                    <h3 class="price">Auditorias</h3>
+                                </div>
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                    consequuntur magni dolores eos qui ratione voluptatem.</p>
+                            </a>
+                        </article>
+                        <article class="encargarTrabajo">
+                            <a href="http://localhost:3050/servicio/busqueda/?keywords=Instalación">
+                                <div class="descripcionTrabajo">
+                                    <img src="/images/encargarTrabajoInstalar.png" alt="img-cafetera-moulinex.jpg">
+                                    <h3 class="price">Instalación</h3>
+                                </div>
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                    consequuntur magni dolores eos qui ratione voluptatem.</p>
+                            </a>
+                        </article>
                     </div>
-                </article>
-                <article class="popular-service">
-                    <img src="/images/popularServicesProcess.jpg" alt="img-cafetera-moulinex.jpg">                
-                    <div class="descripcion">
-                        <p class="price">Diseño de procesos</p>
-                        <h3 >Ingeniería conceptual</h3>
+                </section>
+                <section>
+                    <h2 class="tituloSeccion">Necesitas encontrar un trabajo</h2>
+                    <div class="contenedorEncargarTrabajo">
+                        <article class="encargarTrabajo">
+                            <a href="http://localhost:3050/servicio/crear">
+                            <div class="descripcionTrabajo">
+                                <img src="/images/encontrarTrabajoAbogado.png" alt="img-cafetera-moulinex.jpg">
+                                <h3 class="price">Abogado laboral</h3>
+                            </div>
+                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur magni dolores eos qui ratione voluptatem.</p>
+                            </a></article>
+                        <article class="encargarTrabajo">
+                            <a href="http://localhost:3050/servicio/crear">
+                            <div class="descripcionTrabajo">
+                                <img src="/images/encontrarTrabajoDelineante.png" alt="img-cafetera-moulinex.jpg">
+                                <h3 class="price">Delineante architectura</h3>
+                            </div>
+                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur magni dolores eos qui ratione voluptatem.</p>
+                        </a></article>
+                        <article class="encargarTrabajo">
+                            <a href="http://localhost:3050/servicio/crear">
+                            <div class="descripcionTrabajo">
+                                <img src="/images/encontrarTrabajoAuditor.png" alt="img-cafetera-moulinex.jpg">
+                                <h3 class="price">Auditor ISO 9001</h3>
+                            </div>
+                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur magni dolores eos qui ratione voluptatem.</p>
+                        </a></article>
+                        <article class="encargarTrabajo">
+                            <a href="http://localhost:3050/servicio/crear">
+                            <div class="descripcionTrabajo">
+                                <img src="/images/encontrarTrabajoFormulacion.png" alt="img-cafetera-moulinex.jpg">
+                                <h3 class="price">Formulador</h3>
+                            </div>
+                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur magni dolores eos qui ratione voluptatem.</p>
+                        </a></article>
                     </div>
-                </article>
-            </div>
-        </section>
-        <section>
-            <h2 class="tituloSeccion">Necesitas encargar un trabajo</h2>
-            <div class="contenedorEncargarTrabajo">
-                <article class="encargarTrabajo">        
-                    <div class="descripcionTrabajo">
-                        <img src="/images/encargarTrabajoConstitucion.png" alt="img-cafetera-moulinex.jpg">
-                        <h3 class="price">Constitución de empresas</h3>
+                </section>
+                <section>
+                    <h2 class="tituloSeccion">Categorias</h2>
+                    <div class="contenedorCategoriasIconos">
+                        
+                        <div class="categoriaIcono">
+                            <a href="/servicio/filtrar/?keywords=Tecnología">
+                            <i class="fa-solid fa-microchip"></i></a>
+                            <h3>Tecnología</h3>
+                        </div>
+                        <div class="categoriaIcono">
+                            <a href="/servicio/filtrar/?keywords=Construcción">
+                            <i class="fa-solid fa-building"></i></a>
+                            <h3>Construcción</h3>
+                        </div>
+                        <div class="categoriaIcono">
+                            <a href="/servicio/filtrar/?keywords=Diseño">
+                            <i class="fa-solid fa-pencil"></i></a>
+                            <h3>Diseño</h3>
+                        </div>
+                        <div class="categoriaIcono">
+                            <a href="/servicio/filtrar/?keywords=Administración">
+                            <i class="fa-solid fa-file-invoice-dollar"></i></a>
+                            <h3>Administración</h3>
+                        </div>
+                        <div class="categoriaIcono">
+                            <a href="/servicio/filtrar/?keywords=Ingenieria">
+                            <i class="fa-solid fa-gears"></i></a>
+                            <h3>Ingenieria</h3>
+                        </div>
+                        <div class="categoriaIcono">
+                            <a href="/servicio/filtrar/?keywords=Manufactura">
+                            <i class="fa-solid fa-industry"></i></a>
+                            <h3>Manufactura</h3>
+                        </div>
+                        <div class="categoriaIcono">
+                            <a href="/servicio/filtrar/?keywords=Ventas">
+                            <i class="fa-brands fa-adversal"></i></a>
+                            <h3>Ventas<h3>
+                        </div>
+                        <div class="categoriaIcono">
+                            <a href="/servicio/filtrar/?keywords=Tansporte">
+                            <i class="fa-solid fa-truck"></i></a>
+                            <h3>Tansporte</h3>
+                        </div>
+                        <div class="categoriaIcono">
+                            <a href="/servicio/filtrar/?keywords=Comunicadores">
+                            <i class="fa-solid fa-tower-broadcast"></i></a>
+                            <h3>Comunicadores</h3>
+                        </div>
+                        <div class="categoriaIcono">
+                            <a href="/servicio/filtrar/?keywords=Educación">
+                            <i class="fa-solid fa-user-graduate"></i></a>
+                            <h3>Educación</h3>
+                        </div>
                     </div>
-                    <p >Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                </article>
-                <article class="encargarTrabajo">        
-                    <div class="descripcionTrabajo">
-                        <img src="/images/encargarTrabajoRemodelacion.png" alt="img-cafetera-moulinex.jpg">
-                        <h3 class="price">Remodelación de espacios</h3>
-                    </div>
-                    <p >Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                </article>
-                <article class="encargarTrabajo">        
-                    <div class="descripcionTrabajo">
-                        <img src="/images/encargarTrabajoAuditoria.png" alt="img-cafetera-moulinex.jpg">
-                        <h3 class="price">Auditorias</h3>
-                    </div>
-                    <p >Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                </article>
-                <article class="encargarTrabajo">        
-                    <div class="descripcionTrabajo">
-                        <img src="/images/encargarTrabajoInstalar.png" alt="img-cafetera-moulinex.jpg">
-                        <h3 class="price">Instalación</h3>
-                    </div>
-                    <p >Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                </article>
-            </div>
-        </section>
-        <section>
-            <h2 class="tituloSeccion">Necesitas encontrar un trabajo</h2>
-            <div class="contenedorEncargarTrabajo">
-                <article class="encargarTrabajo">        
-                    <div class="descripcionTrabajo">
-                        <img src="/images/encontrarTrabajoAbogado.png" alt="img-cafetera-moulinex.jpg">
-                        <h3 class="price">Abogado laboral</h3>
-                    </div>
-                    <p >Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                </article>
-                <article class="encargarTrabajo">        
-                    <div class="descripcionTrabajo">
-                        <img src="/images/encontrarTrabajoDelineante.png" alt="img-cafetera-moulinex.jpg">
-                        <h3 class="price">Delineante architectura</h3>
-                    </div>
-                    <p >Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                </article>
-                <article class="encargarTrabajo">        
-                    <div class="descripcionTrabajo">
-                        <img src="/images/encontrarTrabajoAuditor.png" alt="img-cafetera-moulinex.jpg">
-                        <h3 class="price">Auditor ISO 9001</h3>
-                    </div>
-                    <p >Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                </article>
-                <article class="encargarTrabajo">        
-                    <div class="descripcionTrabajo">
-                        <img src="/images/encontrarTrabajoFormulacion.png" alt="img-cafetera-moulinex.jpg">
-                        <h3 class="price">Formulador</h3>
-                    </div>
-                    <p >Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                </article>
-            </div>
-        </section>
-        <section >
-            <h2 class="tituloSeccion">Categorias</h2>
-            <div class="contenedorCategoriasIconos">
-                <div class="categoriaIcono">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                    <h3>abogados</h3>
-                </div>
-                <div class="categoriaIcono">
-                    <i class="fa-solid fa-brain"></i>
-                    <h3>psicologos</h3>
-                </div>
-                <div class="categoriaIcono">
-                    <i class="fa-solid fa-gears"></i>
-                    <h3>ingenieros</h3>
-                </div>
-                <div class="categoriaIcono">
-                    <i class="fa-solid fa-file-invoice-dollar"></i>
-                    <h3>contadores</h3>
-                </div>
-                <div class="categoriaIcono">
-                    <i class="fa-solid fa-toolbox"></i>
-                    <h3>mecanicos</h3>
-                </div>
-                <div class="categoriaIcono">
-                    <i class="fa-solid fa-house"></i>
-                    <h3>Hogar</h3>
-                </div>
-                <div class="categoriaIcono">
-                    <i class="fa-solid fa-pen-ruler"></i>
-                    <h3>Arquitectos<h3>
-                </div>
-                <div class="categoriaIcono">
-                    <i class="fa-solid fa-plug-circle-bolt"></i>
-                    <h3>Electricistas</h3>
-                </div>
-                <div class="categoriaIcono">
-                    <i class="fa-solid fa-language"></i>
-                    <h3>Linguistas</h3>
-                </div>
-                <div class="categoriaIcono">
-                    <i class="fa-solid fa-tower-broadcast"></i>
-                    <h3>Comunicador</h3>
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- Footer -->
-    <%- include('../partials/footer.ejs') %> 
+                </section>
+            </main>
+            <!-- Footer -->
+            <%- include('../partials/footer.ejs') %>
 </body>
+
 </html>

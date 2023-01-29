@@ -17,7 +17,7 @@ router.post('/', upload.any(),serviciosController.guardar);
 
 //Detalle de un servicio
 router.get('/:id', serviciosController.detalleServicio);
-router.get('/:id/contacto', authMiddleware, serviciosController.contacto);
+router.get('/:id/contacto',authMiddleware, serviciosController.contacto);
 
 //Modificar un servicio
 router.get('/editar/:idServicio', authMiddleware, serviciosController.editar);
