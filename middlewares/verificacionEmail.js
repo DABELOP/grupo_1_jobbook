@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer')
         port: 587,
         auth: {
             user: 'dtresoluciones@gmail.com',
-            pass: 'xooftlvgmdilpoum'
+            pass: 'gnxuwmxjgcjrppfx'
         }    
     }
 

@@ -82,7 +82,7 @@ const serviciosController = {
         } 
 
          let serviciosBuscados = await Promise.resolve(db.Servicio.findAll({
-            include: ['usuario'],
+            include: ['usuario','imagenes'],
             where: {   
               titulo: { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' },
              '$usuario.ciudad$':ciudad,
@@ -119,14 +119,20 @@ const serviciosController = {
                 numeroCalificaciones: calificacionesUsuario.length,
                 promedioCalificaciones: Math.round(sumatoriaCalificaciones / calificacionesUsuario.length)
             }
-
+           
             return servicio
         })
-
         res.render('services/busqueda_servicios', { serviciosBuscados: servicios, ciudades, minVal, maxVal,toThousand })
     },
 
     filtrarPorCategoria: async(req, res) => {
+
+       /*  for(i=0;i<122;i++){
+        db.Imagen.create({  
+            idServicio:i,  
+            url: 'imagen-default.jpg'
+        }).then(result=> console.log(i))} */
+
         let defectoCiudad = {  [db.Sequelize.Op.or]: [
             {[db.Sequelize.Op.like]: ['%a%']},{[db.Sequelize.Op.like]: ['%e%']},
             {[db.Sequelize.Op.like]: ['%i%']},{[db.Sequelize.Op.like]: ['%o%']},
@@ -151,7 +157,7 @@ const serviciosController = {
         } 
 
          let serviciosBuscados = await Promise.resolve(db.Servicio.findAll({
-            include: ['usuario','categoria'],
+            include: ['usuario','categoria','imagenes'],
             where: {   
             '$categoria.categoria$': { [db.Sequelize.Op.like]: '%' + req.query.keywords + '%' },
              '$usuario.ciudad$':ciudad,
@@ -191,7 +197,7 @@ const serviciosController = {
 
             return servicio
         })
-
+        //console.log(servicios[0].imagenes[0].url)
         res.render('services/busqueda_servicios', { serviciosBuscados: servicios, ciudades, minVal, maxVal,toThousand })
         /* db.Servicio.findAll({
             include: ['usuario', 'categoria'],

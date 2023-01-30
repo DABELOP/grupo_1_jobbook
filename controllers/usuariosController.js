@@ -65,8 +65,6 @@ const usuariosController = {
                 include: ['usuario','servicio'], group: ['idServicio']})
         );
         
-        
-
         res.render('users/mis_servicios_contactados', { serviciosContactados, toThousand });
     },
 
