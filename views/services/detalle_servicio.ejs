@@ -199,7 +199,7 @@
                                      imagen = 'imagen-default.jpg'           
                                 }else{imagen = sugerido.imagenes[0].url}%> 
                                 <img class="imagenSugerido" src="/images/imagenes-servicios/<%=imagen%>" alt="mniatura">
-                                <h3><%=sugerido.titulo.substr(1,50)%> </h3>
+                                <h3><%=sugerido.titulo.substr(0,50)%> </h3>
                                 <p>$<%= toThousand(sugerido.precio) %></p>
                                 <img class="estrellasSugerido" src="/images/estrellas/4-estrella.png"
                                     alt="estrellas" />  
