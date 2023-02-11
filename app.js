@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 3050;
 const path = require('path');
 const indexRouter = require('./routes/index');
 const serviciosRouter = require('./routes/servicios'); 
@@ -46,5 +47,5 @@ app.use('/api/servicios', apiServiciosRouter);
 app.use('/api/usuarios', apiUsuariosRouter);
 
 app.use(methodOverride('_method'));
-app.listen(3050,()=>console.log('Servidor corriendo en puerto 3050'));
+app.listen(PORT,()=>console.log(`Servidor corriendo en puerto ${PORT}`));
 
