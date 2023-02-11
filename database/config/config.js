@@ -1,9 +1,9 @@
 module.exports={
   "development": {
-    "username": "sql10597477",
-    "password": "TEV7DPrNI7",
-    "database": "sql10597477",
-    "host": "sql10.freesqldatabase.com",
+    "username": "root",
+    "password": "123456",
+    "database": "jobbook_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
