@@ -1,9 +1,9 @@
 module.exports={
   "development": {
-    "username": "sql10597477",
-    "password": "TEV7DPrNI7",
-    "database": "sql10597477",
-    "host": "sql10.freesqldatabase.com",
+    "username": "u0h2ktidewwvdq70",
+    "password": "ZAzohqgOAZWBYJBjZUe7",
+    "database": "bdg9g1ptjqdfr5gx9ruz",
+    "host": "bdg9g1ptjqdfr5gx9ruz-mysql.services.clever-cloud.com",
     "dialect": "mysql"
   },
   "test": {
@@ -14,10 +14,10 @@ module.exports={
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "u0h2ktidewwvdq70",
+    "password": "ZAzohqgOAZWBYJBjZUe7",
+    "database": "bdg9g1ptjqdfr5gx9ruz",
+    "host": "bdg9g1ptjqdfr5gx9ruz-mysql.services.clever-cloud.com",
     "dialect": "mysql"
   }
 }
